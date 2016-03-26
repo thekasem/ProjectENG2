@@ -53,32 +53,49 @@
 					</div>
 					<div class="panel-body box box box-warning">
 						<form class="form-horizontal">
-							<div class="well" style="padding-bottom: 0;">
-								<div class="row">
-									<div class="col-sm-7"></div>
+							<div class="row well">
+								<div class="has-feedback col-md-4">
+									<s:select id="selectprediction" headerKey="-1"
+										class="form-control"
+										list="#{'1':'function1', '2':'function2', '3':'function3'}"
+										name="function" value="1" />
+									<span class="fa fa-line-chart form-control-feedback"></span>
+								</div>
 
-									<div class="form-group col-sm-3">
-										<s:select id="selectchart" headerKey="-1" class="form-control"											
-											list="#{'1':'line chart', '2':'column chart', '3':'pie chart', '4':'scatter chart'}"
-											name="selectchart" value="1" />
-									</div>
-
-									<div class="form-group col-sm-2">
-										<s:a type="button" class="btn btn-primary" href="%{}">
-											<span class="fa fa-refresh"></span>
+								<div class="has-feedback col-sm-4">
+									<s:select id="selectchart" headerKey="-1" class="form-control"
+										list="#{'1':'line chart', '2':'column chart', '3':'scatter chart'}"
+										name="selectchart" value="1" />
+									<span class="fa fa-bar-chart form-control-feedback"></span>
+								</div>
+								<div class="col-md-1">
+									<s:a type="button" class="btn btn-success">
+										<span class="fa fa-search-plus"></span>
+													 See more
+											    </s:a>
+								</div>
+								<div class="col-md-2">
+									<s:a type="button" class="btn btn-primary"
+										href="demandCustomerAssets_predictionpie">
+										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>
-									</div>
 								</div>
 							</div>
-
+							<div style="margin: 20px"></div>
 							<!-- 										show line chart -->
 							<div class="well col-md-12" id="line">
 								<div class="col-md-6">
 									<div id="lineprediction" style="width: 750px;"></div>
+									<div style="margin: 10px;">
+										<h3>percent eror 0 %</h3>
+									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="linepredictionperson" style="width: 750px;"></div>
+									<div style="margin: 10px;">
+										<h3>percent eror 0 %</h3>
+									</div>
 								</div>
 							</div>
 
@@ -86,19 +103,15 @@
 							<div class="well col-md-12" id="column">
 								<div class="col-md-6">
 									<div id="columnprediction" style="width: 750px;"></div>
+									<div style="margin: 10px;">
+										<h3>percent eror 6 %</h3>
+									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="columnpredictionperson" style="width: 750px;"></div>
-								</div>
-							</div>
-
-							<!-- 									show pie chart -->
-							<div class="well col-md-12" id="pie">
-								<div class="col-md-6">
-									<div id="pieprediction" style="width: 750px;"></div>
-								</div>
-								<div class="col-md-6">
-									<div id="piepredictionperson" style="width: 750px;"></div>
+									<div style="margin: 10px;">
+										<h3>percent eror 6 %</h3>
+									</div>
 								</div>
 							</div>
 
@@ -106,9 +119,15 @@
 							<div class="well col-md-12" id="scatter">
 								<div class="col-md-6">
 									<div id="scatterprediction" style="width: 750px;"></div>
+									<div style="margin: 10px;">
+										<h3>percent eror 10 %</h3>
+									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="scatterpredictionperson" style="width: 750px;"></div>
+									<div style="margin: 10px;">
+										<h3>percent eror 10 %</h3>
+									</div>
 								</div>
 							</div>
 
