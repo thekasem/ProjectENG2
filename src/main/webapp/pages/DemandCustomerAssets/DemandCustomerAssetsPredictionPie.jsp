@@ -40,57 +40,79 @@
 
 			<section class="content">
 
-			<div class="col-md-12">
-				<div style="margin-top: 20px"></div>
-				<div class="container ">
-					<div class="row">
-						<div style="margin-top: 10px;" align="right">
-							<h3>
-								<span class="label label-default"><span
-									class="fa fa-line-chart"> Prediction</span></span>
-							</h3>
-						</div>
-						<div class="box box-warning">
-							<div class="box-header with-border">
-								<Strong>Demand Customer Assets Prediction</Strong>
-							</div>
-							<div class="panel-body box box box-warning">
-								<form class="form-horizontal">
-									<div class="well" style="padding-bottom: 0;">
-										<div class="row">
-											<div class="col-sm-7">
-											</div>
-											
-											<div class="form-group col-sm-2">
-												<div class="dropdown">
-													<button class="btn btn-info dropdown-toggle" type="button"
-														data-toggle="dropdown">
-														Select Chart <span class="caret"></span>
-													</button>
-													<ul class="dropdown-menu">
-														<li><a href="#">Chart1</a></li>
-														<li><a href="#">Chart2</a></li>
-														<li><a href="#">Chart3</a></li>
-													</ul>
-											
-												</div>
-											</div>
-											
-											<div class="form-group col-sm-2">
-												<s:a type="button" class="btn btn-primary" href="%{}">
-													<span class="fa fa-refresh"></span>
+			<div class="row">
+				<div style="margin-top: 10px;" align="right">
+					<h3>
+						<span class="label label-default"><span
+							class="fa fa-line-chart"> Prediction</span></span>
+					</h3>
+				</div>
+				<div class="box box-warning">
+					<div class="box-header with-border">
+						<Strong>Demand Customer Assets Prediction</Strong>
+					</div>
+					<div class="panel-body box box box-warning">
+						<form class="form-horizontal">
+							<div class="well" style="padding-bottom: 0;">
+								<div class="row">
+									<div class="col-sm-7"></div>
+
+									<div class="form-group col-sm-3">
+										<s:select id="selectchart" headerKey="-1" class="form-control"											
+											list="#{'1':'line chart', '2':'column chart', '3':'pie chart', '4':'scatter chart'}"
+											name="selectchart" value="1" />
+									</div>
+
+									<div class="form-group col-sm-2">
+										<s:a type="button" class="btn btn-primary" href="%{}">
+											<span class="fa fa-refresh"></span>
 													 Refresh
-											    </s:a>	
-											</div>
-										</div>
+											    </s:a>
 									</div>
-									
-									<div class="well">
-										<div id="dashboardbrowser" style="width: 750px;"></div>
-									</div>
-								</form>
+								</div>
 							</div>
-						</div>
+
+							<!-- 										show line chart -->
+							<div class="well col-md-12" id="line">
+								<div class="col-md-6">
+									<div id="lineprediction" style="width: 750px;"></div>
+								</div>
+								<div class="col-md-6">
+									<div id="linepredictionperson" style="width: 750px;"></div>
+								</div>
+							</div>
+
+							<!-- 									show column chart -->
+							<div class="well col-md-12" id="column">
+								<div class="col-md-6">
+									<div id="columnprediction" style="width: 750px;"></div>
+								</div>
+								<div class="col-md-6">
+									<div id="columnpredictionperson" style="width: 750px;"></div>
+								</div>
+							</div>
+
+							<!-- 									show pie chart -->
+							<div class="well col-md-12" id="pie">
+								<div class="col-md-6">
+									<div id="pieprediction" style="width: 750px;"></div>
+								</div>
+								<div class="col-md-6">
+									<div id="piepredictionperson" style="width: 750px;"></div>
+								</div>
+							</div>
+
+							<!-- 									show scatter chart -->
+							<div class="well col-md-12" id="scatter">
+								<div class="col-md-6">
+									<div id="scatterprediction" style="width: 750px;"></div>
+								</div>
+								<div class="col-md-6">
+									<div id="scatterpredictionperson" style="width: 750px;"></div>
+								</div>
+							</div>
+
+						</form>
 					</div>
 				</div>
 			</div>
@@ -104,6 +126,7 @@
 	<script src="js/highcharts.js"></script>
 	<script src="js/exporting.js"></script>
 	<script src="js/team-highcharts.js"></script>
+	<script src="GraphPrediction/predictionAll.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="plugins/fastclick/fastclick.min.js"></script>
 	<script src="dist/js/app.min.js"></script>
