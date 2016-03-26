@@ -29,68 +29,81 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Prediction <small>Version 6.0</small>
+				Demand Customer Assets Analysis <small>Version 6.0</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
 						Demand Customer Assets </a></li>
-				<li class="active" style="color: white">Prediction</li>
+				<li class="active" style="color: white">Analysis</li>
 			</ol>
 			</section>
 
 			<section class="content">
 
-			<div class="col-md-12">
-				<div style="margin-top: 20px"></div>
-				<div class="container ">
-					<div class="row">
-						<div style="margin-top: 10px;" align="right">
-							<h3>
-								<span class="label label-default"><span
-									class="fa fa-line-chart"> Prediction</span></span>
-							</h3>
-						</div>
-						<div class="box box-warning">
-							<div class="box-header with-border">
-								<Strong>Details Dashboard</Strong>
-							</div>
-							<div class="panel-body box box box-warning">
-								<form class="form-horizontal">
-									<div class="well" style="padding-bottom: 0;">
-										<div class="row">
-											<div class="col-sm-7">
-											</div>
-											
-											<div class="form-group col-sm-2">
-												<div class="dropdown">
-													<button class="btn btn-info dropdown-toggle" type="button"
-														data-toggle="dropdown">
-														Select Chart <span class="caret"></span>
-													</button>
-													<ul class="dropdown-menu">
-														<li><a href="#">Chart1</a></li>
-														<li><a href="#">Chart2</a></li>
-														<li><a href="#">Chart3</a></li>
-													</ul>
-											
-												</div>
-											</div>
-											
-											<div class="form-group col-sm-2">
-												<s:a type="button" class="btn btn-primary" href="%{}">
-													<span class="fa fa-refresh"></span>
-													 Refresh
-											    </s:a>	
-											</div>
+			<div class="row">
+				<div style="margin-top: 10px;" align="right">
+					<h3>
+						<span class="label label-default"><span
+							class="fa fa-pie-chart"> Analysis</span></span>
+					</h3>
+				</div>
+				<div class="box box-warning">
+					<div class="box-header with-border">
+						<Strong>Demand Customer Assets Analysis</Strong>
+					</div>
+					<div class="panel-body box box box-warning">
+						<form class="form-horizontal">
+							<div class="well" style="padding-bottom: 0;">
+								<div class="row">
+									<div class="col-sm-7"></div>
+
+									<div class="form-group col-sm-2">
+										<div class="dropdown">
+											<button class="btn btn-primary dropdown-toggle" type="button"
+												data-toggle="dropdown">
+												Select Data <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+												<li><a href="#">All Year</a></li>
+												<li><a href="#">Year</a></li>
+												<li><a href="#">Month</a></li>
+											</ul>
 										</div>
 									</div>
-									
-									<div class="well">
-										<div id="dashboardbrowser" style="width: 750px;"></div>
+
+									<div class="form-group col-sm-2">
+										<div class="dropdown">
+											<button class="btn btn-info dropdown-toggle" type="button"
+												data-toggle="dropdown">
+												Select Chart <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+												<li><a href="#">Chart1</a></li>
+												<li><a href="#">Chart2</a></li>
+												<li><a href="#">Chart3</a></li>
+											</ul>
+
+										</div>
 									</div>
-								</form>
+
+									<div class="form-group col-sm-1">
+										<s:a type="button" class="btn btn-primary" href="%{}">
+											<span class="fa fa-refresh"></span>
+													 Refresh
+											    </s:a>
+									</div>
+								</div>
 							</div>
-						</div>
+
+							<div class="well col-md-12">
+								<div class="col-md-6">
+									<div id="GraphAnalysisPie" style="width: 750px;"></div>
+								</div>
+								<div class="col-md-6">
+									<div id="GraphAnalysisPieCustomer" style="width: 750px;"></div>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -104,6 +117,8 @@
 	<script src="js/highcharts.js"></script>
 	<script src="js/exporting.js"></script>
 	<script src="js/team-highcharts.js"></script>
+	<script src="GraphAnalysis/GraphAnalysisPie.js"></script>
+	<script src="GraphAnalysis/GraphAnalysisPieCustomer.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="plugins/fastclick/fastclick.min.js"></script>
 	<script src="dist/js/app.min.js"></script>

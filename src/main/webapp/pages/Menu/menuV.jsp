@@ -146,9 +146,9 @@
 						class="fa fa-angle-left pull-right"></i>
 				</a>
 					<ul class="treeview-menu">
-						<li><a href="demandCustomerAssets_analysis"><i
+						<li><a href="demandCustomerAssets_analysispie"><i
 								class="fa fa-circle-o"></i> Analysis</a></li>
-						<li><a href="demandCustomerAssets_prediction"><i
+						<li><a href="demandCustomerAssets_predictionpie"><i
 								class="fa fa-circle-o"></i> Prediction</a></li>
 					</ul></li>
 <!-- 				<li class="header">LABELS</li> -->

@@ -49,7 +49,7 @@
 				</div>
 				<div class="box box-warning">
 					<div class="box-header with-border">
-						<Strong>Details Dashboard</Strong>
+						<Strong>Demand Customer Assets Analysis</Strong>
 					</div>
 					<div class="panel-body box box box-warning">
 						<form class="form-horizontal">

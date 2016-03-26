@@ -89,8 +89,10 @@
 		
 		<action name="demandCustomerAssets_*" class="com.actions.DemandCustomerAssetsAction"
 			method="{1}">
-			<result name="analysis">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysis.jsp</result>
-			<result name="prediction">/pages/DemandCustomerAssets/DemandCustomerAssetsPrediction.jsp</result>
+			<result name="analysispie">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisPie.jsp</result>
+			<result name="predictionpie">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
+			<result name="analysiscolumn">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisPie.jsp</result>
+			<result name="predictioncolumn">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
 
 			<result name="error">/success.jsp</result>
 		</action>

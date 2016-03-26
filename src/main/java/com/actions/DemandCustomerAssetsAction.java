@@ -10,22 +10,34 @@ public class DemandCustomerAssetsAction extends ActionSupport {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4046499723306978192L;
-	private static final String ANALYSIS = "analysis";
-	private static final String PREDICTION = "prediction";
+	private static final long serialVersionUID = -8443598230468274297L;
+	private static final String ANALYSISPIE = "analysispie";
+	private static final String PREDICTIONPIE = "predictionpie";
+	private static final String ANALYSISCOLUMN = "analysiscolumn";
+	private static final String PREDICTIONCOLUMN = "predictioncolumn";
 
 	public void ContactController() {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"SpringBeans.xml");
 	}
 
-	public String analysis() {
+	public String analysispie() {
 		ContactController();
-		return ANALYSIS;
+		return ANALYSISPIE;
 	}
 
-	public String prediction() {
+	public String predictionpie() {
 		ContactController();
-		return PREDICTION;
+		return PREDICTIONPIE;
+	}
+	
+	public String analysiscolumn() {
+		ContactController();
+		return ANALYSISCOLUMN;
+	}
+
+	public String predictioncolumn() {
+		ContactController();
+		return PREDICTIONCOLUMN;
 	}
 }
