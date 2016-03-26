@@ -41,11 +41,11 @@ $('#selectchart').change(function() {
 function showLinePrediction() {
     $('#lineprediction').highcharts({
         title: {
-            text: 'Monthly Average Temperature',
+            text: 'Prediction of Asset',
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: WorldClimate.com',
+            text: 'by year XXXX',
             x: -20
         },
         xAxis: {
@@ -54,7 +54,7 @@ function showLinePrediction() {
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: ' Value of Asset'
             },
             plotLines: [{
                 value: 0,
@@ -63,7 +63,7 @@ function showLinePrediction() {
             }]
         },
         tooltip: {
-            valueSuffix: '°C'
+            valueSuffix: ' unit'
         },
         legend: {
             layout: 'vertical',
@@ -72,27 +72,25 @@ function showLinePrediction() {
             borderWidth: 0
         },
         series: [{
-            name: 'Tokyo',
+            name: 'average lastyear',
+            color : Highcharts
+			.getOptions().colors[0],
             data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
         }, {
-            name: 'New York',
+            name: 'prediction nextyear',
+            color : Highcharts
+			.getOptions().colors[5],
             data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-        }, {
-            name: 'Berlin',
-            data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-        }, {
-            name: 'London',
-            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
         }]
     });
     
     $('#linepredictionperson').highcharts({
         title: {
-            text: 'Monthly Average Temperature',
+            text: 'Prediction of Person',
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: WorldClimate.com',
+            text: 'by year XXXX',
             x: -20
         },
         xAxis: {
@@ -101,7 +99,7 @@ function showLinePrediction() {
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'value of customer'
             },
             plotLines: [{
                 value: 0,
@@ -110,7 +108,7 @@ function showLinePrediction() {
             }]
         },
         tooltip: {
-            valueSuffix: '°C'
+            valueSuffix: ' unit'
         },
         legend: {
             layout: 'vertical',
@@ -118,17 +116,15 @@ function showLinePrediction() {
             verticalAlign: 'middle',
             borderWidth: 0
         },
-        series: [{
-            name: 'Tokyo',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-        }, {
-            name: 'New York',
-            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-        }, {
-            name: 'Berlin',
+        series: [ {
+            name: 'average lastyear',
+            color : Highcharts
+			.getOptions().colors[2],
             data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
         }, {
-            name: 'London',
+            name: 'prediction nextyear',
+            color : Highcharts
+			.getOptions().colors[8],
             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
         }]
     });
@@ -141,10 +137,10 @@ function showColumnPrediction() {
             type: 'column'
         },
         title: {
-            text: 'Monthly Average Rainfall'
+            text: 'Prediction of Asset'
         },
         subtitle: {
-            text: 'Source: WorldClimate.com'
+            text: 'by year XXXX'
         },
         xAxis: {
             categories: [
@@ -166,7 +162,7 @@ function showColumnPrediction() {
         yAxis: {
             min: 0,
             title: {
-                text: 'Rainfall (mm)'
+                text: 'value of asset'
             }
         },
         tooltip: {
@@ -184,20 +180,16 @@ function showColumnPrediction() {
             }
         },
         series: [{
-            name: 'Tokyo',
+            name: 'average lastyear',
+            color : Highcharts
+			.getOptions().colors[0],
             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
         }, {
-            name: 'New York',
+            name: 'prediction nextyear',
+            color : Highcharts
+			.getOptions().colors[5],
             data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-        }, {
-            name: 'London',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-        }, {
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
 
         }]
     });
@@ -207,10 +199,10 @@ function showColumnPrediction() {
             type: 'column'
         },
         title: {
-            text: 'Monthly Average Rainfall'
+            text: 'Prediction of customer'
         },
         subtitle: {
-            text: 'Source: WorldClimate.com'
+            text: 'by year XXXX'
         },
         xAxis: {
             categories: [
@@ -232,7 +224,7 @@ function showColumnPrediction() {
         yAxis: {
             min: 0,
             title: {
-                text: 'Rainfall (mm)'
+                text: ' value of person'
             }
         },
         tooltip: {
@@ -249,20 +241,12 @@ function showColumnPrediction() {
                 borderWidth: 0
             }
         },
-        series: [{
-            name: 'Tokyo',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-        }, {
-            name: 'New York',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-        }, {
-            name: 'London',
+        series: [ {
+            name: 'average lastyear',
             data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
 
         }, {
-            name: 'Berlin',
+            name: 'prediction nextyear',
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
 
         }]
@@ -277,10 +261,10 @@ function showScatterPrediction(){
 	            zoomType: 'xy'
 	        },
 	        title: {
-	            text: 'Height Versus Weight of 507 Individuals by Gender'
+	            text: 'Prediction of Asset'
 	        },
 	        subtitle: {
-	            text: 'Source: Heinz  2003'
+	            text: 'by year XXXX'
 	        },
 	        xAxis: {
 	            title: {
@@ -331,7 +315,7 @@ function showScatterPrediction(){
 	            }
 	        },
 	        series: [{
-	            name: 'Female',
+	            name: 'prediction lastyear',
 	            color: 'rgba(223, 83, 83, .5)',
 	            data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
 	                [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2],
@@ -345,7 +329,7 @@ function showScatterPrediction(){
 	                [167.6, 58.3], [165.1, 56.2]]
 
 	        }, {
-	            name: 'Male',
+	            name: 'prediction nextyear',
 	            color: 'rgba(119, 152, 191, .5)',
 	            data: [[174.0, 65.6], [175.3, 71.8], [193.5, 80.7], [186.5, 72.6], [187.2, 78.8],
 	                [181.5, 74.8], [184.0, 86.4], [184.5, 78.4], [175.0, 62.0], [184.0, 81.6],
@@ -379,25 +363,6 @@ function showScatterPrediction(){
 	                [176.5, 80.2], [177.8, 72.0], [180.3, 71.4], [171.4, 72.7], [172.7, 84.1],
 	                [172.7, 76.8], [177.8, 63.6], [177.8, 80.9], [182.9, 80.9], [170.2, 85.5],
 	                [167.6, 68.6], [175.3, 67.7], [165.1, 66.4]]
-	        },{
-	            name: 'tong',
-	            color: 'rgba(223, 83, 83, .5)',
-	            data: [[156.2, 58.6], [175.2, 66.8], [172.1, 56.6], [162.6, 58.6],
-		                [160.0, 55.9], [165.1, 59.1], [182.9, 81.8], [166.4, 70.7], [165.1, 56.8],
-		                [177.8, 60.0], [165.1, 58.2], [175.3, 72.7], [154.9, 54.1], [158.8, 49.1],
-		                [172.7, 75.9], [168.9, 55.0], [161.3, 57.3], [167.6, 55.0], [165.1, 65.5],
-		                [175.3, 65.5], [157.5, 48.6], [163.8, 58.6], [167.6, 63.6], [165.1, 55.2],
-		                [165.1, 62.7], [168.9, 56.6], [162.6, 53.9], [164.5, 63.2], [176.5, 73.6],
-		                [168.9, 62.0], [175.3, 63.6], [159.4, 53.2], [160.0, 53.4], [170.2, 55.0],
-		                [162.6, 70.5], [167.6, 54.5], [162.6, 54.5], [160.7, 55.9], [160.0, 59.0],
-		                [157.5, 63.6], [162.6, 54.5], [152.4, 47.3], [170.2, 67.7], [165.1, 80.9],
-		                [172.7, 70.5], [165.1, 60.9], [170.2, 63.6], [170.2, 54.5], [170.2, 59.1],
-		                [161.3, 70.5], [167.6, 52.7], [167.6, 62.7], [165.1, 86.3], [162.6, 66.4],
-		                [152.4, 67.3], [168.9, 63.0], [170.2, 73.6], [175.2, 62.3], [175.2, 57.7],
-		                [160.0, 55.4], [165.1, 104.1], [174.0, 55.5], [170.2, 77.3], [160.0, 80.5],
-		                [167.6, 64.5], [167.6, 72.3], [167.6, 61.4], [154.9, 58.2], [162.6, 81.8],
-		                [175.3, 63.6], [171.4, 53.4]]
-
 	        }]
 	    });
 	    
@@ -407,10 +372,10 @@ function showScatterPrediction(){
 	            zoomType: 'xy'
 	        },
 	        title: {
-	            text: 'Height Versus Weight of 507 Individuals by Gender'
+	            text: 'Prediction of customer'
 	        },
 	        subtitle: {
-	            text: 'Source: Heinz  2003'
+	            text: 'by year XXXX'
 	        },
 	        xAxis: {
 	            title: {
@@ -461,7 +426,7 @@ function showScatterPrediction(){
 	            }
 	        },
 	        series: [{
-	            name: 'Personal',
+	            name: 'prediction lastyear',
 	            color: 'rgba(223, 83, 83, .5)',
 	            data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
 	                [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2],
@@ -517,7 +482,7 @@ function showScatterPrediction(){
 	                [176.5, 71.8], [164.4, 55.5], [160.7, 48.6], [174.0, 66.4], [163.8, 67.3]]
 
 	        }, {
-	            name: 'Coperation',
+	            name: 'prediction nextyear',
 	            color: 'rgba(119, 152, 191, .5)',
 	            data: [[174.0, 65.6], [175.3, 71.8], [193.5, 80.7], [186.5, 72.6], [187.2, 78.8],
 	                [181.5, 74.8], [184.0, 86.4], [184.5, 78.4], [175.0, 62.0], [184.0, 81.6],

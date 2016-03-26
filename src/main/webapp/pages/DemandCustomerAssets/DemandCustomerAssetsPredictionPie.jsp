@@ -51,7 +51,7 @@
 					<div class="box-header with-border">
 						<Strong>Demand Customer Assets Prediction</Strong>
 					</div>
-					<div class="panel-body box box box-warning">
+					<div class="panel-body box box-warning">
 						<form class="form-horizontal">
 							<div class="row well">
 								<div class="has-feedback col-md-4">
@@ -69,10 +69,91 @@
 									<span class="fa fa-bar-chart form-control-feedback"></span>
 								</div>
 								<div class="col-md-1">
-									<s:a type="button" class="btn btn-success">
-										<span class="fa fa-search-plus"></span>
-													 See more
-											    </s:a>
+									<button type="button" class="btn btn-info" data-toggle="modal"
+										data-target="#myModal">
+										<span class="fa fa-search-plus"></span> See more
+									</button>
+
+								</div>
+								<div class="modal" id="myModal" role="dialog">
+									<div class="modal-dialog">
+
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">select type by see more</h4>
+											</div>
+											<div class="modal-body">
+												<!-- checkbox -->
+												<div class="row">
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox"> Foreign
+																stocks
+															</label>
+														</div>
+
+														<div class="checkbox">
+															<label> <input type="checkbox"> exchange
+																rate
+															</label>
+														</div>
+
+														<div class="checkbox">
+															<label> <input type="checkbox"> Gold
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Land
+															</label>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox"> Oil
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Building
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Equipment
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Mine
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="modal-body">
+												<!-- checkbox -->
+												<div class="row">
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox"> person
+															</label>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox">
+																cuperation
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="modal-footer">
+												<button type="button" class="btn btn btn-primary">submit</button>
+											</div>
+										</div>
+
+									</div>
 								</div>
 								<div class="col-md-2">
 									<s:a type="button" class="btn btn-primary"
@@ -130,7 +211,6 @@
 									</div>
 								</div>
 							</div>
-
 						</form>
 					</div>
 				</div>
