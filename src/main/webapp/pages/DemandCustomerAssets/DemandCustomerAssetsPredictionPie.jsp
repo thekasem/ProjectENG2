@@ -169,13 +169,13 @@
 								<div class="col-md-6">
 									<div id="lineprediction" style="width: 750px;"></div>
 									<div style="margin: 10px;">
-										<h3>percent eror 0 %</h3>
+										<h3>percent error 0 %</h3>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="linepredictionperson" style="width: 750px;"></div>
 									<div style="margin: 10px;">
-										<h3>percent eror 0 %</h3>
+										<h3>percent error 0 %</h3>
 									</div>
 								</div>
 							</div>
@@ -185,13 +185,13 @@
 								<div class="col-md-6">
 									<div id="columnprediction" style="width: 750px;"></div>
 									<div style="margin: 10px;">
-										<h3>percent eror 6 %</h3>
+										<h3>percent error 6 %</h3>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="columnpredictionperson" style="width: 750px;"></div>
 									<div style="margin: 10px;">
-										<h3>percent eror 6 %</h3>
+										<h3>percent error 6 %</h3>
 									</div>
 								</div>
 							</div>
@@ -201,13 +201,13 @@
 								<div class="col-md-6">
 									<div id="scatterprediction" style="width: 750px;"></div>
 									<div style="margin: 10px;">
-										<h3>percent eror 10 %</h3>
+										<h3>percent error 10 %</h3>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="scatterpredictionperson" style="width: 750px;"></div>
 									<div style="margin: 10px;">
-										<h3>percent eror 10 %</h3>
+										<h3>percent error 10 %</h3>
 									</div>
 								</div>
 							</div>
