@@ -65,42 +65,6 @@
 					</s:a></li>
 			</ul>
 		</div>
-		<div class="container">
-			<h2>Modal Example</h2>
-			<!-- Trigger the modal with a button -->
-			<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-				data-target="#myModal">Click!</button>
-
-
-
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<%-- 							<s:a ></s:a> --%>
-							<h4 class="modal-title">Modal Header</h4>
-						</div>
-						<div class="modal-body">
-							<!-- 							<div href="dashBoard_diskUsage"> -->
-							<!-- 								<p>Some text in the modal.</p> -->
-							<!-- 							</div> -->
-							<div id="dashboardaverage" style="width: 750px;"></div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-		</div>
-
 	</div>
 	<div class="control-sidebar-bg"></div>
 	<script src="js/bootstrap.min.js"></script>

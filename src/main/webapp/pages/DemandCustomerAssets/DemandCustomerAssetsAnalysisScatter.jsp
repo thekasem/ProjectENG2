@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Demand Customer Assets Analysis Pie</title>
+<title>Demand Customer Assets Analysis Scatter</title>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,16 +19,8 @@
 <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-	<s:url action="demandCustomerAssets_analysispie" var="analysispie"></s:url>
-	<s:url action="demandCustomerAssets_analysisline" var="analysisline"></s:url>
-	<s:url action="demandCustomerAssets_analysiscolumn"
-		var="analysiscolumn"></s:url>
-	<s:url action="demandCustomerAssets_analysisscatter"
-		var="analysisscatter"></s:url>
-	<s:url action="demandCustomerAssets_monthanalysispie"
-		var="monthanalysispie"></s:url>
 
+<body class="hold-transition skin-blue sidebar-mini">
 
 	<div class="wrapper">
 		<s:include value="/pages/Menu/menuV.jsp"></s:include>
@@ -39,7 +31,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Analysis Pie<small>Version 6.0</small>
+				Demand Customer Assets Analysis Scatter <small>Version 6.0</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
@@ -54,12 +46,12 @@
 				<div style="margin-top: 10px;" align="right">
 					<h3>
 						<span class="label label-default"><span
-							class="fa fa-pie-chart"> Analysis Pie</span></span>
+							class="fa fa-pie-chart"> Analysis Scatter</span></span>
 					</h3>
 				</div>
 				<div class="box box-warning">
 					<div class="box-header with-border">
-						<Strong>Demand Customer Assets Analysis Pie</Strong>
+						<Strong>Demand Customer Assets Analysis Scatter</Strong>
 					</div>
 					<div class="panel-body box box box-warning">
 						<form class="form-horizontal">
@@ -233,19 +225,18 @@
 
 								<div class="col-md-2">
 									<s:a type="button" class="btn btn-primary"
-										href="demandCustomerAssets_analysispie">
+										href="demandCustomerAssets_analysisscatter">
 										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>
 								</div>
 							</div>
-							<div style="margin: 20px"></div>
 							<div class="well col-md-12">
 								<div class="col-md-6">
-									<div id="pieanalysis" style="width: 750px;"></div>
+									<div id="scatteranalysis" style="width: 750px;"></div>
 								</div>
 								<div class="col-md-6">
-									<div id="pieanalysisperson" style="width: 750px;"></div>
+									<div id="scatteranalysisperson" style="width: 750px;"></div>
 								</div>
 							</div>
 						</form>
@@ -263,7 +254,7 @@
 	<script src="js/exporting.js"></script>
 	<script src="js/highcharts-3d.js"></script>
 	<script src="js/team-highcharts.js"></script>
-	<script src="GraphAnalysis/pieAnalysis.js"></script>
+	<script src="GraphAnalysis/scatterAnalysis.js"></script>
 	<script src="GraphAnalysis/callFromDate.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="plugins/fastclick/fastclick.min.js"></script>

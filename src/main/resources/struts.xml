@@ -91,9 +91,11 @@
 			method="{1}">
 			<result name="analysispie">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisPie.jsp</result>
 			<result name="predictionpie">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
-			<result name="analysiscolumn">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisPie.jsp</result>
-			<result name="predictioncolumn">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
-
+			
+			<result name="analysisline">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisLine.jsp</result>
+			<result name="analysiscolumn">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisColumn.jsp</result>
+			<result name="analysisscatter">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisScatter.jsp</result>
+			
 			<result name="error">/success.jsp</result>
 		</action>
 

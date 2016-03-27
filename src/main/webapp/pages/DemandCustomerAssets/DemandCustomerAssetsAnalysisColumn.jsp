@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Demand Customer Assets Analysis</title>
+<title>Demand Customer Assets Analysis Column</title>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,17 +19,18 @@
 <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
+
 	<div class="wrapper">
 		<s:include value="/pages/Menu/menuV.jsp"></s:include>
-
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="background: #2C3B41;">
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Analysis <small>Version 6.0</small>
+				Demand Customer Assets Analysis Column<small>Version 6.0</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
@@ -44,63 +45,198 @@
 				<div style="margin-top: 10px;" align="right">
 					<h3>
 						<span class="label label-default"><span
-							class="fa fa-pie-chart"> Analysis</span></span>
+							class="fa fa-pie-chart"> Analysis Column</span></span>
 					</h3>
 				</div>
 				<div class="box box-warning">
 					<div class="box-header with-border">
-						<Strong>Demand Customer Assets Analysis</Strong>
+						<Strong>Demand Customer Assets Analysis Column</Strong>
 					</div>
 					<div class="panel-body box box box-warning">
 						<form class="form-horizontal">
-							<div class="well" style="padding-bottom: 0;">
-								<div class="row">
-									<div class="col-sm-7"></div>
+								<div class="row well">
+								<div class="col-md-1">
+									<button type="button" class="btn btn-info" data-toggle="modal"
+										data-target="#myModal">
+										<span class="fa fa-search-plus"></span> See more
+									</button>
 
-									<div class="form-group col-sm-2">
-										<div class="dropdown">
-											<button class="btn btn-primary dropdown-toggle" type="button"
-												data-toggle="dropdown">
-												Select Data <span class="caret"></span>
-											</button>
-											<ul class="dropdown-menu">
-												<li><a href="#">All Year</a></li>
-												<li><a href="#">Year</a></li>
-												<li><a href="#">Month</a></li>
-											</ul>
+								</div>
+								<div class="modal" id="myModal" role="dialog">
+									<div class="modal-dialog">
+
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">select type by see more</h4>
+											</div>
+											<div class="modal-body">
+												<!-- checkbox -->
+												<div class="row">
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox"> Foreign
+																stocks
+															</label>
+														</div>
+
+														<div class="checkbox">
+															<label> <input type="checkbox"> Exchange
+																rate
+															</label>
+														</div>
+
+														<div class="checkbox">
+															<label> <input type="checkbox"> Gold
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Land
+															</label>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox"> Oil
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Building
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Equipment
+															</label>
+														</div>
+														<div class="checkbox">
+															<label> <input type="checkbox"> Mine
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="modal-body">
+												<!-- checkbox -->
+												<div class="row">
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox"> Person
+															</label>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label> <input type="checkbox">
+																Corporation
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="modal-footer">
+												<button type="button" class="btn btn btn-primary">submit</button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								
+								<div class="col-md-2">
+									<div class="has-feedback">
+										<s:select id="selecttime" headerKey="-1" class="form-control"
+											list="#{'1':'All Year', '2':'Year', '3':'Month'}"
+											name="selecttime" value="1" />
+										<span class="fa fa-calendar form-control-feedback"></span>
+									</div>
+								</div>
+								
+								<div class="selectfromyear">
+									<label class="col-md-1 control-label">From Year :</label>
+									<div class="col-md-2">
+										<div class="has-feedback">
+											<s:select class="form-control" headerKey="-1"
+												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
+												name="selectfromyear" value="1" />
+											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
 
-									<div class="form-group col-sm-2">
-										<div class="dropdown">
-											<button class="btn btn-info dropdown-toggle" type="button"
-												data-toggle="dropdown">
-												Select Chart <span class="caret"></span>
-											</button>
-											<ul class="dropdown-menu">
-												<li><a href="#">Chart1</a></li>
-												<li><a href="#">Chart2</a></li>
-												<li><a href="#">Chart3</a></li>
-											</ul>
-
+									<label class="col-md-1 control-label">To Year :</label>
+									<div class="col-md-2">
+										<div class="has-feedback">
+											<s:select class="form-control" headerKey="-1"
+												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
+												name="selectfromyear" value="1" />
+											<span class="fa fa-calendar form-control-feedback"></span>
+										</div>
+									</div>
+								</div>
+								<div class="selectfrommonth">
+									<label class="col-md-1 control-label">From Month :</label>
+									<div class="col-md-2">
+										<div class="has-feedback">
+											<s:select class="selectfrommonth form-control" headerKey="-1"
+												list="#{'1':'January', '2':'February', '3':'March', '4':'April', '5':'May', '6':'June', '7':'July', '8':'August', '9':'September', '10':'October', '11':'November', '12':'December'}"
+												name="selectfrommonth" value="1" />
+											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
 
-									<div class="form-group col-sm-1">
-										<s:a type="button" class="btn btn-primary" href="%{}">
-											<span class="fa fa-refresh"></span>
+									<label class="col-md-1 control-label">To Month :</label>
+									<div class="col-md-2">
+										<div class="has-feedback">
+											<s:select class="selectfrommonth form-control" headerKey="-1"
+												list="#{'1':'January', '2':'February', '3':'March', '4':'April', '5':'May', '6':'June', '7':'July', '8':'August', '9':'September', '10':'October', '11':'November', '12':'December'}"
+												name="selectfrommonth" value="1" />
+											<span class="fa fa-calendar form-control-feedback"></span>
+										</div>
+									</div>
+
+									<label class="col-md-1 control-label">To Year :</label>
+									<div class="col-md-1">
+										<div class="has-feedback">
+											<s:select class="selectfrommonth form-control" headerKey="-1"
+												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
+												name="selectfrommonth" value="1" />
+											<span class="fa fa-calendar form-control-feedback"></span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-md-12" style="margin: 10px"></div>
+
+								<div class="col-sm-1">
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button"
+											data-toggle="dropdown">
+											Select Chart <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><s:a href="demandCustomerAssets_analysispie">Pie Chart</s:a></li>
+											<li><s:a href="demandCustomerAssets_analysisline">Line Chart</s:a></li>
+											<li><s:a href="demandCustomerAssets_analysiscolumn">Column Chart</s:a></li>
+											<li><s:a href="demandCustomerAssets_analysisscatter">Scatter Chart</s:a></li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="col-md-2">
+									<s:a type="button" class="btn btn-primary"
+										href="demandCustomerAssets_analysiscolumn">
+										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>
-									</div>
 								</div>
 							</div>
 
 							<div class="well col-md-12">
 								<div class="col-md-6">
-									<div id="GraphAnalysisPie" style="width: 750px;"></div>
+									<div id="columnanalysis" style="width: 750px;"></div>
 								</div>
 								<div class="col-md-6">
-									<div id="GraphAnalysisPieCustomer" style="width: 750px;"></div>
+									<div id="columnanalysisperson" style="width: 750px;"></div>
 								</div>
 							</div>
 						</form>
@@ -112,13 +248,13 @@
 		</div>
 		<s:include value="/pages/Menu/footer.jsp"></s:include>
 	</div>
-	<script
-		src="calendar/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="js/highcharts.js"></script>
 	<script src="js/exporting.js"></script>
+	<script src="js/highcharts-3d.js"></script>
 	<script src="js/team-highcharts.js"></script>
-	<script src="GraphAnalysis/GraphAnalysisPie.js"></script>
-	<script src="GraphAnalysis/GraphAnalysisPieCustomer.js"></script>
+	<script src="GraphAnalysis/columnAnalysis.js"></script>
+	<script src="GraphAnalysis/callFromDate.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="plugins/fastclick/fastclick.min.js"></script>
 	<script src="dist/js/app.min.js"></script>

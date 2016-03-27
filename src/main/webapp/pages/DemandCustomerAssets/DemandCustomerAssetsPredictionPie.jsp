@@ -95,7 +95,7 @@
 														</div>
 
 														<div class="checkbox">
-															<label> <input type="checkbox"> exchange
+															<label> <input type="checkbox"> Exchange
 																rate
 															</label>
 														</div>
@@ -134,14 +134,14 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="checkbox">
-															<label> <input type="checkbox"> person
+															<label> <input type="checkbox"> Person
 															</label>
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="checkbox">
 															<label> <input type="checkbox">
-																cuperation
+																Corporation
 															</label>
 														</div>
 													</div>
