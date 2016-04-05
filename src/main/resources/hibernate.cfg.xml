@@ -24,7 +24,14 @@
 		<property name="hibernate.c3p0.max_statements">50</property>
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
 
-		<mapping class="com.entity.User" />
+		<mapping class="com.entity.CustomerMini" />
+		<mapping class="com.entity.TypeCustomerMini" />
+		<mapping class="com.entity.EmployeeMini" />
+		<mapping class="com.entity.AssetMini" />
+		<mapping class="com.entity.TypeAssetMini" />
+		<mapping class="com.entity.BuyAssetMini" />
+		
+		
 		<mapping class="com.entity.bonanza.ActivityLogMini" />
 		<mapping class="com.entity.bonanza.ApplicationLogMini" />
 		<mapping class="com.entity.bonanza.AUMByBranchMini" />
