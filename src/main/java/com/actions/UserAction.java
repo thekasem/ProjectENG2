@@ -8,11 +8,8 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.contact.action.ContactActivityArchiveLog;
 import com.contact.action.ContactApplicationArchiveLog;
 import com.contact.action.ContactLogin;
-import com.entity.User;
-import com.entity.archive.ArchiveActivityLogMini;
 import com.entity.archive.ArchiveApplicationLogMini;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -73,7 +70,6 @@ public class UserAction extends ActionSupport {
     	ApplicationContext context = new ClassPathXmlApplicationContext(
 				"SpringBeans.xml");
     	 userController = (ContactLogin)context.getBean("userAction");
-    	 archiveController = (ContactApplicationArchiveLog)context.getBean("applicationArchive");
     	 session = ServletActionContext.getRequest().getSession();
     }
 	
@@ -85,9 +81,6 @@ public class UserAction extends ActionSupport {
 		try{
 		  userlogin = userController.checkLoginUser(username, userpass);
 			if (userlogin){
-				ArchiveApplicationLogMini archive = new ArchiveApplicationLogMini();
-				archiveController.addArchive("20150101", "=");
-				list = archiveController.getList(archive, true, false, 0, 15);
 				arlert = "";
 				userNameLogin = (String) session.getAttribute("user");
 				result = "success";
