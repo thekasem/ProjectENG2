@@ -42,19 +42,19 @@ $(function () {
         series: [{
             name: 'Category Assets',
             data: [
-                { name: 'Foreign Stocks', y: 56.33 },
+                { name: 'Foreign Stocks', y: 14.3625 },
                 {
                     name: 'Exchange Rate',
-                    y: 24.03,
+                    y: 52.3125,
                     sliced: true,
                     selected: true
                 },
-                { name: 'Gold', y: 10.38 },
-                { name: 'Land', y: 4.77 }, 
-                { name: 'Oil', y: 0.91 },
-                { name: 'Building', y: 10.38 },
-                { name: 'Equipment', y: 4.77 }, 
-                { name: 'Mine', y: 0.91 },
+                { name: 'Gold', y: 2 },
+                { name: 'Land', y: 4.7375 }, 
+                { name: 'Oil', y: 7.575 },
+                { name: 'Building', y: 5.4125 },
+                { name: 'Equipment', y: 1.1375 }, 
+                { name: 'Mine', y: 12.4625 },
             ]
         }]
     });
@@ -85,10 +85,10 @@ $(function () {
         series: [{
             name: 'Category Customers',
             data: [
-                { name: 'Personal', y: 56.33 },
+                { name: 'Personal', y: 50.9 },
                 {
                     name: 'Corporation',
-                    y: 24.03,
+                    y: 49.1,
                     sliced: true,
                     selected: true
                 }

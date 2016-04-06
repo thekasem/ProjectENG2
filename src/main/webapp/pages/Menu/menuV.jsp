@@ -11,9 +11,16 @@
 	<header class="main-header">
 
 		<!-- Logo -->
-		<a href="login_homeFirst" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+		<a href="login_homeFirst" class="logo" > <!-- mini logo for sidebar mini 50x50 pixels -->
+		
+		
+		 
+		
+		
+		
+		
 			<span class="logo-mini"><b>E</b>NG</span> <!-- logo for regular state and mobile devices -->
-			<span class="logo-lg"><b>Pro</b>ENG</span>
+			<span class="logo-lg"><img src = "pages/Menu/Ramkhamhaeng.png"  WIDTH="45" HIGHT="45" ><b>Pro</b>ENG</span>
 		</a>
 
 		<!-- Header Navbar: style can be found in header.less -->
@@ -92,55 +99,55 @@
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 			<ul class="sidebar-menu">
 				<li class="header">MAIN NAVIGATION</li>
-				<li class="active treeview"><a href="#"> <i
-						class="fa fa-dashboard"></i> <span>Dashboard</span> <i
-						class="fa fa-angle-left pull-right"></i>
-				</a>
-					<ul class="treeview-menu">
-					<li><a href="dashBoard_browser"><i class="fa fa-circle-o"></i>
-								Dashboard</a></li>
-						<!-- <li><a href="dashBoard_browser"><i class="fa fa-circle-o"></i>
-								Dashboard v1.1</a></li> -->
-						<!-- <li class="active"><a href="dashBoard_browser"><i
-								class="fa fa-circle-o"></i> Dashboard v2.1</a></li> -->
-					</ul></li>
-				<li class="treeview"><a href="#"> <i class="fa fa-archive"></i>
-						<span>AUM Archive</span> <i class="fa fa-angle-left pull-right"></i>
-				</a>
-					<ul class="treeview-menu">
-						<li><a href="aumByCIFArchive_list"><i
-								class="fa fa-circle-o"></i> AUM By CIF Archive List</a></li>
-						<li><a href="aumByBranchArchive_list"><i
-								class="fa fa-circle-o"></i> AUM By Branch Archive List</a></li>
-						<li><a href="portHoldingBySubAccountArchive_list"><i
-								class="fa fa-circle-o"></i> AUM By SubAcc Archive List</a></li>
-						<li><a href="aumByCIFArchive_add"><i
-								class="fa fa-circle-o"></i> Add Archive AUM</a></li>
-					</ul></li>
-				<li class="treeview"><a href="#"> <i class="fa fa-archive"></i>
-						<span>Application Archive</span> <i
-						class="fa fa-angle-left pull-right"></i>
-				</a>
-					<ul class="treeview-menu">
-						<li><a href="applicationArchive_list"><i
-								class="fa fa-circle-o"></i> Application Archive List</a></li>
-						<li><a href="applicationArchive_search"><i
-								class="fa fa-circle-o"></i> Application Archive Search</a></li>
-						<li><a href="applicationArchive_add"><i
-								class="fa fa-circle-o"></i> Add Application Archive</a></li>
-					</ul></li>
-				<li class="treeview"><a href="#"> <i class="fa fa-archive"></i>
-						<span>Activity Archive</span> <i
-						class="fa fa-angle-left pull-right"></i>
-				</a>
-					<ul class="treeview-menu">
-						<li><a href="activityArchive_list"><i
-								class="fa fa-circle-o"></i> Activity Archive List</a></li>
-						<li><a href="activityArchive_search"><i
-								class="fa fa-circle-o"></i> Activity Archive Search</a></li>
-						<li><a href="activityArchive_add"><i
-								class="fa fa-circle-o"></i> Add Activity Archive</a></li>
-					</ul></li>
+<!-- 				<li class="active treeview"><a href="#"> <i -->
+<%-- 						class="fa fa-dashboard"></i> <span>Dashboard</span> <i --%>
+<!-- 						class="fa fa-angle-left pull-right"></i> -->
+<!-- 				</a> -->
+<!-- 					<ul class="treeview-menu"> -->
+<!-- 					<li><a href="dashBoard_browser"><i class="fa fa-circle-o"></i> -->
+<!-- 								Dashboard</a></li> -->
+<!-- 						<li><a href="dashBoard_browser"><i class="fa fa-circle-o"></i>
+<!-- 								Dashboard v1.1</a></li> --> -->
+<!-- 						<li class="active"><a href="dashBoard_browser"><i
+<!-- 								class="fa fa-circle-o"></i> Dashboard v2.1</a></li> --> -->
+<!-- 					</ul></li> -->
+<!-- 				<li class="treeview"><a href="#"> <i class="fa fa-archive"></i> -->
+<%-- 						<span>AUM Archive</span> <i class="fa fa-angle-left pull-right"></i> --%>
+<!-- 				</a> -->
+<!-- 					<ul class="treeview-menu"> -->
+<!-- 						<li><a href="aumByCIFArchive_list"><i -->
+<!-- 								class="fa fa-circle-o"></i> AUM By CIF Archive List</a></li> -->
+<!-- 						<li><a href="aumByBranchArchive_list"><i -->
+<!-- 								class="fa fa-circle-o"></i> AUM By Branch Archive List</a></li> -->
+<!-- 						<li><a href="portHoldingBySubAccountArchive_list"><i -->
+<!-- 								class="fa fa-circle-o"></i> AUM By SubAcc Archive List</a></li> -->
+<!-- 						<li><a href="aumByCIFArchive_add"><i -->
+<!-- 								class="fa fa-circle-o"></i> Add Archive AUM</a></li> -->
+<!-- 					</ul></li> -->
+<!-- 				<li class="treeview"><a href="#"> <i class="fa fa-archive"></i> -->
+<%-- 						<span>Application Archive</span> <i --%>
+<!-- 						class="fa fa-angle-left pull-right"></i> -->
+<!-- 				</a> -->
+<!-- 					<ul class="treeview-menu"> -->
+<!-- 						<li><a href="applicationArchive_list"><i -->
+<!-- 								class="fa fa-circle-o"></i> Application Archive List</a></li> -->
+<!-- 						<li><a href="applicationArchive_search"><i -->
+<!-- 								class="fa fa-circle-o"></i> Application Archive Search</a></li> -->
+<!-- 						<li><a href="applicationArchive_add"><i -->
+<!-- 								class="fa fa-circle-o"></i> Add Application Archive</a></li> -->
+<!-- 					</ul></li> -->
+<!-- 				<li class="treeview"><a href="#"> <i class="fa fa-archive"></i> -->
+<%-- 						<span>Activity Archive</span> <i --%>
+<!-- 						class="fa fa-angle-left pull-right"></i> -->
+<!-- 				</a> -->
+<!-- 					<ul class="treeview-menu"> -->
+<!-- 						<li><a href="activityArchive_list"><i -->
+<!-- 								class="fa fa-circle-o"></i> Activity Archive List</a></li> -->
+<!-- 						<li><a href="activityArchive_search"><i -->
+<!-- 								class="fa fa-circle-o"></i> Activity Archive Search</a></li> -->
+<!-- 						<li><a href="activityArchive_add"><i -->
+<!-- 								class="fa fa-circle-o"></i> Add Activity Archive</a></li> -->
+<!-- 					</ul></li> -->
 				<li class="treeview"><a href="#"> <i class="fa fa-users"></i>
 						<span>Demand Customer Assets</span> <i
 						class="fa fa-angle-left pull-right"></i>

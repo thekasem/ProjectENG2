@@ -29,7 +29,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Prediction <small>Version 6.0</small>
+				Demand Customer Assets Prediction <small>Computer Engineering</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
