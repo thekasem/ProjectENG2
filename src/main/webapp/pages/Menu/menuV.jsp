@@ -103,9 +103,9 @@
 						class="fa fa-angle-left pull-right"></i>
 				</a>
 					<ul class="treeview-menu">
-						<li><a href="demandCustomerAssets_analysispie"><i
+						<li><a href="analysis_analysispie"><i
 								class="fa fa-circle-o"></i> Analysis all</a></li>
-						<li><a href="demandCustomerAssets_analysispie"><i
+						<li><a href="analysis_analysispie"><i
 								class="fa fa-circle-o"></i> Analysis each</a></li>
 
 						<!-- 				<li class="header">LABELS</li> -->
@@ -118,9 +118,9 @@
 						<span>Prediction</span> <i class="fa fa-angle-left pull-right"></i>
 				</a>
 					<ul class="treeview-menu">
-						<li><a href="demandCustomerAssets_predictionpie"><i
+						<li><a href="predicton_predictionpie"><i
 								class="fa fa-circle-o"></i> Prediction all</a></li>
-						<li><a href="demandCustomerAssets_predictionpie"><i
+						<li><a href="predicton_predictionpie"><i
 								class="fa fa-circle-o"></i> Prediction each</a></li>
 					</ul></li>
 			</ul>

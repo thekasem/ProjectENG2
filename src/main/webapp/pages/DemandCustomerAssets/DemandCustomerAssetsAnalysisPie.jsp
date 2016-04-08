@@ -20,13 +20,13 @@
 <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-	<s:url action="demandCustomerAssets_analysispie" var="analysispie"></s:url>
-	<s:url action="demandCustomerAssets_analysisline" var="analysisline"></s:url>
-	<s:url action="demandCustomerAssets_analysiscolumn"
+	<s:url action="analysis_analysispie" var="analysispie"></s:url>
+	<s:url action="analysis_analysisline" var="analysisline"></s:url>
+	<s:url action="analysis_analysiscolumn"
 		var="analysiscolumn"></s:url>
-	<s:url action="demandCustomerAssets_analysisscatter"
+	<s:url action="analysis_analysisscatter"
 		var="analysisscatter"></s:url>
-	<s:url action="demandCustomerAssets_monthanalysispie"
+	<s:url action="analysis_monthanalysispie"
 		var="monthanalysispie"></s:url>
 
 
@@ -223,17 +223,17 @@
 											Select Chart <span class="caret"></span>
 										</button>
 										<ul class="dropdown-menu">
-											<li><s:a href="demandCustomerAssets_analysispie">Pie Chart</s:a></li>
-											<li><s:a href="demandCustomerAssets_analysisline">Line Chart</s:a></li>
-											<li><s:a href="demandCustomerAssets_analysiscolumn">Column Chart</s:a></li>
-											<li><s:a href="demandCustomerAssets_analysisscatter">Scatter Chart</s:a></li>
+											<li><s:a href="analysis_analysispie">Pie Chart</s:a></li>
+											<li><s:a href="analysis_analysisline">Line Chart</s:a></li>
+											<li><s:a href="analysis_analysiscolumn">Column Chart</s:a></li>
+											<li><s:a href="analysis_analysisscatter">Scatter Chart</s:a></li>
 										</ul>
 									</div>
 								</div>
 
 								<div class="col-md-2">
 									<s:a type="button" class="btn btn-primary"
-										href="demandCustomerAssets_analysispie">
+										href="analysis_analysispie">
 										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>

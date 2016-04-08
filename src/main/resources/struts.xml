@@ -20,14 +20,18 @@
 		</action>
 
 		
-		<action name="demandCustomerAssets_*" class="com.actions.DemandCustomerAssetsAction"
+		<action name="analysis_*" class="com.actions.AnalysisAction"
 			method="{1}">
 			<result name="analysispie">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisPie.jsp</result>
-			<result name="predictionpie">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
-			
 			<result name="analysisline">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisLine.jsp</result>
 			<result name="analysiscolumn">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisColumn.jsp</result>
 			<result name="analysisscatter">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisScatter.jsp</result>
+			
+			<result name="error">/success.jsp</result>
+		</action>
+		<action name="predicton_*" class="com.actions.PredictionAction"
+			method="{1}">
+			<result name="predictionpie">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
 			
 			<result name="error">/success.jsp</result>
 		</action>

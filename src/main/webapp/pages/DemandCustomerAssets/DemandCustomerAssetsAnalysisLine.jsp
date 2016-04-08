@@ -215,17 +215,17 @@
 											Select Chart <span class="caret"></span>
 										</button>
 										<ul class="dropdown-menu">
-											<li><s:a href="demandCustomerAssets_analysispie">Pie Chart</s:a></li>
-											<li><s:a href="demandCustomerAssets_analysisline">Line Chart</s:a></li>
-											<li><s:a href="demandCustomerAssets_analysiscolumn">Column Chart</s:a></li>
-											<li><s:a href="demandCustomerAssets_analysisscatter">Scatter Chart</s:a></li>
+											<li><s:a href="analysis_analysispie">Pie Chart</s:a></li>
+											<li><s:a href="analysis_analysisline">Line Chart</s:a></li>
+											<li><s:a href="analysis_analysiscolumn">Column Chart</s:a></li>
+											<li><s:a href="analysis_analysisscatter">Scatter Chart</s:a></li>
 										</ul>
 									</div>
 								</div>
 
 								<div class="col-md-2">
 									<s:a type="button" class="btn btn-primary"
-										href="demandCustomerAssets_analysisline">
+										href="analysis_analysisline">
 										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>
