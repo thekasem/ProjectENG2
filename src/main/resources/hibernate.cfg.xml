@@ -32,13 +32,6 @@
 		<mapping class="com.entity.BuyAssetMini" />
 		
 		
-		<mapping class="com.entity.bonanza.ActivityLogMini" />
-		<mapping class="com.entity.bonanza.ApplicationLogMini" />
-		<mapping class="com.entity.bonanza.AUMByBranchMini" />
-		<mapping class="com.entity.bonanza.AUMByCIFMini" />
-		<mapping class="com.entity.bonanza.PortHoldingBySubAccountMini" />
-		<mapping class="com.entity.bonanza.BranchMini" />
-		<mapping class="com.entity.bonanza.BranchCustomerMini" />
 		<mapping class="com.entity.bonanza.MemberMini" />
 		<mapping class="com.entity.bonanza.RMProfileMini" />
 

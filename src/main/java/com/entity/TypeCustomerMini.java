@@ -15,4 +15,22 @@ public class TypeCustomerMini {
 	
 	@Column(name = "TYPECUSTOMERNAME")
 	private String typeCustomerName;
+
+	public int getTypeCustomerId() {
+		return typeCustomerId;
+	}
+
+	public void setTypeCustomerId(int typeCustomerId) {
+		this.typeCustomerId = typeCustomerId;
+	}
+
+	public String getTypeCustomerName() {
+		return typeCustomerName;
+	}
+
+	public void setTypeCustomerName(String typeCustomerName) {
+		this.typeCustomerName = typeCustomerName;
+	}
+	
+	
 }

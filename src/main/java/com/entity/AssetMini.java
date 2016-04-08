@@ -19,4 +19,30 @@ public class AssetMini {
 	@Column(name = "TYPEASSETID")
 	private int typeAssetId;
 
+	public int getAssetId() {
+		return assetId;
+	}
+
+	public void setAssetId(int assetId) {
+		this.assetId = assetId;
+	}
+
+	public String getAssetName() {
+		return assetName;
+	}
+
+	public void setAssetName(String assetName) {
+		this.assetName = assetName;
+	}
+
+	public int getTypeAssetId() {
+		return typeAssetId;
+	}
+
+	public void setTypeAssetId(int typeAssetId) {
+		this.typeAssetId = typeAssetId;
+	}
+	
+	
+
 }

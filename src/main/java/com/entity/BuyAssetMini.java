@@ -26,5 +26,55 @@ public class BuyAssetMini {
 	private int valueAOC;
 
 	@Column(name = "COST")
-	private long cost;
+	private double cost;
+
+	public int getAocId() {
+		return aocId;
+	}
+
+	public void setAocId(int aocId) {
+		this.aocId = aocId;
+	}
+
+	public String getAocDate() {
+		return aocDate;
+	}
+
+	public void setAocDate(String aocDate) {
+		this.aocDate = aocDate;
+	}
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	public int getAssetId() {
+		return assetId;
+	}
+
+	public void setAssetId(int assetId) {
+		this.assetId = assetId;
+	}
+
+	public int getValueAOC() {
+		return valueAOC;
+	}
+
+	public void setValueAOC(int valueAOC) {
+		this.valueAOC = valueAOC;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+	
+	
 }

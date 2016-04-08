@@ -8,40 +8,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="userAction" class="com.contact.action.ContactLogin">
 		<property name="loginController" ref="logincontroller" />
 	</bean>
-	<bean id="activityArchive" class="com.contact.action.ContactActivityArchiveLog">
-		<property name="activityArchiveLogController" ref="activityarchivelogcontroller"></property>
-	</bean>
-	<bean id="applicationArchive" class="com.contact.action.ContactApplicationArchiveLog">
-		<property name="applicationArchiveLogController" ref="applicationarchivelogcontroller" />
-	</bean>
-	<bean id="aumByBranchArchive" class="com.contact.action.ContactAUMByBranchArchive">
-		<property name="aumByBranchArchiveController" ref="aumbybrancharchivecontroller" />
-	</bean>
-	<bean id="aumByCIFArchive" class="com.contact.action.ContactAUMByCIFArchive">
-		<property name="aumByCIFArchiveController" ref="aumbycifarchivecontroller" />
-	</bean>
-	<bean id="portHoldingBySubAccountArchive"
-		class="com.contact.action.ContactPortHoldingBySubAccountArchive">
-		<property name="portHoldingBySubAccountArchiveCotroller" ref="portholdingbysubaccountarchivecontroller" />
-	</bean>
-	<bean id="activitylog" class="com.contact.action.ContactActivityLog">
-		<property name="activityLogController" ref="activitylogcontroller" />
-	</bean>
-	<bean id="applicationlog" class="com.contact.action.ContactApplicationLog">
-		<property name="applicationLogController" ref="applicationlogcontroller" />
-	</bean>
-	<bean id="aumByCIF" class="com.contact.action.ContactAUMByCIF">
-		<property name="aumByCIFController" ref="aumbycifcontroller" />
-	</bean>
-	<bean id="aumByBranch" class="com.contact.action.ContactAUMByBranch">
-		<property name="aumByBranchController" ref="aumbybranchcontroller" />
-	</bean>
-	<bean id="portHoldingBySubAccount" class="com.contact.action.ContactPortHoldingBySubAccount">
-		<property name="portHoldingBySubAccountController" ref="portholdingbysubaccountcontroller" />
-	</bean>
-	<bean id="branchcustomers" class="com.contact.action.ContactBranchCustomer">
-		<property name="branchCustomerController" ref="branchcustomercontroller"></property>
-	</bean>
 	<bean id="members" class="com.contact.action.ContactMember" >
 	 	<property name="memberController" ref="membercontroller"></property>
 	</bean>
@@ -51,67 +17,12 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="logincontroller" class="com.controller.implement.LoginController">
 		<property name="loginDao" ref="logindao" />
 	</bean>
-	<bean id="activityarchivelogcontroller" class="com.controller.implement.ActivityArchiveLogController">
-		<property name="activityArchiveLogDao" ref="activityarchivelogdao" />
-		<property name="activityLogDao" ref="activitylogdao" />
-	</bean>
-	<bean id="applicationarchivelogcontroller"
-		class="com.controller.implement.ApplicationArchiveLogController">
-		<property name="applicationArchiveLogDao" ref="applicationarchivelogdao" />
-		<property name="applicationLogDao" ref="applicationlogdao" />
-	</bean>
-	<bean id="aumbybrancharchivecontroller" class="com.controller.implement.AUMByBranchArchiveController">
-		<property name="aumByBranchArchiveDao" ref="aumbybrancharchivedao" />
-		<property name="aumByBranchDao" ref="aumbybranchdao" />
-	</bean>
-	<bean id="aumbycifarchivecontroller" class="com.controller.implement.AUMByCIFArchiveController">
-		<property name="aumByCIFArchiveDao" ref="aumbycifarchivedao" />
-		<property name="aumByCIFDao" ref="aumbycifdao" />
-	</bean>
-	<bean id="portholdingbysubaccountarchivecontroller"
-		class="com.controller.implement.PortHoldingBySubAccountArchiveController">
-		<property name="portHoldingBySubAccountArchiveDao" ref="portholdingbysubaccountarchivedao" />
-		<property name="portHoldingBySubAccountDao" ref="portholdingbysubaccountdao" />
-	</bean>
-
-	<bean id="activitylogcontroller" class="com.controller.implement.ActivityLogController">
-		<property name="activityLogDao" ref="activitylogdao" />
-		<property name="memberDao" ref="member" />
-	</bean>
-	<bean id="applicationlogcontroller" class="com.controller.implement.ApplicationLogController">
-		<property name="applicationLogDao" ref="applicationlogdao" />
-	</bean>
-	<bean id="aumbybranchcontroller" class="com.controller.implement.AUMByBranchController">
-		<property name="aumByBranchDao" ref="aumbybranchdao" />
-	</bean>
-	<bean id="aumbycifcontroller" class="com.controller.implement.AUMByCIFController">
-		<property name="aumByCIFDao" ref="aumbycifdao" />
-	</bean>
-	<bean id="portholdingbysubaccountcontroller"
-		class="com.controller.implement.PortHoldingBySubAccountController">
-		<property name="portHoldingBySubAccountDao" ref="portholdingbysubaccountdao" />
-	</bean>
-	<bean id="branchcustomercontroller" class="com.controller.implement.BranchCustomerController">
-		<property name="branchCustomerDao" ref="branchcustomer"></property>
-	</bean>
 	<bean id="membercontroller" class="com.controller.implement.MemberContoller">
 		<property name="memberDao" ref="member" />
 	</bean>
 
 	<!-- inject to Dao -->
 	<bean id="logindao" class="com.dao.implement.LoginDao" />
-	<bean id="activityarchivelogdao" class="com.dao.implement.ActivityArchiveLogDao" />
-	<bean id="applicationarchivelogdao" class="com.dao.implement.ApplicationArchiveLogDao" />
-	<bean id="aumbybrancharchivedao" class="com.dao.implement.AUMByBranchArchiveDao" />
-	<bean id="aumbycifarchivedao" class="com.dao.implement.AUMByCIFArchiveDao" />
-	<bean id="portholdingbysubaccountarchivedao" class="com.dao.implement.PortHoldingBySubAccountArchiveDao" />
-	<bean id="activitylogdao" class="com.dao.implement.ActivityLogDao" />
-	<bean id="applicationlogdao" class="com.dao.implement.ApplicationLogDao" />
-	<bean id="aumbybranchdao" class="com.dao.implement.AUMByBranchDao" />
-	<bean id="aumbycifdao" class="com.dao.implement.AUMByCIFDao" />
-	<bean id="portholdingbysubaccountdao" class="com.dao.implement.PortHoldingBySubAccountDao" />
-	<bean id="branchcustomer" class="com.dao.implement.BranchCustomerDao" />
-	<bean id="branch" class="com.dao.implement.BranchDao" />
 	<bean id="member" class="com.dao.implement.MemberDao" />
 	<bean id="rmprofile" class="com.dao.implement.RMProfileDao" />
 

@@ -19,73 +19,6 @@
 			<result name="profile">/pages/Menu/profile.jsp</result>
 		</action>
 
-		<action name="activityArchive_*" class="com.actions.ActivityArchiveAction"
-			method="{1}">
-			<result name="list">/pages/ActivityArchive/ActivityArchiveList.jsp
-			</result>
-			<result name="add">/pages/ActivityArchive/ActivityArchiveAdd.jsp
-			</result>
-			<result name="search">/pages/ActivityArchive/ActivityArchiveSearch.jsp
-			</result>
-			<result name="error">/success.jsp</result>
-		</action>
-
-		<action name="applicationArchive_*" class="com.actions.ApplicationArchiveAction"
-			method="{1}">
-			<result name="list">/pages/ApplicationArchive/ApplicationArchiveList.jsp
-			</result>
-			<result name="add">/pages/ApplicationArchive/ApplicationArchiveAdd.jsp
-			</result>
-			<result name="search">/pages/ApplicationArchive/ApplicationArchiveSearch.jsp
-			</result>
-			<result name="error">/success.jsp</result>
-		</action>
-
-		<action name="aumByCIFArchive_*" class="com.actions.AUMBYCIFArchiveAction"
-			method="{1}">
-			<result name="list">/pages/AUMBYCIFArchive/AUMBYCIFArchiveList.jsp
-			</result>
-			<result name="add">/pages/AUMBYCIFArchive/AUMBYCIFArchiveAdd.jsp
-			</result>
-			<result name="search">/pages/AUMBYCIFArchive/AUMBYCIFArchiveSearch.jsp
-			</result>
-			<result name="error">/success.jsp</result>
-		</action>
-
-		<action name="aumByBranchArchive_*" class="com.actions.AUMBYBranchArchiveAction"
-			method="{1}">
-			<result name="list">/pages/AUMBYBranchArchive/AUMBYBranchArchiveList.jsp
-			</result>
-			<result name="search">/pages/AUMBYBranchArchive/AUMBYBranchArchiveSearch.jsp
-			</result>
-			<result name="error">/success.jsp</result>
-		</action>
-
-		<action name="portHoldingBySubAccountArchive_*" class="com.actions.PortHoldingOutStandingArchiveAction"
-			method="{1}">
-			<result name="list">/pages/PortHoldingOutStandingArchive/PortHoldingOutStandingArchiveList.jsp
-			</result>
-			<result name="search">/pages/PortHoldingOutStandingArchive/PortHoldingOutStandingArchiveSearch.jsp
-			</result>
-			<result name="error">/success.jsp</result>
-		</action>
-
-		<action name="dashBoard_*" class="com.actions.DashBoardAction"
-			method="{1}">
-			<result name="dashboard">/pages/Dashboard/Dashboard.jsp</result>
-			<result name="browsers">/pages/Dashboard/DashboardBrowsers.jsp</result>
-			<result name="login">/pages/Dashboard/DashboardLogin.jsp</result>
-			<result name="user">/pages/Dashboard/DashboardUser.jsp</result>
-			<result name="topmodule">/pages/Dashboard/DashboardTopModule.jsp</result>
-			<result name="newuser">/pages/Dashboard/DashboardPercentNewUser.jsp</result>
-			<result name="customers">/pages/Dashboard/DashboardCustomer.jsp</result>
-			<result name="topuser">/pages/Dashboard/DashboardTopUser.jsp</result>
-			<result name="argonsite">/pages/Dashboard/DashboardAverage.jsp</result>
-			<result name="viewaum">/pages/Dashboard/DashboardViewAUM.jsp</result>
-			<result name="diskusage">/pages/Dashboard/DashboardDiskUsage.jsp</result>
-
-			<result name="error">/success.jsp</result>
-		</action>
 		
 		<action name="demandCustomerAssets_*" class="com.actions.DemandCustomerAssetsAction"
 			method="{1}">
@@ -106,45 +39,6 @@
 			<result type="json" />
 		</action>
 		
-		<action name="browserJson" class="com.json.actions.BrowserJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="loginJson" class="com.json.actions.LoginJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="percentNewUserJson" class="com.json.actions.PercentNewUserJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="TopModuleJson" class="com.json.actions.TopModuleJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="UserJson" class="com.json.actions.UserJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="customerJson" class="com.json.actions.CustomerJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="TopUserJson" class="com.json.actions.TopUserJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="averageJson" class="com.json.actions.AverageJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="viewAUMJson" class="com.json.actions.ViewAUMJsonAction" method="execute">
-			<result type="json" />
-		</action>
-		
-		<action name="diskUsageJson" class="com.json.actions.DiskUsageJsonAction" method="execute">
-			<result type="json" />
-		</action>
 	</package>
 
 </struts>

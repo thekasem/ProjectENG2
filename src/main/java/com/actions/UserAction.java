@@ -8,17 +8,13 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.contact.action.ContactApplicationArchiveLog;
 import com.contact.action.ContactLogin;
-import com.entity.archive.ArchiveApplicationLogMini;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserAction extends ActionSupport {
 	private String username,userpass;
 	private String arlert = "Login Fail";
-	private List<ArchiveApplicationLogMini> list;
 	private ContactLogin userController;
-	private ContactApplicationArchiveLog archiveController;
 	private String userNameLogin;
 	private HttpSession session;
 	
@@ -61,10 +57,6 @@ public class UserAction extends ActionSupport {
 
 
 
-	public List<ArchiveApplicationLogMini> getList() {
-		return list;
-	}
-
 
 	public void ContactController(){
     	ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -97,8 +89,6 @@ public class UserAction extends ActionSupport {
 
 	public String homeFirst(){
 		ContactController();
-		ArchiveApplicationLogMini archive = new ArchiveApplicationLogMini();
-		list = archiveController.getList(archive, true, false, 0, 15);
 		userNameLogin = (String) session.getAttribute("user");
 		return "success";
 	}
