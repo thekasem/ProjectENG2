@@ -157,9 +157,8 @@
 									<label class="col-md-1 control-label">From Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="form-control" headerKey="-1"
-												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
-												name="selectfromyear" value="1" />
+											<s:select id="top-module" class="form-control" headerKey="-1"
+												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
@@ -167,9 +166,8 @@
 									<label class="col-md-1 control-label">To Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="form-control" headerKey="-1"
-												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
-												name="selectfromyear" value="1" />
+											<s:select id="top-module" class="form-control" headerKey="-1"
+												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
@@ -196,11 +194,10 @@
 									</div>
 
 									<label class="col-md-1 control-label">To Year :</label>
-									<div class="col-md-1">
+									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="selectfrommonth form-control" headerKey="-1"
-												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
-												name="selectfrommonth" value="1" />
+											<s:select id="top-module" class="form-control" headerKey="-1"
+												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>

@@ -22,12 +22,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<s:url action="analysis_analysispie" var="analysispie"></s:url>
 	<s:url action="analysis_analysisline" var="analysisline"></s:url>
-	<s:url action="analysis_analysiscolumn"
-		var="analysiscolumn"></s:url>
-	<s:url action="analysis_analysisscatter"
-		var="analysisscatter"></s:url>
-	<s:url action="analysis_monthanalysispie"
-		var="monthanalysispie"></s:url>
+	<s:url action="analysis_analysiscolumn" var="analysiscolumn"></s:url>
+	<s:url action="analysis_analysisscatter" var="analysisscatter"></s:url>
+	<s:url action="analysis_monthanalysispie" var="monthanalysispie"></s:url>
 
 
 	<div class="wrapper">
@@ -39,7 +36,8 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Analysis Pie<small>Computer Engineering</small>
+				Demand Customer Assets Analysis Pie<small>Computer
+					Engineering</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
@@ -151,7 +149,7 @@
 
 									</div>
 								</div>
-								
+
 								<div class="col-md-2">
 									<div class="has-feedback">
 										<s:select id="selecttime" headerKey="-1" class="form-control"
@@ -160,14 +158,13 @@
 										<span class="fa fa-calendar form-control-feedback"></span>
 									</div>
 								</div>
-								
+
 								<div class="selectfromyear">
 									<label class="col-md-1 control-label">From Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="form-control" headerKey="-1"
-												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
-												name="selectfromyear" value="1" />
+											<s:select id="top-module" class="form-control" headerKey="-1"
+												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
@@ -175,9 +172,8 @@
 									<label class="col-md-1 control-label">To Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="form-control" headerKey="-1"
-												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
-												name="selectfromyear" value="1" />
+											<s:select id="top-module" class="form-control" headerKey="-1"
+												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
@@ -204,16 +200,15 @@
 									</div>
 
 									<label class="col-md-1 control-label">To Year :</label>
-									<div class="col-md-1">
+									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="selectfrommonth form-control" headerKey="-1"
-												list="#{'1':'2008', '2':'2009', '3':'2010', '4':'2011', '5':'2012', '6':'2013', '7':'2014', '8':'2015'}"
-												name="selectfrommonth" value="1" />
+											<s:select id="top-module" class="form-control" headerKey="-1"
+												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="col-md-12" style="margin: 10px"></div>
 
 								<div class="col-sm-1">
