@@ -10,17 +10,21 @@ import com.entity.HibernateUtil;
 
 public class TestDao {
 
-	public static List<AssetMini> getListByDate() {
+	public static List<Object[]> getListByDate() {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
-		List<AssetMini> result = null;
+		List<Object[]> result = null;
 		try {
 //			Query query = sessionB.createQuery("SELECT DISTINCT browser from ActivityLogMini ");   //select  sum(usigTime), memberId  from ActivityLogMini where logDate between '20150101' and '20150131' and memberId =1 Group by logDate, memberId 
-			Query query = sessionB.createQuery("select from AssetMini");
-			query.setFirstResult(0);
-			query.setMaxResults(10);
-			List<AssetMini> list = (List<AssetMini>) query.list();
-			result = list;
+			Query query = sessionB.createSQLQuery("SELECT SUM( buyasset.valueaoc ) , customer.typecustomerid "
+					+ "FROM buyasset INNER JOIN customer ON buyasset.customerid = customer.customerid "
+					+ "WHERE aocdate BETWEEN  '20150101' AND  '20151231' "
+					+ "GROUP BY customer.typecustomerid "
+					+ "ORDER BY customer.customerid ASC");
+			
+//			query.setFirstResult(0);
+//			query.setMaxResults(8);
+			result = (List<Object[]>) query.list();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -45,14 +49,14 @@ public class TestDao {
 	}
 
 	public static void main(String[] args) {
-		List<AssetMini> list = getListByDate();
+		List<Object[]> list = getListByDate();
 		double result = getcount();
 		System.out
 				.println("++++++++++++++++++++++++++++ test browser ++++++++++++++++++++++++++++++++");
 		System.out.println("count list : " + list.size());
 		float i = 0;
-		for (AssetMini te : list) {
-			System.out.println(te.getAssetId());
+		for (Object[] te : list) {
+			System.out.println(te[0]+" \t"+te[1]);
 		}
        System.out.println("total count record : "+ result +" record");
 		

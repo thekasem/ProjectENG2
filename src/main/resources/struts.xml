@@ -29,9 +29,27 @@
 			
 			<result name="error">/success.jsp</result>
 		</action>
+		
+		<action name="eachanalysis_*" class="com.actions.AnalysisEachAction"
+			method="{1}">
+			<result name="eachanalysispie">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachAnalysisPie.jsp</result>
+			<result name="eachanalysisline">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachAnalysisLine.jsp</result>
+			<result name="eachanalysiscolumn">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachAnalysisColumn.jsp</result>
+			<result name="eachanalysisscatter">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachAnalysisScatter.jsp</result>
+			
+			<result name="error">/success.jsp</result>
+		</action>
+		
 		<action name="predicton_*" class="com.actions.PredictionAction"
 			method="{1}">
 			<result name="predictionpie">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
+			
+			<result name="error">/success.jsp</result>
+		</action>
+		
+		<action name="eachpredicton_*" class="com.actions.PredictionEachAction"
+			method="{1}">
+			<result name="eachpredictionpie">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachPrediction.jsp</result>
 			
 			<result name="error">/success.jsp</result>
 		</action>

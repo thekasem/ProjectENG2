@@ -105,7 +105,7 @@
 					<ul class="treeview-menu">
 						<li><a href="analysis_analysispie"><i
 								class="fa fa-circle-o"></i> Analysis all</a></li>
-						<li><a href="analysis_analysispie"><i
+						<li><a href="eachanalysis_analysispie"><i
 								class="fa fa-circle-o"></i> Analysis each</a></li>
 
 						<!-- 				<li class="header">LABELS</li> -->
@@ -120,7 +120,7 @@
 					<ul class="treeview-menu">
 						<li><a href="predicton_predictionpie"><i
 								class="fa fa-circle-o"></i> Prediction all</a></li>
-						<li><a href="predicton_predictionpie"><i
+						<li><a href="eachpredicton_predictionpie"><i
 								class="fa fa-circle-o"></i> Prediction each</a></li>
 					</ul></li>
 			</ul>
