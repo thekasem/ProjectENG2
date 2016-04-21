@@ -30,7 +30,8 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Each Analysis Column<small>Computer Engineering</small>
+				Demand Customer Assets Each Analysis Column<small>Computer
+					Engineering</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
@@ -54,95 +55,22 @@
 					</div>
 					<div class="panel-body box box box-warning">
 						<form class="form-horizontal">
-								<div class="row well">
-								<div class="col-md-1">
-									<button type="button" class="btn btn-info" data-toggle="modal"
-										data-target="#myModal">
-										<span class="fa fa-search-plus"></span> See more
-									</button>
-
-								</div>
-								<div class="modal" id="myModal" role="dialog">
-									<div class="modal-dialog">
-
-										<!-- Modal content-->
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h4 class="modal-title">select type by see more</h4>
-											</div>
-											<div class="modal-body">
-												<!-- checkbox -->
-												<div class="row">
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox"> Foreign
-																stocks
-															</label>
-														</div>
-
-														<div class="checkbox">
-															<label> <input type="checkbox"> Exchange
-																rate
-															</label>
-														</div>
-
-														<div class="checkbox">
-															<label> <input type="checkbox"> Gold
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Land
-															</label>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox"> Oil
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Building
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Equipment
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Mine
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="modal-body">
-												<!-- checkbox -->
-												<div class="row">
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox"> Person
-															</label>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox">
-																Corporation
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="modal-footer">
-												<button type="button" class="btn btn btn-primary">submit</button>
-											</div>
-										</div>
-
+							<div class="row well">
+								<div class="col-sm-1">
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button"
+											data-toggle="dropdown">
+											Select Chart <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><s:a href="eachanalysis_analysispie">Pie Chart</s:a></li>
+											<li><s:a href="eachanalysis_analysisline">Line Chart</s:a></li>
+											<li><s:a href="eachanalysis_analysiscolumn">Column Chart</s:a></li>
+											<li><s:a href="eachanalysis_analysisscatter">Scatter Chart</s:a></li>
+										</ul>
 									</div>
 								</div>
-								
+
 								<div class="col-md-2">
 									<div class="has-feedback">
 										<s:select id="selecttime" headerKey="-1" class="form-control"
@@ -151,7 +79,7 @@
 										<span class="fa fa-calendar form-control-feedback"></span>
 									</div>
 								</div>
-								
+
 								<div class="selectfromyear">
 									<label class="col-md-1 control-label">From Year :</label>
 									<div class="col-md-2">
@@ -201,39 +129,62 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="col-md-12" style="margin: 10px"></div>
 
-								<div class="col-sm-1">
-									<div class="dropdown">
-										<button class="btn btn-default dropdown-toggle" type="button"
-											data-toggle="dropdown">
-											Select Chart <span class="caret"></span>
-										</button>
-										<ul class="dropdown-menu">
-											<li><s:a href="eachanalysis_analysispie">Pie Chart</s:a></li>
-											<li><s:a href="eachanalysis_analysisline">Line Chart</s:a></li>
-											<li><s:a href="eachanalysis_analysiscolumn">Column Chart</s:a></li>
-											<li><s:a href="eachanalysis_analysisscatter">Scatter Chart</s:a></li>
-										</ul>
+								<label class="col-md-1 control-label">Select Data :</label>
+								<div class="col-md-2">
+									<div class="has-feedback">
+										<s:select id="selectid" headerKey="-1" class="form-control"
+											list="#{'1':'Customer', '2':'Asset'}" name="selectid"
+											value="1" />
+										<span class="fa fa-users form-control-feedback"></span>
 									</div>
 								</div>
 
-								<div class="col-md-2">
+								<div class="selectidcustomer">
+									<label class="col-md-1 control-label">ID Customer :</label>
+									<div class="col-md-2">
+										<s:textfield name="selectidcustomer" cssClass="form-control"></s:textfield>
+									</div>
+								</div>
+
+								<div class="selectidasset">
+									<label class="col-md-1 control-label">ID Asset :</label>
+									<div class="col-md-2">
+										<s:textfield name="selectidasset" cssClass="form-control"></s:textfield>
+									</div>
+								</div>
+
+								<div class="col-md-1">
 									<s:a type="button" class="btn btn-primary"
-										href="analysis_analysiscolumn">
+										href="analysis_analysispie">
 										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>
 								</div>
+
+								<div class="col-md-1">
+									<s:a type="button" class="btn btn-primary" href="">
+										<span class="fa fa-search"></span>
+													Submit
+											    </s:a>
+								</div>
 							</div>
 
-							<div class="well col-md-12">
-								<div class="col-md-6">
-									<div id="columnanalysis" style="width: 750px;"></div>
+							<div style="margin: 20px"></div>
+							<div class="selectidcustomer">
+								<div class="well col-md-12">
+									<div class="col-sm-offset-3 col-sm-6">
+										<div id="columnanalysis" style="width: 750px;"></div>
+									</div>
 								</div>
-								<div class="col-md-6">
-									<div id="columnanalysisperson" style="width: 750px;"></div>
+							</div>
+							<div class="selectidasset">
+								<div class="well col-md-12">
+									<div class="col-sm-offset-3 col-sm-6">
+										<div id="columnanalysisperson" style="width: 750px;"></div>
+									</div>
 								</div>
 							</div>
 						</form>
@@ -245,13 +196,15 @@
 		</div>
 		<s:include value="/pages/Menu/footer.jsp"></s:include>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="js/highcharts.js"></script>
 	<script src="js/exporting.js"></script>
 	<script src="js/highcharts-3d.js"></script>
 	<script src="js/team-highcharts.js"></script>
 	<script src="GraphAnalysis/columnAnalysis.js"></script>
 	<script src="GraphAnalysis/callFromDate.js"></script>
+	<script src="GraphAnalysis/callFromId.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="plugins/fastclick/fastclick.min.js"></script>
 	<script src="dist/js/app.min.js"></script>

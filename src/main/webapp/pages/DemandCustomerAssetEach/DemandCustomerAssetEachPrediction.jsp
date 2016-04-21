@@ -68,24 +68,24 @@
 										name="selectchart" value="1" />
 									<span class="fa fa-bar-chart form-control-feedback"></span>
 								</div>
-								<div class="col-md-1">
-									<button type="button" class="btn btn-info" data-toggle="modal"
-										data-target="#myModal">
-										<span class="fa fa-search-plus"></span> See more
-									</button>
+<!-- 								<div class="col-md-1"> -->
+<!-- 									<button type="button" class="btn btn-info" data-toggle="modal" -->
+<!-- 										data-target="#myModal"> -->
+<%-- 										<span class="fa fa-search-plus"></span> See more --%>
+<!-- 									</button> -->
 
-								</div>
+<!-- 								</div> -->
 								<div class="modal" id="myModal" role="dialog">
 									<div class="modal-dialog">
 
-										<!-- Modal content-->
+										Modal content
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
 												<h4 class="modal-title">select type by see more</h4>
 											</div>
 											<div class="modal-body">
-												<!-- checkbox -->
+												checkbox
 												<div class="row">
 													<div class="col-md-6">
 														<div class="checkbox">
@@ -130,7 +130,7 @@
 												</div>
 											</div>
 											<div class="modal-body">
-												<!-- checkbox -->
+												checkbox
 												<div class="row">
 													<div class="col-md-6">
 														<div class="checkbox">
