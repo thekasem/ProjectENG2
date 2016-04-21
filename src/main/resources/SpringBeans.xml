@@ -26,6 +26,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="buyassetcontroller" class="com.controller.implement.BuyAssetController">
 		<property name="buyAssetDao" ref="buyassetdao" />
 	</bean>
+	<bean id="analysisbuyassetcontroller" class="com.controller.implement.AnalysisBuyAssetController">
+		<property name="buyAssetDao" ref="buyassetdao"></property>
+	</bean>
 
 	<!-- inject to Dao -->
 	<bean id="logindao" class="com.dao.implement.LoginDao" />
