@@ -20,21 +20,20 @@ public interface IAnalysisBuyAssetController {
 	
 	public List<Double> getValuesAsset(String fromDate, String toDate);
 	
-//	public List<Double> getValuesColumnCustomer();
-//	
-//	public List<Double> getValuesColumnCustomer(String fromDate, String toDate);
-//	
-//	public List<Double> getValuesColumnAsset();
-//	
-//	public List<Double> getValuesColumnAsset(String fromDate, String toDate);
-//	
-//	public List<Double> getValuesScatterCustomer();
-//	
-//	public List<Double> getValuesScatterCustomer(String fromDate, String toDate);
-//	
-//	public List<Double> getValuesScatterAsset();
-//	
-//	public List<Double> getValuesScatterAsset(String fromDate, String toDate);
+	public List<Double> getValuesPieEachCustomer(String assetId);
 	
+	public List<Double> getValuesPieEachCustomer(String fromDate, String toDate, String assetId);
+	
+	public List<Double> getValuesPieEachAsset(String customerId);
+	
+	public List<Double> getValuesPieEachAsset(String fromDate, String toDate, String customerId);
+	
+	public List<Double> getValuesEachCustomer(String assetId);
+	
+	public List<Double> getvaluesEachCustomer(String fromDate, String toDate, String assetId);
+	
+	public List<Double> getvaluesEachAsset(String customerId);
+	
+	public List<Double> getValuesEachAsset(String fromDate, String toDate, String customerId);
 
 }

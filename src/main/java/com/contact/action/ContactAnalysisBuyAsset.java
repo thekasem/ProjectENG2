@@ -51,5 +51,41 @@ public class ContactAnalysisBuyAsset implements IAnalysisBuyAssetController{
 		return analysisBuyAssetController.getValuesAsset(fromDate, toDate);
 	}
 
+	public List<Double> getValuesPieEachCustomer(String assetId) {
+		return analysisBuyAssetController.getValuesPieEachCustomer(assetId);
+	}
+
+	public List<Double> getValuesPieEachCustomer(String fromDate,
+			String toDate, String assetId) {
+		return analysisBuyAssetController.getValuesPieEachCustomer(fromDate, toDate, assetId);
+	}
+
+	public List<Double> getValuesPieEachAsset(String customerId) {
+		return analysisBuyAssetController.getValuesPieEachAsset(customerId);
+	}
+
+	public List<Double> getValuesPieEachAsset(String fromDate, String toDate,
+			String customerId) {
+		return analysisBuyAssetController.getValuesPieEachAsset(fromDate, toDate, customerId);
+	}
+
+	public List<Double> getValuesEachCustomer(String assetId) {
+		return analysisBuyAssetController.getValuesEachCustomer(assetId);
+	}
+
+	public List<Double> getvaluesEachCustomer(String fromDate, String toDate,
+			String assetId) {
+		return analysisBuyAssetController.getvaluesEachCustomer(fromDate, toDate, assetId);
+	}
+
+	public List<Double> getvaluesEachAsset(String customerId) {
+		return analysisBuyAssetController.getvaluesEachAsset(customerId);
+	}
+
+	public List<Double> getValuesEachAsset(String fromDate, String toDate,
+			String customerId) {
+		return analysisBuyAssetController.getValuesEachAsset(fromDate, toDate, customerId);
+	}
+
 	
 }

@@ -103,5 +103,57 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 		return result;
 	}
 
+	public List<Double> getValuesPieEachCustomer(String assetId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByCustomer("","" , true, assetId);
+		List<Double> result = percentOfValues(values);
+		return result;
+	}
+
+	public List<Double> getValuesPieEachCustomer(String fromDate,
+			String toDate, String assetId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByCustomer(fromDate, toDate, false, assetId);
+		List<Double> result = percentOfValues(values);
+		return result;
+	}
+
+	public List<Double> getValuesPieEachAsset(String customerId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByAsset("", "",true, customerId);
+		List<Double> result = percentOfValues(values);
+		return result;
+	}
+
+	public List<Double> getValuesPieEachAsset(String fromDate, String toDate,
+			String customerId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByAsset(fromDate, toDate, false, customerId);
+		List<Double> result = percentOfValues(values);
+		return result;
+	}
+
+	public List<Double> getValuesEachCustomer(String assetId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByCustomer("", "", true, assetId);
+		List<Double> result = convertToListDouble(values);
+		return result;
+	}
+
+	public List<Double> getvaluesEachCustomer(String fromDate, String toDate,
+			String assetId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByCustomer(fromDate, toDate, false, assetId);
+		List<Double> result = convertToListDouble(values);
+		return result;
+	}
+
+	public List<Double> getvaluesEachAsset(String customerId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByAsset("", "", false, customerId);
+		List<Double> result = convertToListDouble(values);
+		return result;
+	}
+
+	public List<Double> getValuesEachAsset(String fromDate, String toDate,
+			String customerId) {
+		List<Object[]> values = buyAssetDao.getSumValuesByAsset(fromDate, toDate, false, customerId);
+		List<Double> result = convertToListDouble(values);
+		return result;
+	}
+
 
 }
