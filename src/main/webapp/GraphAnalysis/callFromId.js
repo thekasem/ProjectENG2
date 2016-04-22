@@ -1,15 +1,15 @@
 $(function (){
-	$('.selectidcustomer').show(0);
-	$('.selectidasset').hide(0);
+	$('.analysisidcustomer').show(0);
+	$('.analysisidasset').hide(0);
 });
-$('#selectid').change(function (){
-		var id = $('#selectid').val();
+$('#analysisid').change(function (){
+		var id = $('#analysisid').val();
 		if(id==1){
-			$('.selectidcustomer').show(0);
-			$('.selectidasset').hide(0);
+			$('.analysisidcustomer').show(0);
+			$('.analysisidasset').hide(0);
 		}
 		if(id==2){
-			$('.selectidcustomer').hide(0);
-			$('.selectidasset').show(0);
+			$('.analysisidcustomer').hide(0);
+			$('.analysisidasset').show(0);
 		}
 });

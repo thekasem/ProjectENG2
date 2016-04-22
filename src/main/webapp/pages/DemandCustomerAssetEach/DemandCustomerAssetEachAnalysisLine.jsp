@@ -133,33 +133,33 @@
 
 								<div class="col-md-12" style="margin: 10px"></div>
 
-								<label class="col-md-1 control-label">Select Data :</label>
+								<label class="col-md-1 control-label">Analysis Data :</label>
 								<div class="col-md-2">
 									<div class="has-feedback">
-										<s:select id="selectid" headerKey="-1" class="form-control"
-											list="#{'1':'Customer', '2':'Asset'}" name="selectid"
+										<s:select id="analysisid" headerKey="-1" class="form-control"
+											list="#{'1':'Customer', '2':'Asset'}" name="analysisid"
 											value="1" />
 										<span class="fa fa-users form-control-feedback"></span>
 									</div>
 								</div>
 
-								<div class="selectidcustomer">
+								<div class="analysisidcustomer">
 									<label class="col-md-1 control-label">ID Customer :</label>
 									<div class="col-md-2">
-										<s:textfield name="selectidcustomer" cssClass="form-control"></s:textfield>
+										<s:textfield name="analysisidcustomer" cssClass="form-control"></s:textfield>
 									</div>
 								</div>
 
-								<div class="selectidasset">
+								<div class="analysisidasset">
 									<label class="col-md-1 control-label">ID Asset :</label>
 									<div class="col-md-2">
-										<s:textfield name="selectidasset" cssClass="form-control"></s:textfield>
+										<s:textfield name="analysisidasset" cssClass="form-control"></s:textfield>
 									</div>
 								</div>
 
 								<div class="col-md-1">
 									<s:a type="button" class="btn btn-primary"
-										href="analysis_analysispie">
+										href="eachanalysis_analysisline">
 										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>
@@ -174,22 +174,18 @@
 							</div>
 
 							<div style="margin: 20px"></div>
-							<div class="selectidcustomer">
-								<div class="well col-md-12">
-									<div class="col-sm-offset-3 col-sm-6">
+
+							<div class="well col-md-12">
+								<div class="col-sm-offset-3 col-sm-6">
+									<div class="analysisidcustomer">
 										<div id="lineanalysis" style="width: 750px;"></div>
 									</div>
-								</div>
-								</div>
 
-
-								<div class="selectidasset">
-									<div class="well col-md-12">
-										<div class="col-sm-offset-3 col-sm-6">
-												<div id="lineanalysisperson" style="width: 750px;"></div>
-										</div>
+									<div class="analysisidasset">
+										<div id="lineanalysisperson" style="width: 750px;"></div>
 									</div>
 								</div>
+							</div>
 						</form>
 					</div>
 				</div>

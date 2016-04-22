@@ -29,7 +29,8 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Each Prediction <small>Computer Engineering</small>
+				Demand Customer Assets Each Prediction <small>Computer
+					Engineering</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
@@ -68,93 +69,93 @@
 										name="selectchart" value="1" />
 									<span class="fa fa-bar-chart form-control-feedback"></span>
 								</div>
-<!-- 								<div class="col-md-1"> -->
-<!-- 									<button type="button" class="btn btn-info" data-toggle="modal" -->
-<!-- 										data-target="#myModal"> -->
-<%-- 										<span class="fa fa-search-plus"></span> See more --%>
-<!-- 									</button> -->
+								<!-- 								<div class="col-md-1"> -->
+								<!-- 									<button type="button" class="btn btn-info" data-toggle="modal" -->
+								<!-- 										data-target="#myModal"> -->
+								<%-- 										<span class="fa fa-search-plus"></span> See more --%>
+								<!-- 									</button> -->
 
-<!-- 								</div> -->
-								<div class="modal" id="myModal" role="dialog">
-									<div class="modal-dialog">
+								<!-- 								</div> -->
+								<!-- 								<div class="modal" id="myModal" role="dialog"> -->
+								<!-- 									<div class="modal-dialog"> -->
 
-										Modal content
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h4 class="modal-title">select type by see more</h4>
-											</div>
-											<div class="modal-body">
-												checkbox
-												<div class="row">
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox"> Foreign
-																stocks
-															</label>
-														</div>
+								<!-- 										Modal content -->
+								<!-- 										<div class="modal-content"> -->
+								<!-- 											<div class="modal-header"> -->
+								<!-- 												<button type="button" class="close" data-dismiss="modal">&times;</button> -->
+								<!-- 												<h4 class="modal-title">select type by see more</h4> -->
+								<!-- 											</div> -->
+								<!-- 											<div class="modal-body"> -->
+								<!-- 												checkbox -->
+								<!-- 												<div class="row"> -->
+								<!-- 													<div class="col-md-6"> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Foreign -->
+								<!-- 																stocks -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
 
-														<div class="checkbox">
-															<label> <input type="checkbox"> Exchange
-																rate
-															</label>
-														</div>
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Exchange -->
+								<!-- 																rate -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
 
-														<div class="checkbox">
-															<label> <input type="checkbox"> Gold
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Land
-															</label>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox"> Oil
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Building
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Equipment
-															</label>
-														</div>
-														<div class="checkbox">
-															<label> <input type="checkbox"> Mine
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="modal-body">
-												checkbox
-												<div class="row">
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox"> Person
-															</label>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="checkbox">
-															<label> <input type="checkbox">
-																Corporation
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Gold -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Land -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 													</div> -->
+								<!-- 													<div class="col-md-6"> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Oil -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Building -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Equipment -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Mine -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 													</div> -->
+								<!-- 												</div> -->
+								<!-- 											</div> -->
+								<!-- 											<div class="modal-body"> -->
+								<!-- 												checkbox -->
+								<!-- 												<div class="row"> -->
+								<!-- 													<div class="col-md-6"> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> Person -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 													</div> -->
+								<!-- 													<div class="col-md-6"> -->
+								<!-- 														<div class="checkbox"> -->
+								<!-- 															<label> <input type="checkbox"> -->
+								<!-- 																Corporation -->
+								<!-- 															</label> -->
+								<!-- 														</div> -->
+								<!-- 													</div> -->
+								<!-- 												</div> -->
+								<!-- 											</div> -->
 
-											<div class="modal-footer">
-												<button type="button" class="btn btn btn-primary">submit</button>
-											</div>
-										</div>
+								<!-- 											<div class="modal-footer"> -->
+								<!-- 												<button type="button" class="btn btn btn-primary">submit</button> -->
+								<!-- 											</div> -->
+								<!-- 										</div> -->
 
-									</div>
-								</div>
+								<!-- 									</div> -->
+								<!-- 								</div> -->
 								<div class="col-md-2">
 									<s:a type="button" class="btn btn-primary"
 										href="demandCustomerAssets_predictionpie">
@@ -162,55 +163,147 @@
 													 Refresh
 											    </s:a>
 								</div>
+
+								<div class="col-md-12" style="margin: 10px"></div>
+
+								<label class="col-md-1 control-label">Prediction Data :</label>
+								<div class="col-md-2">
+									<div class="has-feedback">
+										<s:select id="predictionid" headerKey="-1"
+											class="form-control" list="#{'1':'Customer', '2':'Asset'}"
+											name="predictionid" value="1" />
+										<span class="fa fa-users form-control-feedback"></span>
+									</div>
+								</div>
+
+								<div class="predictionidcustomer">
+									<label class="col-md-1 control-label">ID Customer :</label>
+									<div class="col-md-2">
+										<s:textfield name="predictionidcustomer"
+											cssClass="form-control"></s:textfield>
+									</div>
+								</div>
+
+								<div class="predictionidasset">
+									<label class="col-md-1 control-label">ID Asset :</label>
+									<div class="col-md-2">
+										<s:textfield name="predictionidasset" cssClass="form-control"></s:textfield>
+									</div>
+								</div>
+
+								<div class="col-md-1">
+									<s:a type="button" class="btn btn-primary" href="">
+										<span class="fa fa-search"></span>
+													Submit
+											    </s:a>
+								</div>
+
 							</div>
 							<div style="margin: 20px"></div>
+							
 							<!-- 										show line chart -->
 							<div class="well col-md-12" id="line">
-								<div class="col-md-6">
-									<div id="lineprediction" style="width: 750px;"></div>
-									<div style="margin: 10px;">
-										<h3>percent error 0 %</h3>
+								<div class="col-sm-offset-3 col-sm-6">
+									<div class="predictionidcustomer">
+										<div id="lineprediction" style="width: 750px;"></div>
+										<div style="margin: 10px;">
+											<h3>percent error 0 %</h3>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<div id="linepredictionperson" style="width: 750px;"></div>
-									<div style="margin: 10px;">
-										<h3>percent error 0 %</h3>
+
+									<div class="predictionidasset">
+										<div id="linepredictionperson" style="width: 750px;"></div>
+										<div style="margin: 10px;">
+											<h3>percent error 0 %</h3>
+										</div>
 									</div>
 								</div>
 							</div>
+
+							<!-- 							<div class="well col-md-12" id="line"> -->
+							<!-- 																<div class="col-md-6"> -->
+							<!-- 																	<div id="lineprediction" style="width: 750px;"></div> -->
+							<!-- 																	<div style="margin: 10px;"> -->
+							<!-- 																		<h3>percent error 0 %</h3> -->
+							<!-- 																	</div> -->
+							<!-- 																</div> -->
+							<!-- 								<div class="col-md-6"> -->
+							<!-- 																		<div id="linepredictionperson" style="width: 750px;"></div> -->
+							<!-- 																		<div style="margin: 10px;"> -->
+							<!-- 																			<h3>percent error 0 %</h3> -->
+							<!-- 																		</div> -->
+							<!-- 								</div> -->
+							<!-- 							</div> -->
 
 							<!-- 									show column chart -->
 							<div class="well col-md-12" id="column">
-								<div class="col-md-6">
-									<div id="columnprediction" style="width: 750px;"></div>
-									<div style="margin: 10px;">
-										<h3>percent error 6 %</h3>
+								<div class="col-sm-offset-3 col-sm-6">
+									<div class="predictionidcustomer">
+										<div id="columnprediction" style="width: 750px;"></div>
+										<div style="margin: 10px;">
+											<h3>percent error 0 %</h3>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<div id="columnpredictionperson" style="width: 750px;"></div>
-									<div style="margin: 10px;">
-										<h3>percent error 6 %</h3>
+
+									<div class="predictionidasset">
+										<div id="columnpredictionperson" style="width: 750px;"></div>
+										<div style="margin: 10px;">
+											<h3>percent error 0 %</h3>
+										</div>
 									</div>
 								</div>
 							</div>
 
+							<!-- 							<div class="well col-md-12" id="column"> -->
+							<!-- 								<div class="col-md-6"> -->
+							<!-- 									<div id="columnprediction" style="width: 750px;"></div> -->
+							<!-- 									<div style="margin: 10px;"> -->
+							<!-- 										<h3>percent error 6 %</h3> -->
+							<!-- 									</div> -->
+							<!-- 								</div> -->
+							<!-- 								<div class="col-md-6"> -->
+							<!-- 									<div id="columnpredictionperson" style="width: 750px;"></div> -->
+							<!-- 									<div style="margin: 10px;"> -->
+							<!-- 										<h3>percent error 6 %</h3> -->
+							<!-- 									</div> -->
+							<!-- 								</div> -->
+							<!-- 							</div> -->
+
 							<!-- 									show scatter chart -->
 							<div class="well col-md-12" id="scatter">
-								<div class="col-md-6">
-									<div id="scatterprediction" style="width: 750px;"></div>
-									<div style="margin: 10px;">
-										<h3>percent error 10 %</h3>
+								<div class="col-sm-offset-3 col-sm-6">
+									<div class="predictionidcustomer">
+										<div id="scatterprediction" style="width: 750px;"></div>
+										<div style="margin: 10px;">
+											<h3>percent error 0 %</h3>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<div id="scatterpredictionperson" style="width: 750px;"></div>
-									<div style="margin: 10px;">
-										<h3>percent error 10 %</h3>
+
+									<div class="predictionidasset">
+										<div id="scatterpredictionperson" style="width: 750px;"></div>
+										<div style="margin: 10px;">
+											<h3>percent error 0 %</h3>
+										</div>
 									</div>
+
+
 								</div>
 							</div>
+
+							<!-- 							<div class="well col-md-12" id="scatter"> -->
+							<!-- 								<div class="col-md-6"> -->
+							<!-- 									<div id="scatterprediction" style="width: 750px;"></div> -->
+							<!-- 									<div style="margin: 10px;"> -->
+							<!-- 										<h3>percent error 10 %</h3> -->
+							<!-- 									</div> -->
+							<!-- 								</div> -->
+							<!-- 								<div class="col-md-6"> -->
+							<!-- 									<div id="scatterpredictionperson" style="width: 750px;"></div> -->
+							<!-- 									<div style="margin: 10px;"> -->
+							<!-- 										<h3>percent error 10 %</h3> -->
+							<!-- 									</div> -->
+							<!-- 								</div> -->
+							<!-- 							</div> -->
 						</form>
 					</div>
 				</div>

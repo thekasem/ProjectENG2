@@ -7,6 +7,8 @@ $(function (){
 	$('#column').hide(0);
 	$('#pie').hide(0);
 	$('#scatter').hide(0);
+	$('.predictionidcustomer').show(0);
+	$('.predictionidasset').hide(0);
 	showLinePrediction();
 });
 
@@ -35,6 +37,18 @@ $('#selectchart').change(function() {
 		showScatterPrediction();
 	}
 	
+});
+
+$('#predictionid').change(function() {
+	var predictionid = $('#predictionid').val();
+	if(predictionid==1){
+		$('.predictionidcustomer').show(0);
+		$('.predictionidasset').hide(0);
+	}
+	if(predictionid==2){
+		$('.predictionidcustomer').hide(0);
+		$('.predictionidasset').show(0);
+	}
 });
 
 //show line chart prediction
@@ -537,6 +551,3 @@ function showScatterPrediction(){
 	        }]
 	    });
 }
-
-
-
