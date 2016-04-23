@@ -14,6 +14,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="buyasset" class="com.contact.action.ContactBuyAsset" >
 	 	<property name="buyAssetController" ref="buyassetcontroller"></property>
 	</bean>
+	<bean id="analysisbuyasset" class="com.contact.action.ContactAnalysisBuyAsset">
+		<property name="analysisBuyAssetController" ref="analysisbuyassetcontroller"></property>
+	</bean>
 	
 
 	<!-- inject to Controller -->

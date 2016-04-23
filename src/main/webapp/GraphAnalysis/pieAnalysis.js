@@ -1,102 +1,155 @@
-$(function () {
+var selecttime = "";
+var fromyear = "";
+var toyear = "";
+var frommonth = "";
+var tomonth = "";
+var toyearII = "";
+var textName = "";
 
-    // Radialize the colors
-    Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
-        return {
-            radialGradient: {
-                cx: 0.5,
-                cy: 0.3,
-                r: 0.7
-            },
-            stops: [
-                [0, color],
-                [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
-            ]
-        };
-    });
+var listPercentCustomer = [];
+var listPercentAsset = [];
 
-    // Build the chart
-    $('#pieanalysis').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'Assets'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-        series: [{
-            name: 'Category Assets',
-            data: [
-                { name: 'Foreign Stocks', y: 14.3625 },
-                {
-                    name: 'Exchange Rate',
-                    y: 52.3125,
-                    sliced: true,
-                    selected: true
-                },
-                { name: 'Gold', y: 2 },
-                { name: 'Land', y: 4.7375 }, 
-                { name: 'Oil', y: 7.575 },
-                { name: 'Building', y: 5.4125 },
-                { name: 'Equipment', y: 1.1375 }, 
-                { name: 'Mine', y: 12.4625 },
-            ]
-        }]
-    });
-    
-    $('#pieanalysisperson').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'Customers'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-        series: [{
-            name: 'Category Customers',
-            data: [
-                { name: 'Personal', y: 50.9 },
-                {
-                    name: 'Corporation',
-                    y: 49.1,
-                    sliced: true,
-                    selected: true
-                }
-            ]
-        }]
-    });
-    
-    
-    
-    
+$(function() {
+	selecttime = $('#selecttime').val();
+	showDataGraphPie();
+
 });
+
+$('.changepie').change(function() {
+	selecttime = $('#selecttime').val();
+	fromyear = $('#fromyear').val();
+	toyear = $('#toyear').val();
+	frommonth = $('#frommonth').val();
+	tomonth = $('#tomonth').val();
+	toyearII = $('#toyear2').val();
+
+//	 alert("selecttime" + selecttime + "fromyear:" + fromyear
+//	 + " toyear:" + toyear + " frommonth:" + frommonth
+//	 + " tomonth:" + tomonth);
+	showDataGraphPie();
+});
+
+function showDataGraphPie() {
+	$
+			.ajax({
+				type : "GET",
+				url : 'analysisDataJSON.action',
+				data : {
+					selectTime : selecttime,
+					fromYear : fromyear,
+					toYear : toyear,
+					fromMonth : frommonth,
+					toMonth : tomonth,
+					toYearII : toyearII
+				},
+				success : function(response) {
+					
+					listPercentCustomer = response.percentCustomer;
+					listPercentAsset = response.percentAsset;
+					textName = response.dateSelect;
+
+
+					// Build the chart
+					$('#pieanalysis')
+							.highcharts(
+									{
+										chart : {
+											plotBackgroundColor : null,
+											plotBorderWidth : null,
+											plotShadow : false,
+											type : 'pie'
+										},
+										title : {
+											text : 'Assets '+textName
+										},
+										tooltip : {
+											pointFormat : '{series.name}: <b>{point.percentage:.2f}%</b>'
+										},
+										plotOptions : {
+											pie : {
+												allowPointSelect : true,
+												cursor : 'pointer',
+												dataLabels : {
+													enabled : false
+												},
+												showInLegend : true
+											}
+										},
+										series : [ {
+											name : 'Category Assets',
+											colorByPoint: true,
+											data : [ {
+												name : 'Foreign Stocks',
+												y : listPercentAsset[0]
+											}, {
+												name : 'Exchange Rate',
+												y : listPercentAsset[1],
+												sliced : true,
+												selected : true
+											}, {
+												name : 'Gold',
+												y : listPercentAsset[2]
+											}, {
+												name : 'Land',
+												y : listPercentAsset[3]
+											}, {
+												name : 'Oil',
+												y : listPercentAsset[4]
+											}, {
+												name : 'Building',
+												y : listPercentAsset[5]
+											}, {
+												name : 'Equipment',
+												y : listPercentAsset[6]
+											}, {
+												name : 'Mine',
+												y : listPercentAsset[7]
+											}, ]
+										} ]
+									});
+
+					$('#pieanalysisperson')
+							.highcharts(
+									{
+										chart : {
+											plotBackgroundColor : null,
+											plotBorderWidth : null,
+											plotShadow : false,
+											type : 'pie'
+										},
+										title : {
+											text : 'Customers '+textName
+										},
+										tooltip : {
+											pointFormat : '{series.name}: <b>{point.percentage:.2f}%</b>'
+										},
+										plotOptions : {
+											pie : {
+												allowPointSelect : true,
+												cursor : 'pointer',
+												dataLabels : {
+													enabled : false
+												},
+												showInLegend : true
+											}
+										},
+										series : [ {
+											name : 'Category Customers',
+											colorByPoint: true,
+											data : [ {
+												name : 'Personal',
+												y : listPercentCustomer[0]
+											}, {
+												name : 'Corporation',
+												y : listPercentCustomer[1],
+												sliced : true,
+												selected : true
+											} ]
+										} ]
+									});
+				},
+				error : function(e) {
+					alert('Error: ' + e);
+				}
+			});
+}

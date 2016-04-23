@@ -76,97 +76,10 @@
 										</ul>
 									</div>
 								</div>
-								<!-- 								<div class="col-md-1"> -->
-								<!-- 									<button type="button" class="btn btn-info" data-toggle="modal" -->
-								<!-- 										data-target="#myModal"> -->
-								<%-- 										<span class="fa fa-search-plus"></span> See more --%>
-								<!-- 									</button> -->
-
-								<!-- 								</div> -->
-								<!-- 								<div class="modal" id="myModal" role="dialog"> -->
-								<!-- 									<div class="modal-dialog"> -->
-
-								<!-- 										Modal content -->
-								<!-- 										<div class="modal-content"> -->
-								<!-- 											<div class="modal-header"> -->
-								<!-- 												<button type="button" class="close" data-dismiss="modal">&times;</button> -->
-								<!-- 												<h4 class="modal-title">select type by see more</h4> -->
-								<!-- 											</div> -->
-								<!-- 											<div class="modal-body"> -->
-								<!-- 												checkbox -->
-								<!-- 												<div class="row"> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Foreign -->
-								<!-- 																stocks -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Exchange -->
-								<!-- 																rate -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Gold -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Land -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Oil -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Building -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Equipment -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Mine -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 												</div> -->
-								<!-- 											</div> -->
-								<!-- 											<div class="modal-body"> -->
-								<!-- 												checkbox -->
-								<!-- 												<div class="row"> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Person -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> -->
-								<!-- 																Corporation -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 												</div> -->
-								<!-- 											</div> -->
-
-								<!-- 											<div class="modal-footer"> -->
-								<!-- 												<button type="button" class="btn btn btn-primary">submit</button> -->
-								<!-- 											</div> -->
-								<!-- 										</div> -->
-
-								<!-- 									</div> -->
-								<!-- 								</div> -->
 
 								<div class="col-md-2">
 									<div class="has-feedback">
-										<s:select id="selecttime" headerKey="-1" class="form-control"
+										<s:select id="selecttime" headerKey="-1" class="form-control changepie"
 											list="#{'1':'All Year', '2':'Year', '3':'Month'}"
 											name="selecttime" value="1" />
 										<span class="fa fa-calendar form-control-feedback"></span>
@@ -177,8 +90,8 @@
 									<label class="col-md-1 control-label">From Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select id="top-module" class="form-control" headerKey="-1"
-												list="listYears" name="year" />
+											<s:select id="fromyear" class="form-control changepie" headerKey="-1"
+												list="listYears" name="fromyear" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
@@ -186,8 +99,8 @@
 									<label class="col-md-1 control-label">To Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select id="top-module" class="form-control" headerKey="-1"
-												list="listYears" name="year" />
+											<s:select id="toyear" class="form-control changepie" headerKey="-1"
+												list="listYears" name="toyear" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>
@@ -196,7 +109,7 @@
 									<label class="col-md-1 control-label">From Month :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="selectfrommonth form-control" headerKey="-1"
+											<s:select id="frommonth" class="selectfrommonth form-control changepie" headerKey="-1"
 												list="#{'1':'January', '2':'February', '3':'March', '4':'April', '5':'May', '6':'June', '7':'July', '8':'August', '9':'September', '10':'October', '11':'November', '12':'December'}"
 												name="selectfrommonth" value="1" />
 											<span class="fa fa-calendar form-control-feedback"></span>
@@ -206,7 +119,7 @@
 									<label class="col-md-1 control-label">To Month :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="selectfrommonth form-control" headerKey="-1"
+											<s:select id="tomonth" class="selectfrommonth form-control changepie" headerKey="-1"
 												list="#{'1':'January', '2':'February', '3':'March', '4':'April', '5':'May', '6':'June', '7':'July', '8':'August', '9':'September', '10':'October', '11':'November', '12':'December'}"
 												name="selectfrommonth" value="1" />
 											<span class="fa fa-calendar form-control-feedback"></span>
@@ -216,8 +129,8 @@
 									<label class="col-md-1 control-label">To Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select id="top-module" class="form-control" headerKey="-1"
-												list="listYears" name="year" />
+											<s:select id="toyear2" class="form-control changepie" headerKey="-1"
+												list="listYears" name="toyear2" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
 									</div>

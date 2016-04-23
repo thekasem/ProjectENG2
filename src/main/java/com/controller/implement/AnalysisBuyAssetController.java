@@ -1,5 +1,6 @@
 package com.controller.implement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.controller.interfaces.IAnalysisBuyAssetController;
@@ -30,13 +31,13 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	private double sum(List<Object[]> values) {
 		double sum = 0;
 		for (Object[] value : values) {
-			sum = sum + Double.parseDouble(value[0]+"");
+				sum = sum + Double.parseDouble(value[0]+"");
 		}
 		return sum;
 	}
 	
 	private List<Double> convertToListDouble(List<Object[]> values){
-		List<Double> result = null;
+		List<Double> result = new ArrayList<Double>();
 		for (Object[] value : values) {
 			double precent = Double.parseDouble(value[0]+"");
 			result.add(precent);
@@ -46,7 +47,7 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	}
 
 	private List<Double> percentOfValues(List<Object[]> values) {
-		List<Double> result = null;
+		List<Double> result = new ArrayList<Double>();
 		double sum = sum(values);
 		for (Object[] value : values) {
 			double precent = (Double.parseDouble(value[0]+"")/sum)*100;
