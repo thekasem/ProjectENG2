@@ -63,6 +63,9 @@
 		<action name="analysisDataJSON" class="com.json.actions.AnalysisDatajsonAction" method="getDataPieCustomer">
 			<result type="json" />
 		</action>
+		<action name="analysisLineDataJSON" class="com.json.actions.AnalysisLineDataJsonAction" method="getDataCustomer">
+			<result type="json" />
+		</action>
 		
 		
 	</package>

@@ -12,13 +12,13 @@ public interface IAnalysisBuyAssetController {
 	
 	public List<Double> getValuesPieAsset(String fromDate, String toDate);
 	
-	public List<Double> getValuesCustomer();
+	public List<Double> getValuesCustomer(String id, char mode);
 	
-	public List<Double> getvaluesCustomer(String fromDate, String toDate);
+	public List<Double> getvaluesCustomer(String fromDate, String toDate, String id, char mode);
 	
-	public List<Double> getvaluesAsset();
+	public List<Double> getvaluesAsset(String id, char mode);
 	
-	public List<Double> getValuesAsset(String fromDate, String toDate);
+	public List<Double> getValuesAsset(String fromDate, String toDate, String id, char mode);
 	
 	public List<Double> getValuesPieEachCustomer(String assetId);
 	
@@ -28,12 +28,12 @@ public interface IAnalysisBuyAssetController {
 	
 	public List<Double> getValuesPieEachAsset(String fromDate, String toDate, String customerId);
 	
-	public List<Double> getValuesEachCustomer(String assetId);
+	public List<Double> getValuesEachCustomer(String assetId, String id, char mode);
 	
-	public List<Double> getvaluesEachCustomer(String fromDate, String toDate, String assetId);
+	public List<Double> getvaluesEachCustomer(String fromDate, String toDate, String assetId, String id, char mode);
 	
-	public List<Double> getvaluesEachAsset(String customerId);
+	public List<Double> getvaluesEachAsset(String customerId, String id, char mode);
 	
-	public List<Double> getValuesEachAsset(String fromDate, String toDate, String customerId);
+	public List<Double> getValuesEachAsset(String fromDate, String toDate, String customerId, String id, char mode);
 
 }

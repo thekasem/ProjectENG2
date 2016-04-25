@@ -25,30 +25,35 @@ public class BuyAssetDao implements IBuyAssetDao {
 		return result;
 	}
 	
-	private String commandSQLTypeAsset(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, boolean each , String customerId){
+	private String commandSQLTypeAsset(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, char each , String id, String customerId){
 		String command = "";
 		if(allYear){
 			command = "SELECT SUM( buyasset.valueaoc ) , asset.typeassetid "
-					+ "FROM buyasset INNER JOIN asset ON buyasset.assetid = asset.assetid ";
+					+ "FROM buyasset left outer JOIN asset ON buyasset.assetid = asset.assetid ";
 					
 		}else{
 			command = "SELECT SUM( buyasset.valueaoc ) , asset.typeassetid "
-					+ "FROM buyasset INNER JOIN asset ON buyasset.assetid = asset.assetid "
-					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31' ";
+					+ "FROM buyasset left outer JOIN asset ON buyasset.assetid = asset.assetid "
+					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31'";
 		}
-		if (each){
-			command = command + "and buyasset.customerid = "+ customerId;
+		if (each=='1'){
+			command = command + " and buyasset.customerid = "+ customerId;
+		}else if(each == '2'){
+			command = command + " and asset.typeassetid = "+ id;
+		}else if(each == '0'){
+			command = command + " and buyasset.customerid = "+ customerId;
+			command = command + " and asset.typeassetid = "+ id;
 		}
 		command = command + " GROUP BY asset.typeassetid ORDER BY asset.typeassetid ASC";
 		return command;
 	}
 
-	public List<Object[]> getSumTypeAssetValues(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear) {
+	public List<Object[]> getSumTypeAssetValues(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, String id, char mode) {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
 		List<Object[]> result = null;
 		try {
-			Query query = sessionB.createSQLQuery(commandSQLTypeAsset(yearAndMonthFrom, yearAndMonthTo, allYear,false,""));
+			Query query = sessionB.createSQLQuery(commandSQLTypeAsset(yearAndMonthFrom, yearAndMonthTo, allYear,mode,id,""));
 			result = (List<Object[]>) query.list();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,18 +62,23 @@ public class BuyAssetDao implements IBuyAssetDao {
 		return result;
 	}
 	
-	private String commandSQLTypeCustomer(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, boolean each, String assetId){
+	private String commandSQLTypeCustomer(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, char each, String id, String assetId){
 		String command = "";
 		if(allYear){
 			command = "SELECT SUM( buyasset.valueaoc ) , customer.typecustomerid "
-					+ "FROM buyasset INNER JOIN customer ON buyasset.customerid = customer.customerid ";
+					+ "FROM buyasset left outer JOIN customer ON buyasset.customerid = customer.customerid ";
 		}else{
 			command = "SELECT SUM( buyasset.valueaoc ) , customer.typecustomerid "
-					+ "FROM buyasset INNER JOIN customer ON buyasset.customerid = customer.customerid "
-					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31' ";
+					+ "FROM buyasset left outer JOIN customer ON buyasset.customerid = customer.customerid "
+					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31'";
 		}
-		if (each){
-			command = command + "and buyasset.assetid = "+ assetId;
+		if (each == '1'){
+			command = command + " and buyasset.assetid = "+ assetId;
+		}else if(each == '2'){
+			command = command + " and customer.typecustomerid = " + id;
+		}else if(each == '0'){
+			command = command + " and customer.typecustomerid = " + id;
+			command = command + " and buyasset.assetid = "+ assetId;
 		}
 		 command = command + " GROUP BY customer.typecustomerid ORDER BY customer.customerid ASC";
 		
@@ -76,12 +86,12 @@ public class BuyAssetDao implements IBuyAssetDao {
 	}
 
 	public List<Object[]> getSumTypeCustomerValues(String yearAndMonthFrom,
-			String yearAndMonthTo, boolean allYear) {
+			String yearAndMonthTo, boolean allYear, String id, char mode) {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
 		List<Object[]> result = null;
 		try {
-			Query query = sessionB.createSQLQuery(commandSQLTypeCustomer(yearAndMonthFrom, yearAndMonthTo, allYear,false,""));
+			Query query = sessionB.createSQLQuery(commandSQLTypeCustomer(yearAndMonthFrom, yearAndMonthTo, allYear,mode,id,""));
 			result = (List<Object[]>) query.list();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,12 +100,12 @@ public class BuyAssetDao implements IBuyAssetDao {
 		return result;
 	}
 
-	public List<Object[]> getSumValuesByCustomer(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear,String assetId) {
+	public List<Object[]> getSumValuesByCustomer(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear,String assetId,String id, char mode) {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
 		List<Object[]> result = null;
 		try {
-			Query query = sessionB.createSQLQuery(commandSQLTypeCustomer(yearAndMonthFrom, yearAndMonthTo, allYear,true,assetId));
+			Query query = sessionB.createSQLQuery(commandSQLTypeCustomer(yearAndMonthFrom, yearAndMonthTo, allYear,mode,id,assetId));
 			result = (List<Object[]>) query.list();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,12 +114,12 @@ public class BuyAssetDao implements IBuyAssetDao {
 		return result;
 	}
 
-	public List<Object[]> getSumValuesByAsset(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, String customerId) {
+	public List<Object[]> getSumValuesByAsset(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, String customerId, String id, char mode) {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
 		List<Object[]> result = null;
 		try {
-			Query query = sessionB.createSQLQuery(commandSQLTypeAsset(yearAndMonthFrom, yearAndMonthTo, allYear,true,customerId));
+			Query query = sessionB.createSQLQuery(commandSQLTypeAsset(yearAndMonthFrom, yearAndMonthTo, allYear,mode,id,customerId));
 			result = (List<Object[]>) query.list();
 		} catch (Exception e) {
 			e.printStackTrace();

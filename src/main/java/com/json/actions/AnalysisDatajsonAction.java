@@ -67,10 +67,7 @@ public class AnalysisDatajsonAction extends ActionSupport {
 			percentAsset = analysisBuyAsset.getValuesPieAsset(
 					yearAndMonth(toYearII, Integer.parseInt(fromMonth)),
 					yearAndMonth(toYearII, Integer.parseInt(toMonth)));
-			dateSelect = "From "
-					+ yearAndMonth(toYearII, Integer.parseInt(fromMonth))
-					+ " To "
-					+ yearAndMonth(toYearII, Integer.parseInt(toMonth));
+			dateSelect = "From "+fromMonth+","+toYearII+ " To "+toMonth+","+toYearII;
 		}
 		return Action.SUCCESS;
 	}

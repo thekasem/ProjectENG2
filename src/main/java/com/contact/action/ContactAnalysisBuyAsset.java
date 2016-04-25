@@ -35,20 +35,20 @@ public class ContactAnalysisBuyAsset implements IAnalysisBuyAssetController{
 		return analysisBuyAssetController.getValuesPieAsset(fromDate, toDate);
 	}
 
-	public List<Double> getValuesCustomer() {
-		return analysisBuyAssetController.getValuesCustomer();
+	public List<Double> getValuesCustomer(String id, char mode) {
+		return analysisBuyAssetController.getValuesCustomer(id,mode);
 	}
 
-	public List<Double> getvaluesCustomer(String fromDate, String toDate) {
-		return analysisBuyAssetController.getvaluesCustomer(fromDate, toDate);
+	public List<Double> getvaluesCustomer(String fromDate, String toDate, String id, char mode) {
+		return analysisBuyAssetController.getvaluesCustomer(fromDate, toDate, id, mode);
 	}
 
-	public List<Double> getvaluesAsset() {
-		return analysisBuyAssetController.getvaluesAsset();
+	public List<Double> getvaluesAsset(String id, char mode) {
+		return analysisBuyAssetController.getvaluesAsset(id, mode);
 	}
 
-	public List<Double> getValuesAsset(String fromDate, String toDate) {
-		return analysisBuyAssetController.getValuesAsset(fromDate, toDate);
+	public List<Double> getValuesAsset(String fromDate, String toDate, String id, char mode) {
+		return analysisBuyAssetController.getValuesAsset(fromDate, toDate, id, mode);
 	}
 
 	public List<Double> getValuesPieEachCustomer(String assetId) {
@@ -69,22 +69,22 @@ public class ContactAnalysisBuyAsset implements IAnalysisBuyAssetController{
 		return analysisBuyAssetController.getValuesPieEachAsset(fromDate, toDate, customerId);
 	}
 
-	public List<Double> getValuesEachCustomer(String assetId) {
-		return analysisBuyAssetController.getValuesEachCustomer(assetId);
+	public List<Double> getValuesEachCustomer(String assetId, String id, char mode) {
+		return analysisBuyAssetController.getValuesEachCustomer(assetId, id, mode);
 	}
 
 	public List<Double> getvaluesEachCustomer(String fromDate, String toDate,
-			String assetId) {
-		return analysisBuyAssetController.getvaluesEachCustomer(fromDate, toDate, assetId);
+			String assetId, String id, char mode) {
+		return analysisBuyAssetController.getvaluesEachCustomer(fromDate, toDate, assetId, id, mode);
 	}
 
-	public List<Double> getvaluesEachAsset(String customerId) {
-		return analysisBuyAssetController.getvaluesEachAsset(customerId);
+	public List<Double> getvaluesEachAsset(String customerId, String id, char mode) {
+		return analysisBuyAssetController.getvaluesEachAsset(customerId, id, mode);
 	}
 
 	public List<Double> getValuesEachAsset(String fromDate, String toDate,
-			String customerId) {
-		return analysisBuyAssetController.getValuesEachAsset(fromDate, toDate, customerId);
+			String customerId, String id, char mode) {
+		return analysisBuyAssetController.getValuesEachAsset(fromDate, toDate, customerId, id, mode);
 	}
 
 	
