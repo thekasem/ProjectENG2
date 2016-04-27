@@ -28,12 +28,14 @@ public class BuyAssetDao implements IBuyAssetDao {
 	private String commandSQLTypeAsset(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, char each , String id, String customerId){
 		String command = "";
 		if(allYear){
-			command = "SELECT SUM( buyasset.valueaoc ) , asset.typeassetid "
-					+ "FROM buyasset left outer JOIN asset ON buyasset.assetid = asset.assetid ";
+			command = "SELECT y.sum, t.typeassetid FROM typeasset AS t "
+					+ "LEFT JOIN ( SELECT SUM( buyasset.valueaoc ) AS sum, asset.typeassetid "
+					+ "FROM asset LEFT OUTER JOIN buyasset ON asset.assetid = buyasset.assetid ";
 					
 		}else{
-			command = "SELECT SUM( buyasset.valueaoc ) , asset.typeassetid "
-					+ "FROM buyasset left outer JOIN asset ON buyasset.assetid = asset.assetid "
+			command = "SELECT y.sum, t.typeassetid FROM typeasset AS t "
+					+ "LEFT JOIN ( SELECT SUM( buyasset.valueaoc ) AS sum, asset.typeassetid "
+					+ "FROM asset LEFT OUTER JOIN buyasset ON asset.assetid = buyasset.assetid "
 					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31'";
 		}
 		if (each=='1'){
@@ -44,7 +46,7 @@ public class BuyAssetDao implements IBuyAssetDao {
 			command = command + " and buyasset.customerid = "+ customerId;
 			command = command + " and asset.typeassetid = "+ id;
 		}
-		command = command + " GROUP BY asset.typeassetid ORDER BY asset.typeassetid ASC";
+		command = command + " GROUP BY asset.typeassetid ORDER BY asset.typeassetid ASC ) AS y ON t.typeassetid = y.typeassetid ";
 		return command;
 	}
 
@@ -65,11 +67,13 @@ public class BuyAssetDao implements IBuyAssetDao {
 	private String commandSQLTypeCustomer(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, char each, String id, String assetId){
 		String command = "";
 		if(allYear){
-			command = "SELECT SUM( buyasset.valueaoc ) , customer.typecustomerid "
-					+ "FROM buyasset left outer JOIN customer ON buyasset.customerid = customer.customerid ";
+			command = "SELECT y.sum, t.typecustomerid FROM typecustomer AS t "
+					+ "LEFT JOIN ( SELECT SUM( buyasset.valueaoc ) AS sum, customer.typecustomerid "
+					+ "FROM customer LEFT OUTER JOIN buyasset ON customer.customerid = buyasset.customerid ";
 		}else{
-			command = "SELECT SUM( buyasset.valueaoc ) , customer.typecustomerid "
-					+ "FROM buyasset left outer JOIN customer ON buyasset.customerid = customer.customerid "
+			command = "SELECT y.sum, t.typecustomerid FROM typecustomer AS t "
+					+ "LEFT JOIN ( SELECT SUM( buyasset.valueaoc ) AS sum, customer.typecustomerid "
+					+ "FROM customer LEFT OUTER JOIN buyasset ON customer.customerid = buyasset.customerid "
 					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31'";
 		}
 		if (each == '1'){
@@ -80,7 +84,7 @@ public class BuyAssetDao implements IBuyAssetDao {
 			command = command + " and customer.typecustomerid = " + id;
 			command = command + " and buyasset.assetid = "+ assetId;
 		}
-		 command = command + " GROUP BY customer.typecustomerid ORDER BY customer.customerid ASC";
+		 command = command + " GROUP BY customer.typecustomerid ORDER BY customer.typecustomerid ASC ) AS y ON t.typecustomerid = y.typecustomerid";
 		
 		return command;
 	}
