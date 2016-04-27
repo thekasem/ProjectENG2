@@ -16,11 +16,9 @@ public class TestDao {
 		List<Object[]> result = null;
 		try {
 //			Query query = sessionB.createQuery("SELECT DISTINCT browser from ActivityLogMini ");   //select  sum(usigTime), memberId  from ActivityLogMini where logDate between '20150101' and '20150131' and memberId =1 Group by logDate, memberId 
-			Query query = sessionB.createSQLQuery("SELECT y.sum, t.typecustomerid FROM typecustomer AS t "
-					+ "LEFT JOIN ( SELECT SUM( buyasset.valueaoc ) AS sum, customer.typecustomerid "
-					+ "FROM customer LEFT OUTER JOIN buyasset ON customer.customerid = buyasset.customerid "
-					+ "WHERE aocdate BETWEEN  '20080101' AND  '20080131' "
-					+ "GROUP BY customer.typecustomerid ORDER BY customer.typecustomerid ASC ) AS y ON t.typecustomerid = y.typecustomerid"); 
+			Query query = sessionB.createSQLQuery("SELECT SUM( buyasset.valueaoc ) , customer.typecustomerid "
+					+ "FROM buyasset left outer JOIN customer ON buyasset.customerid = customer.customerid "
+					+ "GROUP BY customer.typecustomerid ORDER BY customer.customerid ASC"); 
 			
 //			query.setFirstResult(0);
 //			query.setMaxResults(8);
