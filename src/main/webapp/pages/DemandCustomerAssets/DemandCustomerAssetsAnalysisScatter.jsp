@@ -73,7 +73,7 @@
 								
 								<div class="col-md-2">
 									<div class="has-feedback">
-										<s:select id="selecttime" headerKey="-1" class="form-control"
+										<s:select id="selecttime" headerKey="-1" class="form-control changeselect"
 											list="#{'1':'All Year', '2':'Year', '3':'Month'}"
 											name="selecttime" value="1" />
 										<span class="fa fa-calendar form-control-feedback"></span>
@@ -84,7 +84,7 @@
 									<label class="col-md-1 control-label">From Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select id="top-module" class="form-control" headerKey="-1"
+											<s:select id="fromyear" class="form-control changeselect" headerKey="-1"
 												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
@@ -93,7 +93,7 @@
 									<label class="col-md-1 control-label">To Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select id="top-module" class="form-control" headerKey="-1"
+											<s:select id="toyear" class="form-control changeselect" headerKey="-1"
 												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
@@ -103,7 +103,7 @@
 									<label class="col-md-1 control-label">From Month :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="selectfrommonth form-control" headerKey="-1"
+											<s:select id="frommonth" class="selectfrommonth form-control changeselect" headerKey="-1"
 												list="#{'1':'January', '2':'February', '3':'March', '4':'April', '5':'May', '6':'June', '7':'July', '8':'August', '9':'September', '10':'October', '11':'November', '12':'December'}"
 												name="selectfrommonth" value="1" />
 											<span class="fa fa-calendar form-control-feedback"></span>
@@ -113,7 +113,7 @@
 									<label class="col-md-1 control-label">To Month :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select class="selectfrommonth form-control" headerKey="-1"
+											<s:select id="tomonth" class="selectfrommonth form-control changeselect" headerKey="-1"
 												list="#{'1':'January', '2':'February', '3':'March', '4':'April', '5':'May', '6':'June', '7':'July', '8':'August', '9':'September', '10':'October', '11':'November', '12':'December'}"
 												name="selectfrommonth" value="1" />
 											<span class="fa fa-calendar form-control-feedback"></span>
@@ -123,7 +123,7 @@
 									<label class="col-md-1 control-label">To Year :</label>
 									<div class="col-md-2">
 										<div class="has-feedback">
-											<s:select id="top-module" class="form-control" headerKey="-1"
+											<s:select id="toyear2" class="form-control changeselect" headerKey="-1"
 												list="listYears" name="year" />
 											<span class="fa fa-calendar form-control-feedback"></span>
 										</div>
@@ -158,7 +158,7 @@
 		<s:include value="/pages/Menu/footer.jsp"></s:include>
 	</div>
 	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		src="calendar/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
 	<script src="js/highcharts.js"></script>
 	<script src="js/exporting.js"></script>
 	<script src="js/highcharts-3d.js"></script>

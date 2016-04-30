@@ -60,10 +60,10 @@
 		<action name="getJSONResult" class="com.mkyong.common.action.JSONDataAction" method="execute">
 			<result type="json" />
 		</action>
-		<action name="analysisDataJSON" class="com.json.actions.AnalysisDatajsonAction" method="getDataPieCustomer">
+		<action name="analysisPieDataJSON" class="com.json.actions.AnalysisPieDatajsonAction" method="getDataPieCustomer">
 			<result type="json" />
 		</action>
-		<action name="analysisLineDataJSON" class="com.json.actions.AnalysisLineDataJsonAction" method="getDataCustomer">
+		<action name="analysisDataJSON" class="com.json.actions.AnalysisDataJsonAction" method="getDataCustomer">
 			<result type="json" />
 		</action>
 		

@@ -33,7 +33,7 @@ function showDataGraphPie() {
 	$
 			.ajax({
 				type : "GET",
-				url : 'analysisDataJSON.action',
+				url : 'analysisPieDataJSON.action',
 				data : {
 					selectTime : selecttime,
 					fromYear : fromyear,

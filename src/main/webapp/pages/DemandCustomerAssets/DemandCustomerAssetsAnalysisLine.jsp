@@ -159,7 +159,7 @@
 		<s:include value="/pages/Menu/footer.jsp"></s:include>
 	</div>
 	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		src="calendar/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
 	<script src="js/highcharts.js"></script>
 	<script src="js/exporting.js"></script>
 	<script src="js/highcharts-3d.js"></script>
@@ -173,7 +173,6 @@
 	<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 	<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 	<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-	<script src="plugins/chartjs/Chart.min.js"></script>
 	<script src="dist/js/demo.js"></script>
 </body>
 </html>

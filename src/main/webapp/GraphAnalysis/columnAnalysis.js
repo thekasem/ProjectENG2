@@ -1,144 +1,185 @@
-$(function () {
-    $('#columnanalysis').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Assets'
-        },
-        subtitle: {
-            text: ''
-        },
-        xAxis: {
-            categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
-            ],
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Rainfall (mm)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: 'Foreign stocks',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+var selecttime = "";
+var fromyear = "";
+var toyear = "";
+var frommonth = "";
+var tomonth = "";
+var toyearII = "";
+var textName = "";
 
-        }, {
-            name: 'Exchange rate',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+var dateList = [];
 
-        }, {
-            name: 'Gold',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+var person = [];
+var corperation = [];
+var stocks = [];
+var exchange = [];
+var gold = [];
+var land = [];
+var oil = [];
+var bulding = [];
+var equipment = [];
+var mine = [];
 
-        }, {
-            name: 'Land',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-        }, {
-            name: 'Oil',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-        }, {
-            name: 'Bulding',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-        }, {
-            name: 'Equipment',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-        }, {
-            name: 'Mine',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-        }]
-    });
-    
-    $('#columnanalysisperson').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Customers'
-        },
-        subtitle: {
-            text: ''
-        },
-        xAxis: {
-            categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
-            ],
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Rainfall (mm)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: 'Personal',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-        }, {
-            name: 'Corporation',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-        }]
-    });
-    
-    
-    
+$(function() {
+	selecttime = $('#selecttime').val();
+	showDataGraphColumn();
 });
+
+$('.changeselect').change(function() {
+	selecttime = $('#selecttime').val();
+	fromyear = $('#fromyear').val();
+	toyear = $('#toyear').val();
+	frommonth = $('#frommonth').val();
+	tomonth = $('#tomonth').val();
+	toyearII = $('#toyear2').val();
+
+	showDataGraphColumn();
+});
+
+function showDataGraphColumn() {
+
+	$.ajax({
+		type : "GET",
+		url : 'analysisDataJSON.action',
+		data : {
+			selectTime : selecttime,
+			fromYear : fromyear,
+			toYear : toyear,
+			fromMonth : frommonth,
+			toMonth : tomonth,
+			toYearII : toyearII
+		},
+		success : function(response) {
+			
+			dateList = response.dateList;
+			
+			person = response.person;
+			corperation = response.corperation;
+			stocks = response.stocks;
+			exchange = response.exchange;
+			gold = response.gold;
+			land = response.land;
+			oil = response.oil;
+			bulding = response.bulding;
+			equipment = response.equipment;
+			mine = response.mine;
+			textName = response.dateSelect;
+			
+			$('#columnanalysis').highcharts({
+		        chart: {
+		            type: 'column'
+		        },
+		        title: {
+		            text: 'Assets'
+		        },
+		        subtitle: {
+		            text: 'Assets '+ textName
+		        },
+		        xAxis: {
+		            categories: dateList,
+		            crosshair: true
+		        },
+		        yAxis: {
+		            min: 0,
+		            title: {
+		                text: 'unit'
+		            }
+		        },
+		        tooltip: {
+		            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+		            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		                '<td style="padding:0"><b>{point.y:.2f} mm</b></td></tr>',
+		            footerFormat: '</table>',
+		            shared: true,
+		            useHTML: true
+		        },
+		        plotOptions: {
+		            column: {
+		                pointPadding: 0.2,
+		                borderWidth: 0
+		            }
+		        },
+		        series: [{
+		            name: 'Foreign stocks',
+		            data: stocks
+
+		        }, {
+		            name: 'Exchange rate',
+		            data: exchange
+
+		        }, {
+		            name: 'Gold',
+		            data: gold
+
+		        }, {
+		            name: 'Land',
+		            data: land
+
+		        }, {
+		            name: 'Oil',
+		            data: oil
+
+		        }, {
+		            name: 'Bulding',
+		            data: bulding
+
+		        }, {
+		            name: 'Equipment',
+		            data: equipment
+
+		        }, {
+		            name: 'Mine',
+		            data: mine
+
+		        }]
+		    });
+		    
+		    $('#columnanalysisperson').highcharts({
+		        chart: {
+		            type: 'column'
+		        },
+		        title: {
+		            text: 'Customers'
+		        },
+		        subtitle: {
+		            text: 'Assets '+ textName
+		        },
+		        xAxis: {
+		            categories: dateList,
+		            crosshair: true
+		        },
+		        yAxis: {
+		            min: 0,
+		            title: {
+		                text: 'unit'
+		            }
+		        },
+		        tooltip: {
+		            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+		            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		                '<td style="padding:0"><b>{point.y:.2f} mm</b></td></tr>',
+		            footerFormat: '</table>',
+		            shared: true,
+		            useHTML: true
+		        },
+		        plotOptions: {
+		            column: {
+		                pointPadding: 0.2,
+		                borderWidth: 0
+		            }
+		        },
+		        series: [{
+		            name: 'Personal',
+		            data: person
+
+		        }, {
+		            name: 'Corporation',
+		            data: corperation
+
+		        }]
+		    });
+		},
+		error : function(e) {
+			alert('Error: ' + e);
+		}
+	});
+}

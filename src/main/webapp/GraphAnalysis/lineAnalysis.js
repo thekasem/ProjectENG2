@@ -21,7 +21,7 @@ var mine = [];
 
 $(function() {
 	selecttime = $('#selecttime').val();
-	showDataGraphPie();
+	showDataGraphLine();
 });
 
 $('.changepie').change(function() {
@@ -32,14 +32,14 @@ $('.changepie').change(function() {
 	tomonth = $('#tomonth').val();
 	toyearII = $('#toyear2').val();
 
-	showDataGraphPie();
+	showDataGraphLine();
 });
 
-function showDataGraphPie() {
+function showDataGraphLine() {
 
 	$.ajax({
 		type : "GET",
-		url : 'analysisLineDataJSON.action',
+		url : 'analysisDataJSON.action',
 		data : {
 			selectTime : selecttime,
 			fromYear : fromyear,

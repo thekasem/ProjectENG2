@@ -13,7 +13,7 @@ import com.contact.action.ContactBuyAsset;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AnalysisDatajsonAction extends ActionSupport {
+public class AnalysisPieDatajsonAction extends ActionSupport {
 
 	private String selectTime;
 	private String fromYear;
