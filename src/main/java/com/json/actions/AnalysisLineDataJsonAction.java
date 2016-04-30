@@ -1,5 +1,6 @@
 package com.json.actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -58,28 +59,31 @@ public class AnalysisLineDataJsonAction extends ActionSupport {
 	}
 
 	public String getDataCustomer() {
+		
+		person = new ArrayList<Double>();
+		corperation = new ArrayList<Double>();
+		stocks = new ArrayList<Double>();
+		exchange = new ArrayList<Double>();
+		gold = new ArrayList<Double>();
+		land = new ArrayList<Double>();
+		oil = new ArrayList<Double>();
+		bulding = new ArrayList<Double>();
+		equipment = new ArrayList<Double>();
+		mine = new ArrayList<Double>();
+		
 		ContactController();
 		userNameLogin = (String) session.getAttribute("user");
+		dateList = analysisBuyAsset.getDateList(selectTime, fromYear, toYear, fromMonth, toMonth, toYearII);
+		List<Object[]> listCustomer = analysisBuyAsset.getValueCutomer(dateList, selectTime);
+		List<Object[]> listAsset = analysisBuyAsset.getValueAsset(dateList, selectTime);
+		getCustomer(listCustomer);
+		getAsset(listAsset);
+		
 		if (selectTime.trim().equals("1")) {
-			ListDataShowContI();
-//			valueCustomer = analysisBuyAsset.getValuesCustomer();
-//			valuetAsset = analysisBuyAsset.getvaluesAsset();
 			dateSelect = "AllYear";
 		} else if (selectTime.trim().equals("2")) {
-			ListDataShowContII();
-//			valueCustomer = analysisBuyAsset.getvaluesCustomer(fromYear + "01",
-//					toYear + "12");
-//			valuetAsset = analysisBuyAsset.getValuesAsset(fromYear + "01",
-//					toYear + "12");
 			dateSelect = "From " + fromYear + " To " + toYear;
 		} else if (selectTime.trim().equals("3")) {
-			ListDataShowContIII();
-//			valueCustomer = analysisBuyAsset.getvaluesCustomer(
-//					yearAndMonth(toYearII, Integer.parseInt(fromMonth)),
-//					yearAndMonth(toYearII, Integer.parseInt(toMonth)));
-//			valuetAsset = analysisBuyAsset.getValuesAsset(
-//					yearAndMonth(toYearII, Integer.parseInt(fromMonth)),
-//					yearAndMonth(toYearII, Integer.parseInt(toMonth)));
 			dateSelect = "From "+fromMonth+","+toYearII+ " To "+toMonth+","+toYearII;
 		}
 		
@@ -162,45 +166,24 @@ public class AnalysisLineDataJsonAction extends ActionSupport {
 		return dateList;
 	}
 
-	private void ListDataShowContI() {
-		person = analysisBuyAsset.getValuesCustomer("1", '2');
-		corperation = analysisBuyAsset.getValuesCustomer("2", '2');
-		stocks = analysisBuyAsset.getvaluesAsset("1", '2');
-		exchange = analysisBuyAsset.getvaluesAsset("2", '2');
-		gold = analysisBuyAsset.getvaluesAsset("3", '2');
-		land = analysisBuyAsset.getvaluesAsset("4", '2');
-		oil = analysisBuyAsset.getvaluesAsset("5", '2');
-		bulding = analysisBuyAsset.getvaluesAsset("6", '2');
-		equipment = analysisBuyAsset.getvaluesAsset("7", '2');
-		mine = analysisBuyAsset.getvaluesAsset("8", '2');
+	private void getCustomer(List<Object[]> listCustomer){
+		for(Object[] result:listCustomer){
+			person.add(Double.parseDouble(result[0]+""));
+			corperation.add(Double.parseDouble(result[1]+""));
+		}
 	}
-
-	private void ListDataShowContII() {
-		person = analysisBuyAsset.getvaluesCustomer(fromYear + "01",toYear + "12", "1", '2');
-		corperation = analysisBuyAsset.getvaluesCustomer(fromYear + "01",toYear + "12", "2", '2');
-		stocks = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "1", '2');
-		exchange = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "2", '2');
-		gold = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "3", '2');
-		land = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "4", '2');
-		oil = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "5", '2');
-		bulding = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "6", '2');
-		equipment = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "7", '2');
-		mine = analysisBuyAsset.getValuesAsset(fromYear + "01",toYear + "12", "8", '2');
-
-	}
-
-	private void ListDataShowContIII() {
-		person = null;
-		corperation = null;
-		stocks = null;
-		exchange = null;
-		gold = null;
-		land = null;
-		oil = null;
-		bulding = null;
-		equipment = null;
-		mine = null;
-
+	
+	private void getAsset(List<Object[]> listAsset){
+		for(Object[] result: listAsset){
+			stocks.add(Double.parseDouble(result[0]+""));
+			exchange.add(Double.parseDouble(result[1]+""));
+			gold.add(Double.parseDouble(result[2]+""));
+			land.add(Double.parseDouble(result[3]+""));
+			oil.add(Double.parseDouble(result[4]+""));
+			bulding.add(Double.parseDouble(result[5]+""));
+			equipment.add(Double.parseDouble(result[6]+""));
+			mine.add(Double.parseDouble(result[7]+""));
+		}
 	}
 
 }

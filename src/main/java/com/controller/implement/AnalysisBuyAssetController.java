@@ -92,36 +92,6 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 		return result;
 	}
 
-	public List<Double> getValuesCustomer(String id, char mode) {
-		List<Object[]> values = buyAssetDao.getSumTypeCustomerValues("", "",
-				true, id, mode);
-		List<Double> result = convertToListDouble(values);
-		return result;
-	}
-
-	public List<Double> getvaluesCustomer(String fromDate, String toDate,
-			String id, char mode) {
-		List<Object[]> values = buyAssetDao.getSumTypeCustomerValues(fromDate,
-				toDate, false, id, mode);
-		List<Double> result = convertToListDouble(values);
-		return result;
-	}
-
-	public List<Double> getvaluesAsset(String id, char mode) {
-		List<Object[]> values = buyAssetDao.getSumTypeAssetValues("", "", true,
-				id, mode);
-		List<Double> result = convertToListDouble(values);
-		return result;
-	}
-
-	public List<Double> getValuesAsset(String fromDate, String toDate,
-			String id, char mode) {
-		List<Object[]> values = buyAssetDao.getSumTypeAssetValues(fromDate,
-				toDate, false, id, mode);
-		List<Double> result = convertToListDouble(values);
-		return result;
-	}
-
 	public List<Double> getValuesPieEachCustomer(String assetId) {
 		List<Object[]> values = buyAssetDao.getSumValuesByCustomer("", "",
 				true, assetId, "", '3');
@@ -183,5 +153,131 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 		List<Double> result = convertToListDouble(values);
 		return result;
 	}
+
+	public List<String> getDateList(String selectTime, String fromYear,
+			String toYear, String fromMonth, String toMonth, String toYearII) {
+		List<String> result = new ArrayList<String>();
+		if (selectTime.trim().equals("1")) {
+			result = buyAssetDao.getListYear();
+
+		} else if (selectTime.trim().equals("2")) {
+			int dateQuartar = Math.abs(Integer.parseInt(toYear.trim()) - Integer.parseInt(fromYear.trim()));
+			if (Integer.parseInt(toYear) >= Integer.parseInt(fromYear)) {
+				for (int i = 0; i < dateQuartar; i++) {
+					int y=0;
+					int fromYEAR =Integer.parseInt(fromYear)+i;
+					for (y = 1; y <= 4; y++) {
+						result.add(yearAndMonth(fromYEAR+"", y * 3));
+					}
+				}
+			} else if (Integer.parseInt(toYear) < Integer.parseInt(fromYear)) {
+				for (int i = dateQuartar; i >= 0; i++) {
+					int y=4;
+					int toYEAR =Integer.parseInt(toYear)+i;
+					for (y = 4; y >= 1; y--) {
+						result.add(yearAndMonth(toYEAR+"", y / 3));
+					}
+				}
+			}
+
+		} else if (selectTime.trim().equals("3")) {
+			int temp = Math.abs(Integer.parseInt(toMonth)- Integer.parseInt(fromMonth));
+			
+			if (Integer.parseInt(toMonth) > Integer.parseInt(fromMonth)) {
+				for (int i = 0; i < temp; i++) {
+					result.add(yearAndMonth(toYearII,
+							(Integer.parseInt(fromMonth)) + i)
+							+ "");
+				}
+			} else if (Integer.parseInt(toMonth) < Integer.parseInt(fromMonth)) {
+				for (int i = temp; i > 0; i--) {
+					result.add(yearAndMonth(toYearII,
+							(Integer.parseInt(toMonth)) - i)
+							+ "");
+				}
+			}
+		}
+		return result;
+	}
+
+	public List<Object[]> getValueCutomer(List<String> dateList,
+			String selectTime) {
+		List<Object[]> result = new ArrayList<Object[]>();
+		for (String date : dateList) {
+			List<Object[]> listSumTypeCustomer = new ArrayList<Object[]>();
+
+			if (selectTime.trim().equals("1")) {
+				listSumTypeCustomer = buyAssetDao.getSumTypeCustomerValues(date
+						+ "01", date + "12", false, "", '3');
+			} else if (selectTime.trim().equals("2")) {
+				listSumTypeCustomer = buyAssetDao
+						.getSumTypeCustomerValues((Integer.parseInt(date) - 3)
+								+ "", date, false, "", '3');
+			} else if (selectTime.trim().equals("3")) {
+				listSumTypeCustomer = buyAssetDao.getSumTypeCustomerValues(
+						date, date, false, "", '3');
+			}
+
+			Object[] temp = new Object[listSumTypeCustomer.size()];
+			int i = 0;
+			for (Object[] results : listSumTypeCustomer) {
+				if (results[0] != null) {
+					temp[i] = results[0];
+				} else {
+					temp[i] = 0;
+				}
+				i++;
+			}
+			result.add(temp);
+
+		}
+		return result;
+	}
+
+	public List<Object[]> getValueAsset(List<String> dateList, String selectTime) {
+		List<Object[]> result = new ArrayList<Object[]>();
+		for (String date : dateList) {
+			List<Object[]> listSumTypeAsset = new ArrayList<Object[]>();
+
+			if (selectTime.trim().equals("1")) {
+				listSumTypeAsset = buyAssetDao.getSumTypeAssetValues(date
+						+ "01", date + "12", false, "", '3');
+			} else if (selectTime.trim().equals("2")) {
+				listSumTypeAsset = buyAssetDao
+						.getSumTypeAssetValues((Integer.parseInt(date) - 3)
+								+ "", date, false, "", '3');
+			} else if (selectTime.trim().equals("3")) {
+				listSumTypeAsset = buyAssetDao.getSumTypeAssetValues(date,
+						date, false, "", '3');
+			}
+
+			Object[] temp = new Object[listSumTypeAsset.size()];
+			int i = 0;
+			for (Object[] results : listSumTypeAsset) {
+				if (results[0] != null) {
+					temp[i] = results[0];
+				} else {
+					temp[i] = 0;
+				}
+				i++;
+			}
+			result.add(temp);
+
+		}
+		return result;
+	}
+
+	/*
+	 * public List<Object[]> getValueCutomer(String selectTime, String fromYear,
+	 * String toYear, String fromMonth, String toMonth, String toYearII) {
+	 * List<Object[]> result = new ArrayList<Object[]>();
+	 * if(selectTime.trim().equals("1")){
+	 * 
+	 * }else if(selectTime.trim().equals("2")){
+	 * 
+	 * }else if(selectTime.trim().equals("3")){
+	 * 
+	 * } return result; }
+	 */
 
 }

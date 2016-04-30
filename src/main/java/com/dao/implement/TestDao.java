@@ -57,7 +57,6 @@ public class TestDao {
 			System.out.println(te[0]+" \t"+te[1]);
 		}
        System.out.println("total count record : "+ result +" record");
-		
 	}
 
 }

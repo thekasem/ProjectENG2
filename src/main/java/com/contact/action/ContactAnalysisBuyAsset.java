@@ -35,21 +35,6 @@ public class ContactAnalysisBuyAsset implements IAnalysisBuyAssetController{
 		return analysisBuyAssetController.getValuesPieAsset(fromDate, toDate);
 	}
 
-	public List<Double> getValuesCustomer(String id, char mode) {
-		return analysisBuyAssetController.getValuesCustomer(id,mode);
-	}
-
-	public List<Double> getvaluesCustomer(String fromDate, String toDate, String id, char mode) {
-		return analysisBuyAssetController.getvaluesCustomer(fromDate, toDate, id, mode);
-	}
-
-	public List<Double> getvaluesAsset(String id, char mode) {
-		return analysisBuyAssetController.getvaluesAsset(id, mode);
-	}
-
-	public List<Double> getValuesAsset(String fromDate, String toDate, String id, char mode) {
-		return analysisBuyAssetController.getValuesAsset(fromDate, toDate, id, mode);
-	}
 
 	public List<Double> getValuesPieEachCustomer(String assetId) {
 		return analysisBuyAssetController.getValuesPieEachCustomer(assetId);
@@ -86,6 +71,21 @@ public class ContactAnalysisBuyAsset implements IAnalysisBuyAssetController{
 			String customerId, String id, char mode) {
 		return analysisBuyAssetController.getValuesEachAsset(fromDate, toDate, customerId, id, mode);
 	}
+
+	public List<String> getDateList(String selectTime, String fromYear,
+			String toYear, String fromMonth, String toMonth, String toYearII) {
+		return analysisBuyAssetController.getDateList(selectTime, fromYear, toYear, fromMonth, toMonth, toYearII);
+	}
+
+	public List<Object[]> getValueCutomer(List<String> dateList, String selectTime) {
+		return analysisBuyAssetController.getValueCutomer(dateList, selectTime);
+	}
+
+	public List<Object[]> getValueAsset(List<String> dateList, String selectTime) {
+		return analysisBuyAssetController.getValueAsset(dateList, selectTime);
+	}
+
+
 
 	
 }

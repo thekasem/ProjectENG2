@@ -12,13 +12,11 @@ public interface IAnalysisBuyAssetController {
 	
 	public List<Double> getValuesPieAsset(String fromDate, String toDate);
 	
-	public List<Double> getValuesCustomer(String id, char mode);
+	public List<String> getDateList(String selectTime, String fromYear, String toYear, String fromMonth, String toMonth, String toYearII);
 	
-	public List<Double> getvaluesCustomer(String fromDate, String toDate, String id, char mode);
+	public List<Object[]> getValueCutomer(List<String> dateList, String selectTime);
 	
-	public List<Double> getvaluesAsset(String id, char mode);
-	
-	public List<Double> getValuesAsset(String fromDate, String toDate, String id, char mode);
+	public List<Object[]> getValueAsset(List<String> dateList, String selectTime);
 	
 	public List<Double> getValuesPieEachCustomer(String assetId);
 	
