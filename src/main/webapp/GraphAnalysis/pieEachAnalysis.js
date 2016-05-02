@@ -62,7 +62,7 @@ function showDataGraphPieCustomer() {
 											type : 'pie'
 										},
 										title : {
-											text : 'Customers ' + textName
+											text : 'Customers of assetId :'+assetid+" on " + textName
 										},
 										tooltip : {
 											pointFormat : '{series.name}: <b>{point.percentage:.2f}%</b>'
@@ -128,7 +128,7 @@ function showDataGraphPieAsset() {
 											type : 'pie'
 										},
 										title : {
-											text : 'Assets Id ' + textName
+											text : 'Assets of CutomerId : '+customerid+" on " + textName
 										},
 										tooltip : {
 											pointFormat : '{series.name}: <b>{point.percentage:.2f}%</b>'
