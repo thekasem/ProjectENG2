@@ -66,35 +66,37 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 
 	public List<Double> getValuesPieCustomer() {
 		List<Object[]> values = buyAssetDao.getSumTypeCustomerValues("", "",
-				true, "", '3');
+				true, '3');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
 
 	public List<Double> getValuesPieCustomer(String fromDate, String toDate) {
 		List<Object[]> values = buyAssetDao.getSumTypeCustomerValues(fromDate,
-				toDate, false, "", '3');
+				toDate, false, '3');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
 
 	public List<Double> getValuesPieAsset() {
 		List<Object[]> values = buyAssetDao.getSumTypeAssetValues("", "", true,
-				"", '3');
+				'3');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
 
 	public List<Double> getValuesPieAsset(String fromDate, String toDate) {
 		List<Object[]> values = buyAssetDao.getSumTypeAssetValues(fromDate,
-				toDate, false, "", (char) 3);
+				toDate, false, '3');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
 
 	public List<Double> getValuesPieEachCustomer(String assetId) {
-		List<Object[]> values = buyAssetDao.getSumValuesByCustomer("", "",
-				true, assetId, "", '3');
+		List<String> listDate = buyAssetDao.getListYear();
+		List<Object[]> values = buyAssetDao.getSumValuesByCustomer(
+				listDate.get(0)+"01", listDate.get(listDate.size()-1)+"12", false, assetId,
+				'1');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
@@ -102,14 +104,16 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	public List<Double> getValuesPieEachCustomer(String fromDate,
 			String toDate, String assetId) {
 		List<Object[]> values = buyAssetDao.getSumValuesByCustomer(fromDate,
-				toDate, false, assetId, "", '3');
+				toDate, false, assetId, '1');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
 
 	public List<Double> getValuesPieEachAsset(String customerId) {
-		List<Object[]> values = buyAssetDao.getSumValuesByAsset("", "", true,
-				customerId, "", '3');
+		List<String> listDate = buyAssetDao.getListYear();
+		List<Object[]> values = buyAssetDao.getSumValuesByAsset(
+				listDate.get(0)+"01", listDate.get(listDate.size()-1)+"12", false,
+				customerId, '1');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
@@ -117,7 +121,7 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	public List<Double> getValuesPieEachAsset(String fromDate, String toDate,
 			String customerId) {
 		List<Object[]> values = buyAssetDao.getSumValuesByAsset(fromDate,
-				toDate, false, customerId, "", '3');
+				toDate, false, customerId, '1');
 		List<Double> result = percentOfValues(values);
 		return result;
 	}
@@ -125,7 +129,7 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	public List<Double> getValuesEachCustomer(String assetId, String id,
 			char mode) {
 		List<Object[]> values = buyAssetDao.getSumValuesByCustomer("", "",
-				true, assetId, id, mode);
+				true, assetId, '1');
 		List<Double> result = convertToListDouble(values);
 		return result;
 	}
@@ -133,7 +137,7 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	public List<Double> getvaluesEachCustomer(String fromDate, String toDate,
 			String assetId, String id, char mode) {
 		List<Object[]> values = buyAssetDao.getSumValuesByCustomer(fromDate,
-				toDate, false, assetId, id, mode);
+				toDate, false, assetId, mode);
 		List<Double> result = convertToListDouble(values);
 		return result;
 	}
@@ -141,7 +145,7 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	public List<Double> getvaluesEachAsset(String customerId, String id,
 			char mode) {
 		List<Object[]> values = buyAssetDao.getSumValuesByAsset("", "", false,
-				customerId, id, mode);
+				customerId, mode);
 		List<Double> result = convertToListDouble(values);
 		return result;
 	}
@@ -149,7 +153,7 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 	public List<Double> getValuesEachAsset(String fromDate, String toDate,
 			String customerId, String id, char mode) {
 		List<Object[]> values = buyAssetDao.getSumValuesByAsset(fromDate,
-				toDate, false, customerId, id, mode);
+				toDate, false, customerId, mode);
 		List<Double> result = convertToListDouble(values);
 		return result;
 	}
@@ -161,28 +165,30 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 			result = buyAssetDao.getListYear();
 
 		} else if (selectTime.trim().equals("2")) {
-			int dateQuartar = Math.abs(Integer.parseInt(toYear.trim()) - Integer.parseInt(fromYear.trim()));
+			int dateQuartar = Math.abs(Integer.parseInt(toYear.trim())
+					- Integer.parseInt(fromYear.trim())) + 1;
 			if (Integer.parseInt(toYear) >= Integer.parseInt(fromYear)) {
 				for (int i = 0; i < dateQuartar; i++) {
-					int y=0;
-					int fromYEAR =Integer.parseInt(fromYear)+i;
+					int y = 0;
+					int fromYEAR = Integer.parseInt(fromYear) + i;
 					for (y = 1; y <= 4; y++) {
-						result.add(yearAndMonth(fromYEAR+"", y * 3));
+						result.add(yearAndMonth(fromYEAR + "", y * 3));
 					}
 				}
 			} else if (Integer.parseInt(toYear) < Integer.parseInt(fromYear)) {
 				for (int i = dateQuartar; i >= 0; i++) {
-					int y=4;
-					int toYEAR =Integer.parseInt(toYear)+i;
+					int y = 4;
+					int toYEAR = Integer.parseInt(toYear) + i;
 					for (y = 4; y >= 1; y--) {
-						result.add(yearAndMonth(toYEAR+"", y / 3));
+						result.add(yearAndMonth(toYEAR + "", y / 3));
 					}
 				}
 			}
 
 		} else if (selectTime.trim().equals("3")) {
-			int temp = Math.abs(Integer.parseInt(toMonth)- Integer.parseInt(fromMonth));
-			
+			int temp = Math.abs(Integer.parseInt(toMonth)
+					- Integer.parseInt(fromMonth)) + 1;
+
 			if (Integer.parseInt(toMonth) > Integer.parseInt(fromMonth)) {
 				for (int i = 0; i < temp; i++) {
 					result.add(yearAndMonth(toYearII,
@@ -208,14 +214,13 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 
 			if (selectTime.trim().equals("1")) {
 				listSumTypeCustomer = buyAssetDao.getSumTypeCustomerValues(date
-						+ "01", date + "12", false, "", '3');
+						+ "01", date + "12", false, '3');
 			} else if (selectTime.trim().equals("2")) {
-				listSumTypeCustomer = buyAssetDao
-						.getSumTypeCustomerValues((Integer.parseInt(date) - 3)
-								+ "", date, false, "", '3');
+				listSumTypeCustomer = buyAssetDao.getSumTypeCustomerValues(
+						(Integer.parseInt(date) - 3) + "", date, false, '3');
 			} else if (selectTime.trim().equals("3")) {
 				listSumTypeCustomer = buyAssetDao.getSumTypeCustomerValues(
-						date, date, false, "", '3');
+						date, date, false, '3');
 			}
 
 			Object[] temp = new Object[listSumTypeCustomer.size()];
@@ -241,14 +246,13 @@ public class AnalysisBuyAssetController implements IAnalysisBuyAssetController {
 
 			if (selectTime.trim().equals("1")) {
 				listSumTypeAsset = buyAssetDao.getSumTypeAssetValues(date
-						+ "01", date + "12", false, "", '3');
+						+ "01", date + "12", false, '3');
 			} else if (selectTime.trim().equals("2")) {
-				listSumTypeAsset = buyAssetDao
-						.getSumTypeAssetValues((Integer.parseInt(date) - 3)
-								+ "", date, false, "", '3');
+				listSumTypeAsset = buyAssetDao.getSumTypeAssetValues(
+						(Integer.parseInt(date) - 3) + "", date, false, '3');
 			} else if (selectTime.trim().equals("3")) {
 				listSumTypeAsset = buyAssetDao.getSumTypeAssetValues(date,
-						date, false, "", '3');
+						date, false, '3');
 			}
 
 			Object[] temp = new Object[listSumTypeAsset.size()];

@@ -12,11 +12,14 @@ public interface IAnalysisBuyAssetController {
 	
 	public List<Double> getValuesPieAsset(String fromDate, String toDate);
 	
+	
 	public List<String> getDateList(String selectTime, String fromYear, String toYear, String fromMonth, String toMonth, String toYearII);
+	
 	
 	public List<Object[]> getValueCutomer(List<String> dateList, String selectTime);
 	
 	public List<Object[]> getValueAsset(List<String> dateList, String selectTime);
+	
 	
 	public List<Double> getValuesPieEachCustomer(String assetId);
 	
@@ -25,6 +28,7 @@ public interface IAnalysisBuyAssetController {
 	public List<Double> getValuesPieEachAsset(String customerId);
 	
 	public List<Double> getValuesPieEachAsset(String fromDate, String toDate, String customerId);
+	
 	
 	public List<Double> getValuesEachCustomer(String assetId, String id, char mode);
 	
