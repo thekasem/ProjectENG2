@@ -199,7 +199,7 @@
 	<script src="js/exporting.js"></script>
 	<script src="js/highcharts-3d.js"></script>
 	<script src="js/team-highcharts.js"></script>
-	<script src="GraphAnalysis/lineAnalysis.js"></script>
+	<script src="GraphAnalysis/lineEachAnalysis.js"></script>
 	<script src="GraphAnalysis/callFromDate.js"></script>
 	<script src="GraphAnalysis/callFromId.js"></script>
 	<script src="js/bootstrap.min.js"></script>

@@ -30,12 +30,9 @@ public interface IAnalysisBuyAssetController {
 	public List<Double> getValuesPieEachAsset(String fromDate, String toDate, String customerId);
 	
 	
-	public List<Double> getValuesEachCustomer(String assetId, String id, char mode);
+	public List<Object[]> getValueEachCustomer(List<String> dateList, String selectTime,String assetId);
 	
-	public List<Double> getvaluesEachCustomer(String fromDate, String toDate, String assetId, String id, char mode);
+	public List<Object[]> getValueEachAsset(List<String> dateList, String selectTime, String customerId);
 	
-	public List<Double> getvaluesEachAsset(String customerId, String id, char mode);
-	
-	public List<Double> getValuesEachAsset(String fromDate, String toDate, String customerId, String id, char mode);
 
 }

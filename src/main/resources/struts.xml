@@ -66,10 +66,18 @@
 		<action name="analysisDataJSON" class="com.json.actions.AnalysisDataJsonAction" method="getDataCustomer">
 			<result type="json" />
 		</action>
+		
 		<action name="analysisPieEachCustomerDataJSON" class="com.json.actions.AnalysisPieEachDataJsonAction" method="getDataPieEachCustomer">
 			<result type="json" />
 		</action>
 		<action name="analysisPieEachAssetDataJSON" class="com.json.actions.AnalysisPieEachDataJsonAction" method="getDataPieEachAsset">
+			<result type="json" />
+		</action>
+		
+		<action name="analysisEachCustomerDataJSON" class="com.json.actions.AnalysisEachDataJsonAction" method="getDataEachCustomer">
+			<result type="json" />
+		</action>
+		<action name="analysisEachAssetDataJSON" class="com.json.actions.AnalysisEachDataJsonAction" method="getDataEachAsset">
 			<result type="json" />
 		</action>
 		
