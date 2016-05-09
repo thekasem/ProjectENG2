@@ -17,6 +17,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="analysisbuyasset" class="com.contact.action.ContactAnalysisBuyAsset">
 		<property name="analysisBuyAssetController" ref="analysisbuyassetcontroller"></property>
 	</bean>
+	<bean id="preditionbuyasset" class="com.contact.action.ContactPredictionBuyAsset">
+		<property name="predictionByAssetController" ref="predictionbuyassetcontroller"></property>
+	</bean>
 	
 
 	<!-- inject to Controller -->
@@ -30,6 +33,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="buyAssetDao" ref="buyassetdao" />
 	</bean>
 	<bean id="analysisbuyassetcontroller" class="com.controller.implement.AnalysisBuyAssetController">
+		<property name="buyAssetDao" ref="buyassetdao"></property>
+	</bean>
+	<bean id="predictionbuyassetcontroller" class="com.controller.implement.PredictionBuyAssetController">
 		<property name="buyAssetDao" ref="buyassetdao"></property>
 	</bean>
 

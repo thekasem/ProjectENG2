@@ -14,5 +14,9 @@ public interface IBuyAssetDao {
 	public List<Object[]> getSumValuesByCustomer(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, String assetId, char mode);
 	
 	public List<Object[]> getSumValuesByAsset(String yearAndMonthFrom, String yearAndMonthTo, boolean allYear, String customerId, char mode);
+	
+	public double getSumCostAsset(String yearAndMonthFrom, String yearAndMonthTo, String typeAssetId);
+	
+	public double getSumCostCustomer(String yearAndMonthFrom, String yearAndMonthTo, String typeCustomerId);
 
 }

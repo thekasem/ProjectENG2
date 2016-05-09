@@ -1,5 +1,6 @@
 package com.dao.implement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -37,8 +38,8 @@ public class TestDao {
 		try {
 //			Query query = sessionB.createQuery("SELECT  browser from ActivityLogMini where UPPER(browser) LIKE UPPER('%chrome%')");
 //			result = query.list().size();
-			Query query = sessionB.createQuery("select  sum(typeAssetId)  from AssetMini");
-			result = Double.parseDouble(query.uniqueResult().toString());
+			Query query = sessionB.createSQLQuery("SELECT SUM( cost * valueaoc ) FROM buyasset WHERE aocdate BETWEEN  '20160101' AND  '20161231'");
+			result = (Double) query.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -47,16 +48,26 @@ public class TestDao {
 	}
 
 	public static void main(String[] args) {
-		List<Object[]> list = getListByDate();
-		double result = getcount();
-		System.out
-				.println("++++++++++++++++++++++++++++ test browser ++++++++++++++++++++++++++++++++");
-		System.out.println("count list : " + list.size());
-		float i = 0;
-		for (Object[] te : list) {
-			System.out.println(te[0]+" \t"+te[1]);
+//		List<Object[]> list = getListByDate();
+//		double result = getcount();
+//		System.out
+//				.println("++++++++++++++++++++++++++++ test browser ++++++++++++++++++++++++++++++++");
+//		System.out.println("count list : " + list.size());
+//		float i = 0;
+//		for (Object[] te : list) {
+//			System.out.println(te[0]+" \t"+te[1]);
+//		}
+//       System.out.println("total sum value : "+ result +" record");
+		List<Double> temp = new ArrayList<Double>();
+		temp.add(9.12);
+		double result = temp.get(0)+1;
+		temp.add(result);
+		System.out.println("size array is : "+temp.size());
+		for(int i = 0 ; i<=temp.size()-1; i++){
+			
+			System.out.println(temp.get(i)+ " "+ i);
 		}
-       System.out.println("total count record : "+ result +" record");
+		
 	}
 
 }

@@ -124,6 +124,64 @@ public class BuyAssetDao implements IBuyAssetDao {
 		sessionB.getTransaction().commit();
 		return result;
 	}
+	
+	private String querySumCostAsset(String yearAndMonthFrom, String yearAndMonthTo, String typeAssetId){
+		String command = "";
+		if(typeAssetId.equals("")||typeAssetId==null){
+			command = "SELECT SUM( cost * valueaoc ) "
+					+ "FROM buyasset WHERE aocdate "
+					+ "BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31' ";
+		}else {
+			command = "SUM( buyasset.valueaoc * buyasset.cost ) "
+					+ "FROM buyasset INNER JOIN asset "
+					+ "ON buyasset.assetid = asset.assetid "
+					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthFrom+"31' "
+					+ "AND asset.typeassetid = "+typeAssetId+"";
+		}
+		return command;
+	}
+
+	public double getSumCostAsset(String yearAndMonthFrom,
+			String yearAndMonthTo, String typeAssetId) {
+		Session sessionB = HibernateUtil.getSessionFactory().openSession();
+		sessionB.beginTransaction();
+		Double result = 0.0 ;
+		try {
+			Query query = sessionB.createSQLQuery(querySumCostAsset(yearAndMonthFrom, yearAndMonthTo, typeAssetId));
+			result = (Double) query.uniqueResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		sessionB.getTransaction().commit();
+		return result;
+	}
+	 private String commandSumCostCustomer(String yearAndMonthFrom, String yearAndMonthTo, String typeCustomerId){
+		 String command = "";
+		 if(typeCustomerId.equals("")||typeCustomerId==null){
+			 command = "SELECT SUM( cost * valueaoc ) "
+						+ "FROM buyasset WHERE aocdate "
+						+ "BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31' ";
+		 }else {
+			 command = "";
+		 }
+		 
+		 return command;
+	 }
+
+	public double getSumCostCustomer(String yearAndMonthFrom,
+			String yearAndMonthTo, String typeCustomerId) {
+		Session sessionB = HibernateUtil.getSessionFactory().openSession();
+		sessionB.beginTransaction();
+		Double result = 0.0 ;
+		try {
+			Query query = sessionB.createSQLQuery(commandSumCostCustomer(yearAndMonthFrom, yearAndMonthTo, typeCustomerId));
+			result = (Double) query.uniqueResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		sessionB.getTransaction().commit();
+		return result;
+	}
 
 	
 	

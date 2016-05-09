@@ -81,7 +81,17 @@
 			<result type="json" />
 		</action>
 		
-		
+		<action name="predictionLineDataJSON" class="com.json.actions.PredictionDataJsonAction" method="getDataPredictionLine">
+		   <result type="json"/>
+		</action>
+		<action name="predictionScatterDataJSON" class="com.json.actions.PredictionDataJsonAction" method="getDataPredictionScatter">
+			<result type="json"/>
+		</action>
+		<action name="predictionColumnDataJSON" class="com.json.actions.PredictionDataJsonAction" method="getDataPredictionColumn">
+			<result type="json"/>
+		</action>
+			
+			
 	</package>
 
 </struts>
