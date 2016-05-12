@@ -25,8 +25,12 @@ var listPercentAsset = [];
 		customerid = $('#customerid').val();
 		
 		if(selectType=="1"){
+			$("#showasset").hide(0);
+			$('#showcustomer').show(0);
 			showDataGraphPieAsset();
 		}else if(selectType=="2"){
+			$("#showasset").show(0);
+			$('#showcustomer').hide(0);
 			showDataGraphPieCustomer();
 		}
 

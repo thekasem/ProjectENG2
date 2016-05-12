@@ -12,8 +12,8 @@ import com.contact.action.ContactPredictionBuyAsset;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class PredictionDataJsonAction extends ActionSupport {
-
+public class PredictionEachDataJsonAction extends ActionSupport {
+	
 	private HttpSession session;
 	private String userNameLogin;
 	private ContactPredictionBuyAsset predictionBuyAsset;
@@ -21,6 +21,9 @@ public class PredictionDataJsonAction extends ActionSupport {
 	private float alpha;
 	private List<Double> listDataCurrentYear;
 	private List<Double> listDataNextYear;
+	private String typeCustomerId;
+	private String typeAssetId;
+	private String typeSelect;
 
 	private void ContactController() {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -33,7 +36,12 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionLine() {
 		ContactController();
-		listDataCurrentYear = predictionBuyAsset.getDataSumAllYear();
+		if(typeSelect.equals("1")){
+			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearCustomer(typeCustomerId);
+		} else if(typeSelect.equals("2")){
+			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearAsset(typeAssetId);
+		}
+		
 		if (selectPrediction.equals("1")) {
 			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
@@ -46,7 +54,11 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionScatter() {
 		ContactController();
-		listDataCurrentYear = predictionBuyAsset.getDataSumAllYear();
+		if(typeSelect.equals("1")){
+			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearCustomer(typeCustomerId);
+		} else if(typeSelect.equals("2")){
+			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearAsset(typeAssetId);
+		}
 		if (selectPrediction.equals("1")) {
 			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
@@ -59,7 +71,13 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionColumn() {
 		ContactController();
-		listDataCurrentYear = predictionBuyAsset.getDataSumAllYear();
+		
+		if(typeSelect.equals("1")){
+			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearCustomer(typeCustomerId);
+		} else if(typeSelect.equals("2")){
+			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearAsset(typeAssetId);
+		}
+		
 		if (selectPrediction.equals("1")) {
 			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
@@ -88,6 +106,18 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public void setAlpha(float alpha) {
 		this.alpha = alpha;
+	}
+
+	public void setTypeCustomerId(String typeCustomerId) {
+		this.typeCustomerId = typeCustomerId;
+	}
+
+	public void setTypeAssetId(String typeAssetId) {
+		this.typeAssetId = typeAssetId;
+	}
+
+	public void setTypeSelect(String typeSelect) {
+		this.typeSelect = typeSelect;
 	}
 	
 	

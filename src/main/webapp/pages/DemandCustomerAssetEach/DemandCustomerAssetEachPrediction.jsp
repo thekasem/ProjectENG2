@@ -53,109 +53,30 @@
 						<Strong>Demand Customer Assets Prediction</Strong>
 					</div>
 					<div class="panel-body box box-warning">
-						<form class="form-horizontal">
-							<div class="row well">
-								<div class="has-feedback col-md-4">
+							<div class="row well form-horizontal">
+								<label class="col-md-1 control-label">Forecast :</label>
+								<div class="has-feedback col-md-2">
 									<s:select id="selectprediction" headerKey="-1"
 										class="form-control"
-										list="#{'1':'function1', '2':'function2', '3':'function3'}"
+										list="#{'1':'Naive Forecast', '2':'Exponential Smoothing Forecast', '3':'Techniques for Trend'}"
 										name="function" value="1" />
 									<span class="fa fa-line-chart form-control-feedback"></span>
 								</div>
-
-								<div class="has-feedback col-sm-4">
+								<label class="col-md-1 control-label alphavalue">Alpha Value:</label>
+									<div class="has-feedback col-sm-2 alphavalue">
+									<s:select id="alpha" headerKey="-1" class="form-control alphavalue"
+										list="#{'0.5':'0.5', '0.1':'0.1', '0.05':'0.05','0.01':'0.01'}"
+										name="selectchart" value="0.5" />
+									<span class="fa fa-bar-chart form-control-feedback alphavalue"></span>
+								</div>
+								
+								<label class="col-md-1 control-label">Chart :</label>
+								<div class="has-feedback col-sm-2">
 									<s:select id="selectchart" headerKey="-1" class="form-control"
 										list="#{'1':'line chart', '2':'column chart', '3':'scatter chart'}"
 										name="selectchart" value="1" />
 									<span class="fa fa-bar-chart form-control-feedback"></span>
 								</div>
-								<!-- 								<div class="col-md-1"> -->
-								<!-- 									<button type="button" class="btn btn-info" data-toggle="modal" -->
-								<!-- 										data-target="#myModal"> -->
-								<%-- 										<span class="fa fa-search-plus"></span> See more --%>
-								<!-- 									</button> -->
-
-								<!-- 								</div> -->
-								<!-- 								<div class="modal" id="myModal" role="dialog"> -->
-								<!-- 									<div class="modal-dialog"> -->
-
-								<!-- 										Modal content -->
-								<!-- 										<div class="modal-content"> -->
-								<!-- 											<div class="modal-header"> -->
-								<!-- 												<button type="button" class="close" data-dismiss="modal">&times;</button> -->
-								<!-- 												<h4 class="modal-title">select type by see more</h4> -->
-								<!-- 											</div> -->
-								<!-- 											<div class="modal-body"> -->
-								<!-- 												checkbox -->
-								<!-- 												<div class="row"> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Foreign -->
-								<!-- 																stocks -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Exchange -->
-								<!-- 																rate -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Gold -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Land -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Oil -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Building -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Equipment -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Mine -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 												</div> -->
-								<!-- 											</div> -->
-								<!-- 											<div class="modal-body"> -->
-								<!-- 												checkbox -->
-								<!-- 												<div class="row"> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> Person -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 													<div class="col-md-6"> -->
-								<!-- 														<div class="checkbox"> -->
-								<!-- 															<label> <input type="checkbox"> -->
-								<!-- 																Corporation -->
-								<!-- 															</label> -->
-								<!-- 														</div> -->
-								<!-- 													</div> -->
-								<!-- 												</div> -->
-								<!-- 											</div> -->
-
-								<!-- 											<div class="modal-footer"> -->
-								<!-- 												<button type="button" class="btn btn btn-primary">submit</button> -->
-								<!-- 											</div> -->
-								<!-- 										</div> -->
-
-								<!-- 									</div> -->
-								<!-- 								</div> -->
 								<div class="col-md-2">
 									<s:a type="button" class="btn btn-primary"
 										href="demandCustomerAssets_predictionpie">
@@ -166,7 +87,7 @@
 
 								<div class="col-md-12" style="margin: 10px"></div>
 
-								<label class="col-md-1 control-label">Prediction Data :</label>
+								<label class="col-md-1 control-label">Prediction Type Data :</label>
 								<div class="col-md-2">
 									<div class="has-feedback">
 										<s:select id="predictionid" headerKey="-1"
@@ -177,134 +98,56 @@
 								</div>
 
 								<div class="predictionidcustomer">
-									<label class="col-md-1 control-label">ID Customer :</label>
+									<label class="col-md-1 control-label">ID Type Customer :</label>
 									<div class="col-md-2">
-										<s:textfield name="predictionidcustomer"
+										<s:textfield id="typecustomerid" name="predictionidcustomer"
 											cssClass="form-control"></s:textfield>
 									</div>
 								</div>
 
 								<div class="predictionidasset">
-									<label class="col-md-1 control-label">ID Asset :</label>
+									<label class="col-md-1 control-label">ID Type Asset :</label>
 									<div class="col-md-2">
-										<s:textfield name="predictionidasset" cssClass="form-control"></s:textfield>
+										<s:textfield id="typeassetid" name="predictionidasset" cssClass="form-control"></s:textfield>
 									</div>
 								</div>
 
 								<div class="col-md-1">
-									<s:a type="button" class="btn btn-primary" href="">
+									<button id="send"  class="btn btn-primary" >
 										<span class="fa fa-search"></span>
 													Submit
-											    </s:a>
+											    </button>
 								</div>
 
 							</div>
 							<div style="margin: 20px"></div>
 							
-							<!-- 										show line chart -->
 							<div class="well col-md-12" id="line">
-								<div class="col-sm-offset-3 col-sm-6">
-									<div class="predictionidcustomer">
-										<div id="lineprediction" style="width: 750px;"></div>
-										<div style="margin: 10px;">
-											<h3>percent error 0 %</h3>
-										</div>
-									</div>
-
-									<div class="predictionidasset">
-										<div id="linepredictionperson" style="width: 750px;"></div>
-										<div style="margin: 10px;">
-											<h3>percent error 0 %</h3>
-										</div>
-									</div>
-								</div>
+							   <div class="col-sm-offset-1 col-sm-6">
+								<div id="lineprediction" style="width: 1180px; height: 520px;"></div>
+								<div style="margin: 10px;">
+									<h3>percent error 10 %</h3>
+								</div></div>
 							</div>
-
-							<!-- 							<div class="well col-md-12" id="line"> -->
-							<!-- 																<div class="col-md-6"> -->
-							<!-- 																	<div id="lineprediction" style="width: 750px;"></div> -->
-							<!-- 																	<div style="margin: 10px;"> -->
-							<!-- 																		<h3>percent error 0 %</h3> -->
-							<!-- 																	</div> -->
-							<!-- 																</div> -->
-							<!-- 								<div class="col-md-6"> -->
-							<!-- 																		<div id="linepredictionperson" style="width: 750px;"></div> -->
-							<!-- 																		<div style="margin: 10px;"> -->
-							<!-- 																			<h3>percent error 0 %</h3> -->
-							<!-- 																		</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
 
 							<!-- 									show column chart -->
 							<div class="well col-md-12" id="column">
-								<div class="col-sm-offset-3 col-sm-6">
-									<div class="predictionidcustomer">
-										<div id="columnprediction" style="width: 750px;"></div>
-										<div style="margin: 10px;">
-											<h3>percent error 0 %</h3>
-										</div>
-									</div>
-
-									<div class="predictionidasset">
-										<div id="columnpredictionperson" style="width: 750px;"></div>
-										<div style="margin: 10px;">
-											<h3>percent error 0 %</h3>
-										</div>
-									</div>
-								</div>
+							<div class="col-sm-offset-1 col-sm-6">
+								<div id="columnprediction" style="width: 1150px; height: 520px;"></div>
+								<div style="margin: 10px;">
+									<h3>percent error 6 %</h3>
+								</div></div>
 							</div>
-
-							<!-- 							<div class="well col-md-12" id="column"> -->
-							<!-- 								<div class="col-md-6"> -->
-							<!-- 									<div id="columnprediction" style="width: 750px;"></div> -->
-							<!-- 									<div style="margin: 10px;"> -->
-							<!-- 										<h3>percent error 6 %</h3> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 								<div class="col-md-6"> -->
-							<!-- 									<div id="columnpredictionperson" style="width: 750px;"></div> -->
-							<!-- 									<div style="margin: 10px;"> -->
-							<!-- 										<h3>percent error 6 %</h3> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
 
 							<!-- 									show scatter chart -->
 							<div class="well col-md-12" id="scatter">
-								<div class="col-sm-offset-3 col-sm-6">
-									<div class="predictionidcustomer">
-										<div id="scatterprediction" style="width: 750px;"></div>
-										<div style="margin: 10px;">
-											<h3>percent error 0 %</h3>
-										</div>
-									</div>
-
-									<div class="predictionidasset">
-										<div id="scatterpredictionperson" style="width: 750px;"></div>
-										<div style="margin: 10px;">
-											<h3>percent error 0 %</h3>
-										</div>
-									</div>
-
-
-								</div>
+							<div class="col-sm-offset-1 col-sm-6">
+								<div id="scatterprediction" style="width: 1150px; height: 520px;"></div>
+								<div style="margin: 10px;">
+									<h3>percent error 10 %</h3>
+								</div></div>
 							</div>
-
-							<!-- 							<div class="well col-md-12" id="scatter"> -->
-							<!-- 								<div class="col-md-6"> -->
-							<!-- 									<div id="scatterprediction" style="width: 750px;"></div> -->
-							<!-- 									<div style="margin: 10px;"> -->
-							<!-- 										<h3>percent error 10 %</h3> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 								<div class="col-md-6"> -->
-							<!-- 									<div id="scatterpredictionperson" style="width: 750px;"></div> -->
-							<!-- 									<div style="margin: 10px;"> -->
-							<!-- 										<h3>percent error 10 %</h3> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-						</form>
+							
 					</div>
 				</div>
 			</div>
@@ -318,7 +161,7 @@
 	<script src="js/highcharts.js"></script>
 	<script src="js/exporting.js"></script>
 	<script src="js/team-highcharts.js"></script>
-	<script src="GraphPrediction/predictionAll.js"></script>
+	<script src="GraphPrediction/predictionEach.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="plugins/fastclick/fastclick.min.js"></script>
 	<script src="dist/js/app.min.js"></script>

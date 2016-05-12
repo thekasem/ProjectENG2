@@ -90,6 +90,16 @@
 		<action name="predictionColumnDataJSON" class="com.json.actions.PredictionDataJsonAction" method="getDataPredictionColumn">
 			<result type="json"/>
 		</action>
+		
+		<action name="predictionLineEachDataJSON" class="com.json.actions.PredictionEachDataJsonAction" method="getDataPredictionLine">
+		   <result type="json"/>
+		</action>
+		<action name="predictionScatterEachDataJSON" class="com.json.actions.PredictionEachDataJsonAction" method="getDataPredictionScatter">
+			<result type="json"/>
+		</action>
+		<action name="predictionColumnEachDataJSON" class="com.json.actions.PredictionEachDataJsonAction" method="getDataPredictionColumn">
+			<result type="json"/>
+		</action>
 			
 			
 	</package>

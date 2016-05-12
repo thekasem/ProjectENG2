@@ -174,17 +174,22 @@
 
 							<div style="margin: 20px"></div>
 
-							<div class="well col-md-12">
-								<div class="col-sm-offset-3 col-sm-6">
+							<div class="well col-md-12" id="showcustomer">
+								<div class="col-sm-offset-1 col-sm-6">
 									<div class="analysisidcustomer">
-										<div id="lineanalysis" style="width: 750px;"></div>
-									</div>
-
-									<div class="analysisidasset">
-										<div id="lineanalysisperson" style="width: 750px;"></div>
+										<div id="lineanalysis" style="width: 1080px;  height: 460px;"></div>
 									</div>
 								</div>
 							</div>
+							
+							<div class="well col-md-12" id="showasset">
+								<div class="col-sm-offset-1 col-sm-6">
+									<div class="analysisidasset">
+										<div id="lineanalysisperson" style="width: 1080px; height: 460px;"></div>
+									</div>
+								</div>
+							</div>
+							
 					</div>
 				</div>
 			</div>

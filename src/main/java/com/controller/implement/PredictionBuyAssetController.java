@@ -41,11 +41,11 @@ public class PredictionBuyAssetController implements
 
 		for (int i = 1; i <= 12; i++) {
 			String yearAndMonth = yearAndMonth(
-					listAllYear.get(listAllYear.size()), i);
+					listAllYear.get(listAllYear.size()-1), i);
 			String yearAndMonth_1 = yearAndMonth(
-					listAllYear.get(listAllYear.size() - 1), i);
-			String yearAndMonth_2 = yearAndMonth(
 					listAllYear.get(listAllYear.size() - 2), i);
+			String yearAndMonth_2 = yearAndMonth(
+					listAllYear.get(listAllYear.size() - 3), i);
 			double value = buyAssetDao.getSumCostAsset(yearAndMonth,
 					yearAndMonth, "");
 			double value_1 = buyAssetDao.getSumCostAsset(yearAndMonth_1,
@@ -65,11 +65,11 @@ public class PredictionBuyAssetController implements
 
 		for (int i = 1; i <= 12; i++) {
 			String yearAndMonth = yearAndMonth(
-					listAllYear.get(listAllYear.size()), i);
+					listAllYear.get(listAllYear.size()-1), i);
 			String yearAndMonth_1 = yearAndMonth(
-					listAllYear.get(listAllYear.size() - 1), i);
-			String yearAndMonth_2 = yearAndMonth(
 					listAllYear.get(listAllYear.size() - 2), i);
+			String yearAndMonth_2 = yearAndMonth(
+					listAllYear.get(listAllYear.size() - 3), i);
 			double value = buyAssetDao.getSumCostAsset(yearAndMonth,
 					yearAndMonth, AssetId);
 			double value_1 = buyAssetDao.getSumCostAsset(yearAndMonth_1,
@@ -89,11 +89,11 @@ public class PredictionBuyAssetController implements
 
 		for (int i = 1; i <= 12; i++) {
 			String yearAndMonth = yearAndMonth(
-					listAllYear.get(listAllYear.size()), i);
+					listAllYear.get(listAllYear.size()-1), i);
 			String yearAndMonth_1 = yearAndMonth(
-					listAllYear.get(listAllYear.size() - 1), i);
-			String yearAndMonth_2 = yearAndMonth(
 					listAllYear.get(listAllYear.size() - 2), i);
+			String yearAndMonth_2 = yearAndMonth(
+					listAllYear.get(listAllYear.size() - 3), i);
 			double value = buyAssetDao.getSumCostCustomer(yearAndMonth,
 					yearAndMonth, CustomerId);
 			double value_1 = buyAssetDao.getSumCostCustomer(yearAndMonth_1,
@@ -121,7 +121,7 @@ public class PredictionBuyAssetController implements
 			double prediction = previousValue + (previousValue - currentValue);
 			result.add(prediction);
 			loop++;
-		} while (loop != dataSumAllYear.size());
+		} while (loop != (dataSumAllYear.size()-1));
 		return result;
 	}
 
@@ -129,10 +129,10 @@ public class PredictionBuyAssetController implements
 			float alpha) {
 
 		List<Double> result = new ArrayList<Double>();
-		result.add(0.0);
+		result.add(null);
 		result.add(dataSumAllYear.get(0));
 
-		for (int loop = 1; loop <= dataSumAllYear.size(); loop++) {
+		for (int loop = 1; loop < dataSumAllYear.size(); loop++) {
 			double available = dataSumAllYear.get(loop);
 			double forcastT_1 = result.get(loop);
 			double prediction = forcastT_1 + alpha * (available - forcastT_1);
@@ -143,7 +143,7 @@ public class PredictionBuyAssetController implements
 	
 	private double sumList(List<Double> listValue){
 		double result = 0.0;
-		for(int i=0; i<= listValue.size();i++){
+		for(int i=0; i<= listValue.size()-1;i++){
 			result = result+listValue.get(i);
 		}
 		return result;

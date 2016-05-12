@@ -172,14 +172,18 @@
 							</div>
 							<div style="margin: 20px"></div>
 
-							<div class="well col-md-12">
-								<div class="col-sm-offset-3 col-sm-6">
+							<div class="well col-md-12" id="showcustomer">
+								<div class="col-sm-offset-1 col-sm-6">
 									<div class="analysisidcustomer">
-										<div id="scatteranalysis" style="width: 750px;"></div>
+										<div id="scatteranalysis" style="width: 1080px; height: 460px;"></div>
 									</div>
-									
+								</div>
+							</div>
+							
+							<div class="well col-md-12 " id="showasset">
+								<div class="col-sm-offset-1 col-sm-6">
 									<div class="analysisidasset">
-										<div id="scatteranalysisperson" style="width: 750px;"></div>
+										<div id="scatteranalysisperson" style="width: 1080px; height: 460px;"></div>
 									</div>
 								</div>
 							</div>

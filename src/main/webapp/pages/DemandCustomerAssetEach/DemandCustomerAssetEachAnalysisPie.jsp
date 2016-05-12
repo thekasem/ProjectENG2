@@ -175,21 +175,26 @@
 									<button id="send"  class="btn btn-primary" >
 										<span class="fa fa-search"></span>
 													Submit
-											    <button>
+											    </button>
 								</div>
 
 							</div>
 
 							<div style="margin: 20px"></div>
 
-							<div class="well col-md-12">
-								<div class="col-sm-offset-3 col-sm-6">
+							<div class="well col-md-12" id="showcustomer">
+								<div class="col-sm-offset-2 col-sm-6">
 									<div class="analysisidcustomer">
-										<div id="pieanalysis" style="width: 750px;"></div>
+										<div id="pieanalysis" style="width: 1050px; height: 450px;"></div>
 									</div>
 
+								</div>
+							</div>
+							<div class="well col-md-12" id="showasset">
+								<div class="col-sm-offset-2 col-sm-6">
+
 									<div class="analysisidasset">
-										<div id="pieanalysisperson" style="width: 750px;"></div>
+										<div id="pieanalysisperson" style="width: 1050px; height: 450px;"></div>
 									</div>
 								</div>
 							</div>

@@ -36,8 +36,12 @@ $('#send').click(function() {
 		customerid = $('#customerid').val();
 		
 		if(selectType=="1"){
+			$("#showasset").hide(0);
+			$('#showcustomer').show(0);
 			showDataEachGraphLineAsset();
 		}else if(selectType=="2"){
+			$("#showasset").show(0);
+			$('#showcustomer').hide(0);
 			showDataEachGraphLineCustomer();
 		}
 

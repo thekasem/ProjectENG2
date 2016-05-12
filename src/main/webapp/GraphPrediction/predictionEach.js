@@ -6,13 +6,16 @@ var chart;
 var listDataCurrentYear = [];
 var listDataNextYear = [];
 var alpha;
+var predictionid;
 $(function (){
 	$('.alphavalue').hide(0);
 	$('#line').show(0);
 	$('#column').hide(0);
 	$('#pie').hide(0);
 	$('#scatter').hide(0);
-	showLinePrediction();
+	$('.predictionidcustomer').show(0);
+	$('.predictionidasset').hide(0);
+//	showLinePrediction();
 });
 
 $('#selectchart,#alpha,#selectprediction').change(function() {
@@ -28,36 +31,36 @@ $('#selectchart,#alpha,#selectprediction').change(function() {
 		$('#column').hide(0);
 		$('#pie').hide(0);
 		$('#scatter').hide(0);
-		showLinePrediction();
+//		showLinePrediction();
 	}
 	if(chart==2){
 		$('#line').hide(0);
 		$('#column').show(0);
 		$('#pie').hide(0);
 		$('#scatter').hide(0);
-		showColumnPrediction();
+//		showColumnPrediction();
 	}
 	if(chart==3){
 		$('#line').hide(0);
 		$('#column').hide(0);
 		$('#pie').hide(0);
 		$('#scatter').show(0);
-		showScatterPrediction();
+//		showScatterPrediction();
 	}
 	
 });
 
-//$('#predictionid').change(function() {
-//	var predictionid = $('#predictionid').val();
-//	if(predictionid==1){
-//		$('.predictionidcustomer').show(0);
-//		$('.predictionidasset').hide(0);
-//	}
-//	if(predictionid==2){
-//		$('.predictionidcustomer').hide(0);
-//		$('.predictionidasset').show(0);
-//	}
-//});
+$('#predictionid').change(function() {
+	predictionid = $('#predictionid').val();
+	if(predictionid==1){
+		$('.predictionidcustomer').show(0);
+		$('.predictionidasset').hide(0);
+	}
+	if(predictionid==2){
+		$('.predictionidcustomer').hide(0);
+		$('.predictionidasset').show(0);
+	}
+});
 
 //show line chart prediction
 function showLinePrediction() {
@@ -65,10 +68,14 @@ function showLinePrediction() {
 	$
 	.ajax({
 		type : "GET",
-		url : 'predictionLineDataJSON.action',
+		url : 'predictionLineEachDataJSON.action',
 		data : {
 			alpha:alpha,
-			selectPrediction:$('#selectprediction').val()
+			selectPrediction:$('#selectprediction').val(),
+			typeSelect:predictionid,
+			typeCustomerId:$('#typecustomerid').val(),
+			typeAssetId:$('#typeassetid').val()
+			
 			
 		},
 		success : function(response) {
@@ -136,10 +143,13 @@ function showColumnPrediction() {
 	$
 	.ajax({
 		type : "GET",
-		url : 'predictionColumnDataJSON.action',
+		url : 'predictionColumnEachDataJSON.action',
 		data : {
 			alpha:alpha,
-			selectPrediction:$('#selectprediction').val()
+			selectPrediction:$('#selectprediction').val(),
+			typeSelect:predictionid,
+			typeCustomerId:$('#typecustomerid').val(),
+			typeAssetId:$('#typeassetid').val()
 			
 		},
 		success : function(response) {
@@ -219,10 +229,13 @@ function showScatterPrediction(){
 	$
 	.ajax({
 		type : "GET",
-		url : 'predictionScatterDataJSON.action',
+		url : 'predictionScatterEachDataJSON.action',
 		data : {
 			alpha:alpha,
-			selectPrediction:$('#selectprediction').val()
+			selectPrediction:$('#selectprediction').val(),
+			typeSelect:predictionid,
+			typeCustomerId:$('#typecustomerid').val(),
+			typeAssetId:$('#typeassetid').val()
 			
 		},
 		success : function(response) {
