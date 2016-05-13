@@ -53,101 +53,116 @@
 						<Strong>Demand Customer Assets Prediction</Strong>
 					</div>
 					<div class="panel-body box box-warning">
-							<div class="row well form-horizontal">
-								<label class="col-md-1 control-label">Forecast :</label>
-								<div class="has-feedback col-md-2">
-									<s:select id="selectprediction" headerKey="-1"
+						<div class="row well form-horizontal">
+							<label class="col-md-1 control-label">Forecast :</label>
+							<div class="has-feedback col-md-2">
+								<s:select id="selectprediction" headerKey="-1"
+									class="form-control"
+									list="#{'1':'Naive Forecast', '2':'Exponential Smoothing Forecast', '3':'Techniques for Trend'}"
+									name="function" value="1" />
+								<span class="fa fa-line-chart form-control-feedback"></span>
+							</div>
+							<label class="col-md-1 control-label alphavalue">Alpha
+								Value:</label>
+							<div class="has-feedback col-sm-2 alphavalue">
+								<s:select id="alpha" headerKey="-1"
+									class="form-control alphavalue"
+									list="#{'0.5':'0.5', '0.1':'0.1', '0.05':'0.05','0.01':'0.01'}"
+									name="selectchart" value="0.5" />
+								<span class="fa fa-bar-chart form-control-feedback alphavalue"></span>
+							</div>
+
+							<label class="col-md-1 control-label">Chart :</label>
+							<div class="has-feedback col-sm-2">
+								<s:select id="selectchart" headerKey="-1" class="form-control"
+									list="#{'1':'line chart', '2':'column chart', '3':'scatter chart'}"
+									name="selectchart" value="1" />
+								<span class="fa fa-bar-chart form-control-feedback"></span>
+							</div>
+							<div class="col-md-2">
+								<s:a type="button" class="btn btn-primary"
+									href="eachpredicton_predictionpie">
+									<span class="fa fa-refresh"></span>
+													 Refresh
+											    </s:a>
+							</div>
+
+							<div class="col-md-12" style="margin: 10px"></div>
+
+							<label class="col-md-1 control-label">Prediction Type
+								Data :</label>
+							<div class="col-md-2">
+								<div class="has-feedback">
+									<s:select id="predictionid" headerKey="-1" class="form-control"
+										list="#{'1':'Customer', '2':'Asset'}" name="predictionid"
+										value="1" />
+									<span class="fa fa-users form-control-feedback"></span>
+								</div>
+							</div>
+
+							<div class="predictionidcustomer">
+								<label class="col-md-1 control-label">Type Customer:</label>
+								<div class="col-md-2 has-feedback">
+									<s:select id="typecustomerid" headerKey="-1"
 										class="form-control"
-										list="#{'1':'Naive Forecast', '2':'Exponential Smoothing Forecast', '3':'Techniques for Trend'}"
-										name="function" value="1" />
-									<span class="fa fa-line-chart form-control-feedback"></span>
+										list="#{'1':'personal', '2':'corperation'}" name="selectchart"
+										value="1" />
+									<span class="fa fa-bar-chart form-control-feedback"></span>
 								</div>
-								<label class="col-md-1 control-label alphavalue">Alpha Value:</label>
-									<div class="has-feedback col-sm-2 alphavalue">
-									<s:select id="alpha" headerKey="-1" class="form-control alphavalue"
-										list="#{'0.5':'0.5', '0.1':'0.1', '0.05':'0.05','0.01':'0.01'}"
-										name="selectchart" value="0.5" />
-									<span class="fa fa-bar-chart form-control-feedback alphavalue"></span>
-								</div>
-								
-								<label class="col-md-1 control-label">Chart :</label>
-								<div class="has-feedback col-sm-2">
-									<s:select id="selectchart" headerKey="-1" class="form-control"
-										list="#{'1':'line chart', '2':'column chart', '3':'scatter chart'}"
+							</div>
+
+							<div class="predictionidasset">
+								<label class="col-md-1 control-label">Type Asset :</label>
+								<div class="col-md-2 has-feedback">
+									<s:select id="typeassetid" headerKey="-1" class="form-control"
+										list="#{'1':'Foreign stocks', '2':'Exchange rate','3':'Gold','4':'Land','5':'Oil','6':'Building','7':'Equipment','8':'Mine'}"
 										name="selectchart" value="1" />
 									<span class="fa fa-bar-chart form-control-feedback"></span>
 								</div>
-								<div class="col-md-2">
-									<s:a type="button" class="btn btn-primary"
-										href="demandCustomerAssets_predictionpie">
-										<span class="fa fa-refresh"></span>
-													 Refresh
-											    </s:a>
-								</div>
-
-								<div class="col-md-12" style="margin: 10px"></div>
-
-								<label class="col-md-1 control-label">Prediction Type Data :</label>
-								<div class="col-md-2">
-									<div class="has-feedback">
-										<s:select id="predictionid" headerKey="-1"
-											class="form-control" list="#{'1':'Customer', '2':'Asset'}"
-											name="predictionid" value="1" />
-										<span class="fa fa-users form-control-feedback"></span>
-									</div>
-								</div>
-
-								<div class="predictionidcustomer">
-									<label class="col-md-1 control-label">ID Type Customer :</label>
-									<div class="col-md-2">
-										<s:textfield id="typecustomerid" name="predictionidcustomer"
-											cssClass="form-control"></s:textfield>
-									</div>
-								</div>
-
-								<div class="predictionidasset">
-									<label class="col-md-1 control-label">ID Type Asset :</label>
-									<div class="col-md-2">
-										<s:textfield id="typeassetid" name="predictionidasset" cssClass="form-control"></s:textfield>
-									</div>
-								</div>
-
-								<div class="col-md-1">
-									<button id="send"  class="btn btn-primary" >
-										<span class="fa fa-search"></span>
-													Submit
-											    </button>
-								</div>
-
 							</div>
-							<div style="margin: 20px"></div>
-							
-							<div class="well col-md-12" id="line">
-							   <div class="col-sm-offset-1 col-sm-6">
+
+
+						</div>
+						<div style="margin: 20px"></div>
+
+
+						<div class="overlay">
+							<i class="fa fa-refresh fa-spin"></i>
+						</div>
+
+
+
+
+						<div class="well col-md-12" id="line">
+							<div class="col-sm-offset-1 col-sm-6">
 								<div id="lineprediction" style="width: 1180px; height: 520px;"></div>
 								<div style="margin: 10px;">
 									<h3>percent error 10 %</h3>
-								</div></div>
+								</div>
 							</div>
+						</div>
 
-							<!-- 									show column chart -->
-							<div class="well col-md-12" id="column">
+						<!-- 									show column chart -->
+						<div class="well col-md-12" id="column">
 							<div class="col-sm-offset-1 col-sm-6">
 								<div id="columnprediction" style="width: 1150px; height: 520px;"></div>
 								<div style="margin: 10px;">
 									<h3>percent error 6 %</h3>
-								</div></div>
+								</div>
 							</div>
+						</div>
 
-							<!-- 									show scatter chart -->
-							<div class="well col-md-12" id="scatter">
+						<!-- 									show scatter chart -->
+						<div class="well col-md-12" id="scatter">
 							<div class="col-sm-offset-1 col-sm-6">
-								<div id="scatterprediction" style="width: 1150px; height: 520px;"></div>
+								<div id="scatterprediction"
+									style="width: 1150px; height: 520px;"></div>
 								<div style="margin: 10px;">
 									<h3>percent error 10 %</h3>
-								</div></div>
+								</div>
 							</div>
-							
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -156,6 +171,7 @@
 		</div>
 		<s:include value="/pages/Menu/footer.jsp"></s:include>
 	</div>
+
 	<script
 		src="calendar/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
 	<script src="js/highcharts.js"></script>

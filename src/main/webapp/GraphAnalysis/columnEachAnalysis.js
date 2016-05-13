@@ -25,7 +25,8 @@ var mine = [];
 
 
 $('#send').click(function() {
-	 selecttime = $('#selecttime').val();
+	
+		selecttime = $('#selecttime').val();
 		fromyear = $('#fromyear').val();
 		toyear = $('#toyear').val();
 		frommonth = $('#frommonth').val();

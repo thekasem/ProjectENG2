@@ -132,7 +132,7 @@ public class BuyAssetDao implements IBuyAssetDao {
 					+ "FROM buyasset WHERE aocdate "
 					+ "BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31' ";
 		}else {
-			command = "SUM( buyasset.valueaoc * buyasset.cost ) "
+			command = "SELECT SUM( buyasset.valueaoc * buyasset.cost ) "
 					+ "FROM buyasset INNER JOIN asset "
 					+ "ON buyasset.assetid = asset.assetid "
 					+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthFrom+"31' "
@@ -145,7 +145,7 @@ public class BuyAssetDao implements IBuyAssetDao {
 			String yearAndMonthTo, String typeAssetId) {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
-		Double result = 0.0 ;
+		double result = 0.0 ;
 		try {
 			Query query = sessionB.createSQLQuery(querySumCostAsset(yearAndMonthFrom, yearAndMonthTo, typeAssetId));
 			result = (Double) query.uniqueResult();
@@ -162,7 +162,11 @@ public class BuyAssetDao implements IBuyAssetDao {
 						+ "FROM buyasset WHERE aocdate "
 						+ "BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthTo+"31' ";
 		 }else {
-			 command = "";
+			 command = "SELECT SUM( buyasset.valueaoc * buyasset.cost ) "
+			 		+ "FROM buyasset INNER JOIN customer "
+			 		+ "ON buyasset.assetid = customer.customerid "
+			 		+ "WHERE aocdate BETWEEN  '"+yearAndMonthFrom+"01' AND  '"+yearAndMonthFrom+"31' "
+			 		+ "AND customer.typecustomerid ="+typeCustomerId+""; 
 		 }
 		 
 		 return command;
@@ -172,7 +176,7 @@ public class BuyAssetDao implements IBuyAssetDao {
 			String yearAndMonthTo, String typeCustomerId) {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
-		Double result = 0.0 ;
+		double result = 0.0 ;
 		try {
 			Query query = sessionB.createSQLQuery(commandSumCostCustomer(yearAndMonthFrom, yearAndMonthTo, typeCustomerId));
 			result = (Double) query.uniqueResult();
