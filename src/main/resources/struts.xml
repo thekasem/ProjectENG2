@@ -66,6 +66,9 @@
 		<action name="analysisDataJSON" class="com.json.actions.AnalysisDataJsonAction" method="getDataCustomer">
 			<result type="json" />
 		</action>
+		<action name="analysisScatterDataJSON" class="com.json.actions.AnalysisScatterDataJsonAction" method="getDataGrahp">
+			<result type="json" />
+		</action>
 		
 		<action name="analysisPieEachCustomerDataJSON" class="com.json.actions.AnalysisPieEachDataJsonAction" method="getDataPieEachCustomer">
 			<result type="json" />
