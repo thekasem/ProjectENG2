@@ -41,6 +41,24 @@ public class ContactPredictionBuyAsset implements IPredictionByAssetController {
 	public List<Double> getForecastTrend(List<Double> dataSumAllYear) {
 		return predictionByAssetController.getForecastTrend(dataSumAllYear);
 	}
+
+	public List<Double> calError(List<Double> listDataCurrentYear,
+			List<Double> listDataNextYear) {
+		return predictionByAssetController.calError(listDataCurrentYear, listDataNextYear);
+	}
+
+	public double getMAD(List<Double> ErrorValues) {
+		return predictionByAssetController.getMAD(ErrorValues);
+	}
+
+	public double getMSE(List<Double> ErrorValues) {
+		return predictionByAssetController.getMSE(ErrorValues);
+	}
+
+	public double getMAPE(List<Double> ErorValues,
+			List<Double> listDataCurrentYear) {
+		return predictionByAssetController.getMAPE(ErorValues, listDataCurrentYear);
+	}
 	
 	
 	

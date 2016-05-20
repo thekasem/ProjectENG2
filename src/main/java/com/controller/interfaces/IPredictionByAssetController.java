@@ -15,5 +15,13 @@ public interface IPredictionByAssetController {
 	public List<Double> getForecastExponential(List<Double> dataSumAllYear ,float alpha);
 	
 	public List<Double> getForecastTrend(List<Double> dataSumAllYear);
+	
+	public List<Double> calError(List<Double> listDataCurrentYear,	List<Double> listDataNextYear);
+	
+	public double getMAD(List<Double> ErrorValues);
+	
+	public double getMSE(List<Double> ErrorValues);
+	
+	public double getMAPE(List<Double> ErorValues, List<Double> listDataCurrentYear);
 
 }

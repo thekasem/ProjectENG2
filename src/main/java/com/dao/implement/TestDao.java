@@ -58,15 +58,24 @@ public class TestDao {
 //			System.out.println(te[0]+" \t"+te[1]);
 //		}
 //       System.out.println("total sum value : "+ result +" record");
-		List<Double> temp = new ArrayList<Double>();
-		temp.add(9.12);
-		double result = temp.get(0)+1;
-		temp.add(result);
-		System.out.println("size array is : "+temp.size());
-		for(int i = 0 ; i<=temp.size()-1; i++){
-			
-			System.out.println(temp.get(i)+ " "+ i);
-		}
+//		List<Double> temp = new ArrayList<Double>();
+//		
+//		temp.add(null);
+//		temp.add(9.12);
+//		double result = temp.get(1)+1;
+//		temp.add(result);
+//		System.out.println("size array is : "+temp.size());
+//		for(int i = 0 ; i<temp.size(); i++){
+//			double res = 0;
+//			if(temp.get(i)!=null){
+//				res = temp.get(i);
+//			}
+//			System.out.println(res+ " "+ i);
+//		}
+		
+		int test = 2 ;
+		System.out.println(Math.pow(test, 6));
+		
 		
 	}
 

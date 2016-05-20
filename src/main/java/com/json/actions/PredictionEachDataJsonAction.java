@@ -1,5 +1,6 @@
 package com.json.actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,7 +14,7 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class PredictionEachDataJsonAction extends ActionSupport {
-	
+
 	private HttpSession session;
 	private String userNameLogin;
 	private ContactPredictionBuyAsset predictionBuyAsset;
@@ -24,6 +25,10 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 	private String typeCustomerId;
 	private String typeAssetId;
 	private String typeSelect;
+	private List<Double> ListError;
+	private double amd;
+	private double mse;
+	private double mape;
 
 	private void ContactController() {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -36,57 +41,74 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionLine() {
 		ContactController();
-		if(typeSelect.equals("1")){
-			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearCustomer(typeCustomerId);
-		} else if(typeSelect.equals("2")){
-			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearAsset(typeAssetId);
+		if (typeSelect.equals("1")) {
+			listDataCurrentYear = predictionBuyAsset
+					.getDataSumAllYearCustomer(typeCustomerId);
+		} else if (typeSelect.equals("2")) {
+			listDataCurrentYear = predictionBuyAsset
+					.getDataSumAllYearAsset(typeAssetId);
 		}
-		
+
 		if (selectPrediction.equals("1")) {
-			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset
+					.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
-			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
-		}else if (selectPrediction.equals("3")){
-			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastExponential(
+					listDataCurrentYear, alpha);
+		} else if (selectPrediction.equals("3")) {
+			listDataNextYear = predictionBuyAsset
+					.getForecastTrend(listDataCurrentYear);
 		}
 		return Action.SUCCESS;
 	}
 
 	public String getDataPredictionScatter() {
 		ContactController();
-		if(typeSelect.equals("1")){
-			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearCustomer(typeCustomerId);
-		} else if(typeSelect.equals("2")){
-			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearAsset(typeAssetId);
+		if (typeSelect.equals("1")) {
+			listDataCurrentYear = predictionBuyAsset
+					.getDataSumAllYearCustomer(typeCustomerId);
+		} else if (typeSelect.equals("2")) {
+			listDataCurrentYear = predictionBuyAsset
+					.getDataSumAllYearAsset(typeAssetId);
 		}
 		if (selectPrediction.equals("1")) {
-			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset
+					.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
-			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
-		}else if (selectPrediction.equals("3")){
-			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastExponential(
+					listDataCurrentYear, alpha);
+		} else if (selectPrediction.equals("3")) {
+			listDataNextYear = predictionBuyAsset
+					.getForecastTrend(listDataCurrentYear);
 		}
 		return Action.SUCCESS;
 	}
 
 	public String getDataPredictionColumn() {
 		ContactController();
-		
-		if(typeSelect.equals("1")){
-			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearCustomer(typeCustomerId);
-		} else if(typeSelect.equals("2")){
-			listDataCurrentYear = predictionBuyAsset.getDataSumAllYearAsset(typeAssetId);
+
+		if (typeSelect.equals("1")) {
+			listDataCurrentYear = predictionBuyAsset
+					.getDataSumAllYearCustomer(typeCustomerId);
+		} else if (typeSelect.equals("2")) {
+			listDataCurrentYear = predictionBuyAsset
+					.getDataSumAllYearAsset(typeAssetId);
 		}
-		
+
 		if (selectPrediction.equals("1")) {
-			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset
+					.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
-			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
-		}else if (selectPrediction.equals("3")){
-			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastExponential(
+					listDataCurrentYear, alpha);
+		} else if (selectPrediction.equals("3")) {
+			listDataNextYear = predictionBuyAsset
+					.getForecastTrend(listDataCurrentYear);
 		}
 		return Action.SUCCESS;
 	}
+
+	
 
 	public String getUserNameLogin() {
 		return userNameLogin;
@@ -119,7 +141,21 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 	public void setTypeSelect(String typeSelect) {
 		this.typeSelect = typeSelect;
 	}
-	
-	
+
+	public List<Double> getListError() {
+		return ListError;
+	}
+
+	public double getAmd() {
+		return amd;
+	}
+
+	public double getMse() {
+		return mse;
+	}
+
+	public double getMape() {
+		return mape;
+	}
 
 }

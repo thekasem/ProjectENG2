@@ -21,6 +21,12 @@ public class PredictionDataJsonAction extends ActionSupport {
 	private float alpha;
 	private List<Double> listDataCurrentYear;
 	private List<Double> listDataNextYear;
+	
+	private List<Double> ListError;
+	private double amd;
+	private double mse;
+	private double mape;
+
 
 	private void ContactController() {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -88,6 +94,22 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public void setAlpha(float alpha) {
 		this.alpha = alpha;
+	}
+
+	public List<Double> getListError() {
+		return ListError;
+	}
+
+	public double getAmd() {
+		return amd;
+	}
+
+	public double getMse() {
+		return mse;
+	}
+
+	public double getMape() {
+		return mape;
 	}
 	
 	

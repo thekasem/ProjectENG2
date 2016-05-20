@@ -19,9 +19,11 @@ public class PredictionBuyAssetController implements
 		this.buyAssetDao = buyAssetDao;
 	}
 
-	private Double SumCost(List<Double> dataSumAllYear) {
+	private Double Sumabs(List<Double> listData) {
 		double result = 0.0;
-
+		for (double value : listData) {
+			result = result + Math.abs(value);
+		}
 		return result;
 	}
 
@@ -41,7 +43,7 @@ public class PredictionBuyAssetController implements
 
 		for (int i = 1; i <= 12; i++) {
 			String yearAndMonth = yearAndMonth(
-					listAllYear.get(listAllYear.size()-1), i);
+					listAllYear.get(listAllYear.size() - 1), i);
 			String yearAndMonth_1 = yearAndMonth(
 					listAllYear.get(listAllYear.size() - 2), i);
 			String yearAndMonth_2 = yearAndMonth(
@@ -65,7 +67,7 @@ public class PredictionBuyAssetController implements
 
 		for (int i = 1; i <= 12; i++) {
 			String yearAndMonth = yearAndMonth(
-					listAllYear.get(listAllYear.size()-1), i);
+					listAllYear.get(listAllYear.size() - 1), i);
 			String yearAndMonth_1 = yearAndMonth(
 					listAllYear.get(listAllYear.size() - 2), i);
 			String yearAndMonth_2 = yearAndMonth(
@@ -89,7 +91,7 @@ public class PredictionBuyAssetController implements
 
 		for (int i = 1; i <= 12; i++) {
 			String yearAndMonth = yearAndMonth(
-					listAllYear.get(listAllYear.size()-1), i);
+					listAllYear.get(listAllYear.size() - 1), i);
 			String yearAndMonth_1 = yearAndMonth(
 					listAllYear.get(listAllYear.size() - 2), i);
 			String yearAndMonth_2 = yearAndMonth(
@@ -110,18 +112,12 @@ public class PredictionBuyAssetController implements
 	public List<Double> getForecastNaive(List<Double> dataSumAllYear) {
 
 		List<Double> result = new ArrayList<Double>();
-		for (int i = 0; i <= 1; i++) {
-			result.add(dataSumAllYear.get(i));
-		}
-		int loop = 2;
+		result.add(null);
+		int loop = 0;
 		do {
-
-			double currentValue = dataSumAllYear.get(loop);
-			double previousValue = dataSumAllYear.get(loop + 1);
-			double prediction = previousValue + (previousValue - currentValue);
-			result.add(prediction);
+			result.add(dataSumAllYear.get(loop));
 			loop++;
-		} while (loop != (dataSumAllYear.size()-1));
+		} while (loop != 11);
 		return result;
 	}
 
@@ -140,19 +136,19 @@ public class PredictionBuyAssetController implements
 		}
 		return result;
 	}
-	
-	private double sumList(List<Double> listValue){
+
+	private double sumList(List<Double> listValue) {
 		double result = 0.0;
-		for(int i=0; i<= listValue.size()-1;i++){
-			result = result+listValue.get(i);
+		for (int i = 0; i <= listValue.size() - 1; i++) {
+			result = result + listValue.get(i);
 		}
 		return result;
 	}
-	
-	private List<Double> multiTY(List<Double> dataSumAllYear){
+
+	private List<Double> multiTY(List<Double> dataSumAllYear) {
 		List<Double> result = new ArrayList<Double>();
-		for(int i =1 ;i<=(dataSumAllYear.size());i++){
-			double ty = dataSumAllYear.get(i-1)*i;
+		for (int i = 1; i <= (dataSumAllYear.size()); i++) {
+			double ty = dataSumAllYear.get(i - 1) * i;
 			result.add(ty);
 		}
 		return result;
@@ -164,14 +160,57 @@ public class PredictionBuyAssetController implements
 		List<Double> ty = multiTY(dataSumAllYear);
 		double sumty = sumList(ty);
 		double sumy = sumList(dataSumAllYear);
-		double b = ((12*sumty)-(78*sumy))/((12*650)-(78*78));
-		double a = (sumy-(b*78))/12;
-	    
-		for (int i = 11; i <= 24; i++) {
-			double prediction = a+(b*i);
+		double b = ((12 * sumty) - (78 * sumy)) / ((12 * 650) - (78 * 78));
+		double a = (sumy - (b * 78)) / 12;
+
+		for (int i = 11; i <= 23; i++) {
+			double prediction = a + (b * i);
 			result.add(prediction);
 		}
 		return result;
+	}
+
+	public List<Double> calError(List<Double> listDataCurrentYear,
+			List<Double> listDataNextYear) {
+		List<Double> result = new ArrayList<Double>();
+		for (int i = 0; i < listDataCurrentYear.size(); i++) {
+			double tempCurrent = listDataCurrentYear.get(i);
+			double tempNext = 0;
+			if (listDataNextYear.get(i) != null) {
+				tempCurrent = listDataNextYear.get(i);
+			}
+			result.add(tempCurrent - tempNext);
+		}
+
+		return result;
+	}
+
+	public double getMAD(List<Double> ErrorValues) {
+		double result = 0;
+		result = Sumabs(ErrorValues) / 12;
+		return result;
+	}
+
+	public double getMSE(List<Double> ErrorValues) {
+		double result = 0;
+		double sumPower = 0;
+		for (double value : ErrorValues) {
+			sumPower = sumPower + Math.pow(value, 2);
+		}
+		result = sumPower / 11;
+		return result;
+	}
+
+	public double getMAPE(List<Double> ErorValues,
+			List<Double> listDataCurrentYear) {
+		double result = 0;
+		double sumMAPE = 0;
+		for (int i = 0; i < ErorValues.size(); i++) {
+			sumMAPE = sumMAPE
+					+ (Math.abs(ErorValues.get(i)) / listDataCurrentYear.get(i) * 100);
+		}
+		result = sumMAPE / 12;
+		return 0;
 	}
 
 }
