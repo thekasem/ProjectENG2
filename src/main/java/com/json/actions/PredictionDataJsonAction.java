@@ -22,8 +22,8 @@ public class PredictionDataJsonAction extends ActionSupport {
 	private List<Double> listDataCurrentYear;
 	private List<Double> listDataNextYear;
 	
-	private List<Double> ListError;
-	private double amd;
+	private List<Double> listError;
+	private double mad;
 	private double mse;
 	private double mape;
 
@@ -47,6 +47,11 @@ public class PredictionDataJsonAction extends ActionSupport {
 		}else if (selectPrediction.equals("3")){
 			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
 		}
+		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
+		mad = predictionBuyAsset.getMAD(listError);
+		mse = predictionBuyAsset.getMSE(listError);
+		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
+		
 		return Action.SUCCESS;
 	}
 
@@ -60,6 +65,10 @@ public class PredictionDataJsonAction extends ActionSupport {
 		}else if (selectPrediction.equals("3")){
 			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
 		}
+		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
+		mad = predictionBuyAsset.getMAD(listError);
+		mse = predictionBuyAsset.getMSE(listError);
+		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
 
@@ -73,6 +82,10 @@ public class PredictionDataJsonAction extends ActionSupport {
 		}else if (selectPrediction.equals("3")){
 			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
 		}
+		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
+		mad = predictionBuyAsset.getMAD(listError);
+		mse = predictionBuyAsset.getMSE(listError);
+		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
 
@@ -97,11 +110,11 @@ public class PredictionDataJsonAction extends ActionSupport {
 	}
 
 	public List<Double> getListError() {
-		return ListError;
+		return listError;
 	}
 
-	public double getAmd() {
-		return amd;
+	public double getMad() {
+		return mad;
 	}
 
 	public double getMse() {

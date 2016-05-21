@@ -210,7 +210,7 @@ public class PredictionBuyAssetController implements
 					+ (Math.abs(ErorValues.get(i)) / listDataCurrentYear.get(i) * 100);
 		}
 		result = sumMAPE / 12;
-		return 0;
+		return result;
 	}
 
 }

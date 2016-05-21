@@ -158,7 +158,7 @@
 								</div>
 								<div id="erorprediction" class="col-md-2">
 									<div class="box">
-										<div class="box-header">
+										<div class="box-header with-border">
 											<h3 class="box-title">Eror values prediction</h3>
 										</div>
 										<!-- /.box-header -->

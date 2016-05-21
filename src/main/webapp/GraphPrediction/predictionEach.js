@@ -10,6 +10,10 @@ var predictionid;
 var selectprediction;
 var typeCustomerId;
 var typeAssetId;
+var ListError = [];
+var mad;
+var mse;
+var mape;
 
 $(function() {
 	
@@ -96,11 +100,15 @@ function showLinePrediction() {
 
 			listDataCurrentYear = response.listDataCurrentYear;
 			listDataNextYear = response.listDataNextYear;
-			
+			mape = response.mape;
+			mse = response.mse;
+			mad = response.mad;
+			ListError = response.listError;
 			$('#table').remove();
 			
-			var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">';
-			appendText = appendText+'#</th><th>Task</th><th>Progress</th><th style="width: 40px">Label</th></tr><tr><td>1.</td><td>Update software</td><td><div class="progress progress-xs"><div class="progress-bar progress-bar-danger"style="width: 55%"></div></div></td><td><span class="badge bg-red">55%</span></td></tr><tr><td>2.</td><td> Clean database </td><td><div class="progress progress-xs"><div class="progress-bar progress-bar-yellow" style="width: 100%"></div></div></td><td><span class="badge bg-yellow">100%</span></td></tr><tr><td>3.</td><td>Cron job running</td><td><div class="progress progress-xs progress-striped active"><div class="progress-bar progress-bar-primary" style="width: 30%"></div></div></td><td><span class="badge bg-light-blue">30%</span></td></tr><tr><td>4.</td><td>Fix and squish bugs</td><td><div class="progress progress-xs progress-striped active"><div class="progress-bar progress-bar-success" style="width: 90%"></div></div></td><td><span class="badge bg-green">90%</span></td></tr></table>';
+			var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">Month</th><th>Absolute Error</th></tr>';
+			appendText = appendText+ getTextHTML(ListError);
+			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 			$('#showtable').append(appendText);
 
 			$('#lineprediction').highcharts(
@@ -175,10 +183,16 @@ function showColumnPrediction() {
 				success : function(response) {
 					listDataCurrentYear = response.listDataCurrentYear;
 					listDataNextYear = response.listDataNextYear;
+					mape = response.mape;
+					mse = response.mse;
+					mad = response.mad;
+					ListError = response.listError;
 					$('#table').remove();
-					var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">#</th><th>Task</th><th>Progress</th><th style="width: 40px">Label</th></tr><tr><td>1.</td><td>Update software</td><td><div class="progress progress-xs"><div class="progress-bar progress-bar-danger"style="width: 55%"></div></div></td><td><span class="badge bg-red">55%</span></td></tr><tr><td>2.</td><td> Clean database </td><td><div class="progress progress-xs"><div class="progress-bar progress-bar-yellow" style="width: 100%"></div></div></td><td><span class="badge bg-yellow">100%</span></td></tr></table>';
-					$('#showtable').append(appendText);
 					
+					var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">Month</th><th>Absolute Error</th></tr>';
+					appendText = appendText+ getTextHTML(ListError);
+					appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
+					$('#showtable').append(appendText);
 					$('#columnprediction')
 							.highcharts(
 									{
@@ -256,8 +270,15 @@ function showScatterPrediction() {
 					listDataCurrentYear = response.listDataCurrentYear;
 					listDataNextYear = response.listDataNextYear;
 					
+					mape = response.mape;
+					mse = response.mse;
+					mad = response.mad;
+					ListError = response.listError;
 					$('#table').remove();
-					var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">#</th><th>Task</th><th>Progress</th><th style="width: 40px">Label</th></tr><tr><td>1.</td><td>Update software</td><td><div class="progress progress-xs"><div class="progress-bar progress-bar-danger"style="width: 55%"></div></div></td><td><span class="badge bg-red">55%</span></td></tr><tr><td>2.</td><td> Clean database </td></table>';
+					
+					var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">Month</th><th>Absolute Error</th></tr>';
+					appendText = appendText+ getTextHTML(ListError);
+					appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 					$('#showtable').append(appendText);
 					
 					$('#scatterprediction')
@@ -339,4 +360,13 @@ function showScatterPrediction() {
 				}
 			});
 
+}
+
+function getTextHTML(ListError){
+	var text = '' ;
+	for (i = 0; i < ListError.length; i++){
+		text = text + '<tr><td>'+(i+1)+'</td><td>'+ListError[i]+'</td></tr>';
+	}
+	
+	return text;
 }

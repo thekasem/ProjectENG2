@@ -25,8 +25,8 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 	private String typeCustomerId;
 	private String typeAssetId;
 	private String typeSelect;
-	private List<Double> ListError;
-	private double amd;
+	private List<Double> listError;
+	private double mad;
 	private double mse;
 	private double mape;
 
@@ -59,6 +59,11 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset
 					.getForecastTrend(listDataCurrentYear);
 		}
+		
+		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
+		mad = predictionBuyAsset.getMAD(listError);
+		mse = predictionBuyAsset.getMSE(listError);
+		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
 
@@ -81,6 +86,11 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset
 					.getForecastTrend(listDataCurrentYear);
 		}
+		
+		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
+		mad = predictionBuyAsset.getMAD(listError);
+		mse = predictionBuyAsset.getMSE(listError);
+		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
 
@@ -105,6 +115,11 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset
 					.getForecastTrend(listDataCurrentYear);
 		}
+		
+		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
+		mad = predictionBuyAsset.getMAD(listError);
+		mse = predictionBuyAsset.getMSE(listError);
+		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
 
@@ -141,13 +156,13 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 	public void setTypeSelect(String typeSelect) {
 		this.typeSelect = typeSelect;
 	}
-
+	
 	public List<Double> getListError() {
-		return ListError;
+		return listError;
 	}
 
-	public double getAmd() {
-		return amd;
+	public double getMad() {
+		return mad;
 	}
 
 	public double getMse() {
