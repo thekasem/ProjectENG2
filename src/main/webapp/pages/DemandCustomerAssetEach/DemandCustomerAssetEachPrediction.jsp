@@ -53,9 +53,9 @@
 						<Strong>Demand Customer Assets Prediction</Strong>
 					</div>
 					<div class="panel-body box box-warning">
-						<div class="row well form-horizontal">
-							<label class="col-md-1 control-label">Forecast :</label>
-							<div class="has-feedback col-md-2">
+						<div class="row form-horizontal">
+							<label class="col-md-1 control-label" >Forecast :</label>
+							<div class="has-feedback col-md-2 ">
 								<s:select id="selectprediction" headerKey="-1"
 									class="form-control"
 									list="#{'1':'Naive Forecast', '2':'Exponential Smoothing Forecast', '3':'Techniques for Trend'}"
@@ -151,14 +151,14 @@
 								<!-- 									show scatter chart -->
 								<div class="well col-md-12" id="scatter">
 									<div class="col-sm-6">
-										<div id="scatterprediction"
+										<div id="scatterprediction" 
 											style="width: 1150px; height: 520px;"></div>
 									</div>
 								</div>
 								</div>
-								<div id="erorprediction" class="col-md-2">
-									<div class="box">
-										<div class="box-header with-border">
+								<div id="erorprediction" class="col-md-2 text-purple">
+									<div class="box box-primary">
+										<div class="box-header with-border text-light-blue">
 											<h3 class="box-title">Eror values prediction</h3>
 										</div>
 										<!-- /.box-header -->

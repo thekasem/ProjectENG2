@@ -54,7 +54,7 @@
 					</div>
 					<div class="panel-body box box-warning">
 						<form class="form-horizontal">
-							<div class="row well">
+							<div class="row">
 								<label class="col-md-1 control-label">Forecast :</label>
 								<div class="has-feedback col-md-2">
 									<s:select id="selectprediction" headerKey="-1"
@@ -119,9 +119,9 @@
 									</div>
 
 								</div>
-								<div class="col-md-2">
-									<div class="box">
-										<div class="box-header">
+								<div class="col-md-2 text-purple">
+									<div class="box box-primary">
+										<div class="box-header text-light-blue">
 											<h3 class="box-title">Eror values prediction</h3>
 										</div>
 										<!-- /.box-header -->
