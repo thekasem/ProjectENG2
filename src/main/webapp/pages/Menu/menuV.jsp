@@ -11,17 +11,12 @@
 	<header class="main-header">
 
 		<!-- Logo -->
-		<a href="login_homeFirst" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
-
-
-
-
-
-
+		<a href="login_homeFirst" class="logo" > <!-- mini logo for sidebar mini 50x50 pixels -->
 
 			<span class="logo-mini"><b>E</b>NG</span> <!-- logo for regular state and mobile devices -->
-			<span class="logo-lg"><img src="pages/Menu/Ramkhamhaeng.png"
-				WIDTH="45" HIGHT="45"><b>Pro</b>ENG</span>
+			<span class="logo-lg" style="margin-top: 2px; margin-left: 12px;" ><img src="pages/Menu/logo-eng.png"
+				WIDTH="50" HEIGHT="45" align="left"></span>
+				<span class="logo-lg" style="margin-top: 0px;"><b>RU</b> <b>Pro</b>ENG</span>
 		</a>
 
 		<!-- Header Navbar: style can be found in header.less -->

@@ -19,7 +19,11 @@
 	href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
 <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
+<style>
+.mySlides {display:none}
+</style>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<s:url action="activityArchive_search" var="search"></s:url>
@@ -40,10 +44,29 @@
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
 			</ol>
-			</section>
 			
 			
+			<div class="w3-container">
+</div>
 
+<div class="w3-content" style="">
+  <img src="pages/Menu/forecast.jpg" class="mySlides w3-border w3-padding w3-round-xlarge" style="width: 960px; height: 640px;">
+  <img src="pages/Menu/plan.png" class="mySlides w3-border w3-padding w3-round-xlarge" style="width: 960px; height: 640px;">
+  <img src="pages/Menu/foreign-gold-graph.jpg" class="mySlides w3-border w3-padding w3-round-xlarge" style="width: 960px; height: 640px;">
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col s4">
+      <img class="demo w3-border w3-hover-shadow w3-padding w3-hover-opacity w3-round-xlarge" src="pages/Menu/forecast.jpg" style="width: 250px; height: 150px;" onclick="currentDiv(1)">
+    </div>
+    <div class="w3-col s4">
+      <img class="demo w3-border w3-hover-shadow w3-padding w3-hover-opacity w3-round-xlarge" src="pages/Menu/plan.png" style="width: 250px; height: 150px;" onclick="currentDiv(2)">
+    </div>
+    <div class="w3-col s4">
+      <img class="demo w3-border w3-hover-shadow w3-padding w3-hover-opacity w3-round-xlarge" src="pages/Menu/foreign-gold-graph.jpg" style="width: 250px; height: 150px;" onclick="currentDiv(3)">
+    </div>
+  </div>
+</div>
+			</section>
 		</div>
 		<s:include value="/pages/Menu/footer.jsp"></s:include>
 	</div>
@@ -57,5 +80,33 @@
 	<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
 	<script src="plugins/chartjs/Chart.min.js"></script>
 	<script src="dist/js/demo.js"></script>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-border-red", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-border-red";
+}
+</script>
 </body>
 </html>
