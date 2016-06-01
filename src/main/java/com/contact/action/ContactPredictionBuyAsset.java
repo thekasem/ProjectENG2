@@ -59,6 +59,15 @@ public class ContactPredictionBuyAsset implements IPredictionByAssetController {
 			List<Double> listDataCurrentYear) {
 		return predictionByAssetController.getMAPE(ErorValues, listDataCurrentYear);
 	}
+
+	public List<Object[]> getDataPrediction(String date) {
+		return predictionByAssetController.getDataPrediction(date);
+	}
+
+	public List<Object[]> getDataEachPrediction(String date, String typeId,
+			boolean type) {
+		return predictionByAssetController.getDataEachPrediction(date, typeId, type);
+	}
 	
 	
 	

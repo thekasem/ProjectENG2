@@ -18,5 +18,9 @@ public interface IBuyAssetDao {
 	public double getSumCostAsset(String yearAndMonthFrom, String yearAndMonthTo, String typeAssetId);
 	
 	public double getSumCostCustomer(String yearAndMonthFrom, String yearAndMonthTo, String typeCustomerId);
+	
+	public List<Object[]> getDataPrediction(String date);
+	
+	public List<Object[]> getDataEachPrediction(String date, String typeId, boolean type);
 
 }

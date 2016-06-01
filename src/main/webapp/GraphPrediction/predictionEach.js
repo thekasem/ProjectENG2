@@ -10,7 +10,7 @@ var predictionid;
 var selectprediction;
 var typeCustomerId;
 var typeAssetId;
-var ListError = [];
+var date = [];
 var mad;
 var mse;
 var mape;
@@ -100,14 +100,14 @@ function showLinePrediction() {
 
 			listDataCurrentYear = response.listDataCurrentYear;
 			listDataNextYear = response.listDataNextYear;
-			mape = response.mape;
-			mse = response.mse;
-			mad = response.mad;
-			ListError = response.listError;
+			mape = response.mape.toFixed(2);
+			mse = response.mse.toFixed(2);
+			mad = response.mad.toFixed(2);
+//			ListError = response.listError;
+			date = response.date;
 			$('#table').remove();
 			
-			var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">Month</th><th>Absolute Error</th></tr>';
-			appendText = appendText+ getTextHTML(ListError);
+			var appendText = '<table id="table" class="table table-striped">';
 			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 			$('#showtable').append(appendText);
 
@@ -123,9 +123,7 @@ function showLinePrediction() {
 							x : -20
 						},
 						xAxis : {
-							categories : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May',
-									'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',
-									'Dec' ]
+							categories :date
 						},
 						yAxis : {
 							title : {
@@ -183,14 +181,14 @@ function showColumnPrediction() {
 				success : function(response) {
 					listDataCurrentYear = response.listDataCurrentYear;
 					listDataNextYear = response.listDataNextYear;
-					mape = response.mape;
-					mse = response.mse;
-					mad = response.mad;
-					ListError = response.listError;
+					mape = response.mape.toFixed(2);
+					mse = response.mse.toFixed(2);
+					mad = response.mad.toFixed(2);
+//					ListError = response.listError;
+					date = response.date;
 					$('#table').remove();
 					
-					var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">Month</th><th>Absolute Error</th></tr>';
-					appendText = appendText+ getTextHTML(ListError);
+					var appendText = '<table id="table" class="table table-striped">';
 					appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 					$('#showtable').append(appendText);
 					$('#columnprediction')
@@ -206,10 +204,7 @@ function showColumnPrediction() {
 											text : 'by year XXXX'
 										},
 										xAxis : {
-											categories : [ 'Jan', 'Feb', 'Mar',
-													'Apr', 'May', 'Jun', 'Jul',
-													'Aug', 'Sep', 'Oct', 'Nov',
-													'Dec' ],
+											categories : date,
 											crosshair : true
 										},
 										yAxis : {
@@ -270,14 +265,14 @@ function showScatterPrediction() {
 					listDataCurrentYear = response.listDataCurrentYear;
 					listDataNextYear = response.listDataNextYear;
 					
-					mape = response.mape;
-					mse = response.mse;
-					mad = response.mad;
-					ListError = response.listError;
+					mape = response.mape.toFixed(2);
+					mse = response.mse.toFixed(2);
+					mad = response.mad.toFixed(2);
+//					ListError = response.listError;
+					date = response.date;
 					$('#table').remove();
 					
-					var appendText = '<table id="table" class="table table-striped"><tr><th style="width: 10px">Month</th><th>Absolute Error</th></tr>';
-					appendText = appendText+ getTextHTML(ListError);
+					var appendText = '<table id="table" class="table table-striped">';
 					appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 					$('#showtable').append(appendText);
 					

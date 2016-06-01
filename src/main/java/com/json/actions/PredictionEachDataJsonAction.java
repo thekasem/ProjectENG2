@@ -15,20 +15,22 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class PredictionEachDataJsonAction extends ActionSupport {
 
+	private String typeSelect;
 	private HttpSession session;
 	private String userNameLogin;
 	private ContactPredictionBuyAsset predictionBuyAsset;
 	private String selectPrediction;
 	private float alpha;
+	private List<String> date;
 	private List<Double> listDataCurrentYear;
 	private List<Double> listDataNextYear;
 	private String typeCustomerId;
 	private String typeAssetId;
-	private String typeSelect;
 	private List<Double> listError;
 	private double mad;
 	private double mse;
 	private double mape;
+
 
 	private void ContactController() {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -41,52 +43,32 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionLine() {
 		ContactController();
-		if (typeSelect.equals("1")) {
-			listDataCurrentYear = predictionBuyAsset
-					.getDataSumAllYearCustomer(typeCustomerId);
-		} else if (typeSelect.equals("2")) {
-			listDataCurrentYear = predictionBuyAsset
-					.getDataSumAllYearAsset(typeAssetId);
-		}
-
+		setDataList();
 		if (selectPrediction.equals("1")) {
-			listDataNextYear = predictionBuyAsset
-					.getForecastNaive(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
-			listDataNextYear = predictionBuyAsset.getForecastExponential(
-					listDataCurrentYear, alpha);
-		} else if (selectPrediction.equals("3")) {
-			listDataNextYear = predictionBuyAsset
-					.getForecastTrend(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
+		}else if (selectPrediction.equals("3")){
+			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
 		}
-		
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
 		mad = predictionBuyAsset.getMAD(listError);
 		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
+		
 		return Action.SUCCESS;
 	}
 
 	public String getDataPredictionScatter() {
 		ContactController();
-		if (typeSelect.equals("1")) {
-			listDataCurrentYear = predictionBuyAsset
-					.getDataSumAllYearCustomer(typeCustomerId);
-		} else if (typeSelect.equals("2")) {
-			listDataCurrentYear = predictionBuyAsset
-					.getDataSumAllYearAsset(typeAssetId);
-		}
+		setDataList();
 		if (selectPrediction.equals("1")) {
-			listDataNextYear = predictionBuyAsset
-					.getForecastNaive(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
-			listDataNextYear = predictionBuyAsset.getForecastExponential(
-					listDataCurrentYear, alpha);
-		} else if (selectPrediction.equals("3")) {
-			listDataNextYear = predictionBuyAsset
-					.getForecastTrend(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
+		}else if (selectPrediction.equals("3")){
+			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
 		}
-		
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
 		mad = predictionBuyAsset.getMAD(listError);
 		mse = predictionBuyAsset.getMSE(listError);
@@ -96,34 +78,38 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionColumn() {
 		ContactController();
-
-		if (typeSelect.equals("1")) {
-			listDataCurrentYear = predictionBuyAsset
-					.getDataSumAllYearCustomer(typeCustomerId);
-		} else if (typeSelect.equals("2")) {
-			listDataCurrentYear = predictionBuyAsset
-					.getDataSumAllYearAsset(typeAssetId);
-		}
-
+		setDataList();
 		if (selectPrediction.equals("1")) {
-			listDataNextYear = predictionBuyAsset
-					.getForecastNaive(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
-			listDataNextYear = predictionBuyAsset.getForecastExponential(
-					listDataCurrentYear, alpha);
-		} else if (selectPrediction.equals("3")) {
-			listDataNextYear = predictionBuyAsset
-					.getForecastTrend(listDataCurrentYear);
+			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
+		}else if (selectPrediction.equals("3")){
+			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
 		}
-		
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
 		mad = predictionBuyAsset.getMAD(listError);
 		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
-
 	
+	private void setDataList(){
+		boolean type = false;
+		String typeId="";
+		if (typeSelect.equals("1")) {
+			type =true;
+			typeId = typeCustomerId;
+		} else if (typeSelect.equals("2")) {
+			typeId = typeAssetId;
+		}
+		List<Object[]> dataList = predictionBuyAsset.getDataEachPrediction("2015",typeId,type);
+		listDataCurrentYear = new ArrayList<Double>();
+		date = new ArrayList<String>();
+		for(Object[] value:dataList){
+			listDataCurrentYear.add((Double) value[0]);
+			date.add((value[1]+"").substring(6,8)+"/"+(value[1]+"").substring(4,6));
+		}
+	}
 
 	public String getUserNameLogin() {
 		return userNameLogin;
@@ -145,18 +131,6 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 		this.alpha = alpha;
 	}
 
-	public void setTypeCustomerId(String typeCustomerId) {
-		this.typeCustomerId = typeCustomerId;
-	}
-
-	public void setTypeAssetId(String typeAssetId) {
-		this.typeAssetId = typeAssetId;
-	}
-
-	public void setTypeSelect(String typeSelect) {
-		this.typeSelect = typeSelect;
-	}
-	
 	public List<Double> getListError() {
 		return listError;
 	}
@@ -173,4 +147,21 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 		return mape;
 	}
 
+	public List<String> getDate() {
+		return date;
+	}
+
+	public void setTypeSelect(String typeSelect) {
+		this.typeSelect = typeSelect;
+	}
+
+	public void setTypeCustomerId(String typeCustomerId) {
+		this.typeCustomerId = typeCustomerId;
+	}
+
+	public void setTypeAssetId(String typeAssetId) {
+		this.typeAssetId = typeAssetId;
+	}
+	
+	
 }

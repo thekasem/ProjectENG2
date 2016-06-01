@@ -117,7 +117,7 @@ public class PredictionBuyAssetController implements
 		do {
 			result.add(dataSumAllYear.get(loop));
 			loop++;
-		} while (loop != 11);
+		} while (loop != dataSumAllYear.size() - 1);
 		return result;
 	}
 
@@ -160,10 +160,11 @@ public class PredictionBuyAssetController implements
 		List<Double> ty = multiTY(dataSumAllYear);
 		double sumty = sumList(ty);
 		double sumy = sumList(dataSumAllYear);
-		double b = ((12 * sumty) - (78 * sumy)) / ((12 * 650) - (78 * 78));
-		double a = (sumy - (b * 78)) / 12;
+		int n = dataSumAllYear.size();
+		double b = ((n * sumty) - (78 * sumy)) / ((n * 650) - (78 * 78));
+		double a = (sumy - (b * 78)) / n;
 
-		for (int i = 11; i <= 23; i++) {
+		for (int i = n - 1; i < (n + n - 1); i++) {
 			double prediction = a + (b * i);
 			result.add(prediction);
 		}
@@ -173,12 +174,15 @@ public class PredictionBuyAssetController implements
 	public List<Double> calError(List<Double> listDataCurrentYear,
 			List<Double> listDataNextYear) {
 		List<Double> result = new ArrayList<Double>();
+
 		for (int i = 0; i < listDataCurrentYear.size(); i++) {
-			double tempCurrent = listDataCurrentYear.get(i);
-			double tempNext = 0;
-			if (listDataNextYear.get(i) != null) {
-				tempCurrent = listDataNextYear.get(i);
+			if (listDataNextYear.get(i) == null
+					|| listDataCurrentYear.get(i) == null) {
+				continue;
 			}
+
+			double tempCurrent = listDataCurrentYear.get(i);
+			double tempNext = listDataNextYear.get(i);
 			result.add(tempCurrent - tempNext);
 		}
 
@@ -187,7 +191,7 @@ public class PredictionBuyAssetController implements
 
 	public double getMAD(List<Double> ErrorValues) {
 		double result = 0;
-		result = Sumabs(ErrorValues) / 12;
+		result = Sumabs(ErrorValues) / ErrorValues.size();
 		return result;
 	}
 
@@ -197,7 +201,7 @@ public class PredictionBuyAssetController implements
 		for (double value : ErrorValues) {
 			sumPower = sumPower + Math.pow(value, 2);
 		}
-		result = sumPower / 11;
+		result = sumPower / (ErrorValues.size() - 1);
 		return result;
 	}
 
@@ -207,10 +211,21 @@ public class PredictionBuyAssetController implements
 		double sumMAPE = 0;
 		for (int i = 0; i < ErorValues.size(); i++) {
 			sumMAPE = sumMAPE
-					+ (Math.abs(ErorValues.get(i)) / listDataCurrentYear.get(i) * 100);
+					+ (Math.abs(ErorValues.get(i)) / listDataCurrentYear.get(i));
 		}
-		result = sumMAPE / 12;
+		result = (sumMAPE / ErorValues.size()) * 100;
 		return result;
 	}
+
+	public List<Object[]> getDataPrediction(String date) {
+		return buyAssetDao.getDataPrediction(date);
+	}
+
+	public List<Object[]> getDataEachPrediction(String date, String typeId,
+			boolean type) {
+		return buyAssetDao.getDataEachPrediction(date, typeId, type);
+	}
+	
+	
 
 }

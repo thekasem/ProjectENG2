@@ -1,5 +1,6 @@
 package com.json.actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,6 +20,7 @@ public class PredictionDataJsonAction extends ActionSupport {
 	private ContactPredictionBuyAsset predictionBuyAsset;
 	private String selectPrediction;
 	private float alpha;
+	private List<String> date;
 	private List<Double> listDataCurrentYear;
 	private List<Double> listDataNextYear;
 	
@@ -39,7 +41,7 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionLine() {
 		ContactController();
-		listDataCurrentYear = predictionBuyAsset.getDataSumAllYear();
+		setDataList();
 		if (selectPrediction.equals("1")) {
 			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
@@ -57,7 +59,7 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionScatter() {
 		ContactController();
-		listDataCurrentYear = predictionBuyAsset.getDataSumAllYear();
+		setDataList();
 		if (selectPrediction.equals("1")) {
 			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
@@ -74,7 +76,7 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public String getDataPredictionColumn() {
 		ContactController();
-		listDataCurrentYear = predictionBuyAsset.getDataSumAllYear();
+		setDataList();
 		if (selectPrediction.equals("1")) {
 			listDataNextYear = predictionBuyAsset.getForecastNaive(listDataCurrentYear);
 		} else if (selectPrediction.equals("2")) {
@@ -87,6 +89,16 @@ public class PredictionDataJsonAction extends ActionSupport {
 		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
+	}
+	
+	private void setDataList(){
+		List<Object[]> dataList = predictionBuyAsset.getDataPrediction("2015");
+		listDataCurrentYear = new ArrayList<Double>();
+		date = new ArrayList<String>();
+		for(Object[] value:dataList){
+			listDataCurrentYear.add((Double) value[0]);
+			date.add((value[1]+"").substring(6,8)+"/"+(value[1]+"").substring(4,6));
+		}
 	}
 
 	public String getUserNameLogin() {
@@ -123,6 +135,10 @@ public class PredictionDataJsonAction extends ActionSupport {
 
 	public double getMape() {
 		return mape;
+	}
+
+	public List<String> getDate() {
+		return date;
 	}
 	
 	

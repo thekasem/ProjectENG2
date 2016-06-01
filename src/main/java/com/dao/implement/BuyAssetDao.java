@@ -187,6 +187,46 @@ public class BuyAssetDao implements IBuyAssetDao {
 		return result;
 	}
 
+	public List<Object[]> getDataPrediction(String date) {
+		Session sessionB = HibernateUtil.getSessionFactory().openSession();
+		sessionB.beginTransaction();
+		List<Object[]> result = null;
+		try {
+			Query query = sessionB.createSQLQuery("SELECT sum(cost*valueaoc), aocdate FROM buyasset WHERE aocdate like '"+date+"%' group by aocdate");
+			result = (List<Object[]>) query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		sessionB.getTransaction().commit();
+		return result;
+	}
+   
+	private String commandEachPrediction(String date, String typeId,boolean type){
+		String command = "";
+		if(type){
+			command = "SELECT sum(cost*valueaoc), aocdate FROM buyasset INNER JOIN customer ON buyasset.customerid = customer.customerid WHERE aocdate like '"+date+"%' and typecustomerid = "+typeId;
+		}else{
+			command = "SELECT sum(cost*valueaoc), aocdate FROM buyasset INNER JOIN asset ON buyasset.assetid = asset.assetid WHERE aocdate like '"+date+"%' and typeassetid = "+typeId;
+		}
+		    command = command + " group by aocdate";
+		return command;
+	}
+	
+	public List<Object[]> getDataEachPrediction(String date, String typeId,
+			boolean type) {
+		Session sessionB = HibernateUtil.getSessionFactory().openSession();
+		sessionB.beginTransaction();
+		List<Object[]> result = null;
+		try {
+			Query query = sessionB.createSQLQuery(commandEachPrediction(date, typeId, type));
+			result = (List<Object[]>) query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		sessionB.getTransaction().commit();
+		return result;
+	}
+
 	
 	
 

@@ -159,7 +159,7 @@
 								<div id="erorprediction" class="col-md-2 text-purple">
 									<div class="box box-primary">
 										<div class="box-header with-border text-light-blue">
-											<h3 class="box-title">Eror values prediction</h3>
+											<h3 class="box-title">Error values prediction</h3>
 										</div>
 										<!-- /.box-header -->
 										<div id="showtable" class="box-body no-padding">

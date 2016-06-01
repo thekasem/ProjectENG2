@@ -81,6 +81,13 @@
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>5.0.6.Final</version>
 		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.beykery/neuroph -->
+		<dependency>
+			<groupId>org.beykery</groupId>
+			<artifactId>neuroph</artifactId>
+			<version>2.92</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>EngProject</finalName>

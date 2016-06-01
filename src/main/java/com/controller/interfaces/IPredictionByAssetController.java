@@ -23,5 +23,9 @@ public interface IPredictionByAssetController {
 	public double getMSE(List<Double> ErrorValues);
 	
 	public double getMAPE(List<Double> ErorValues, List<Double> listDataCurrentYear);
+	
+	public List<Object[]> getDataPrediction(String date);
+	
+	public List<Object[]> getDataEachPrediction(String date, String typeId, boolean type);
 
 }
