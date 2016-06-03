@@ -58,7 +58,7 @@
 							<div class="has-feedback col-md-2 ">
 								<s:select id="selectprediction" headerKey="-1"
 									class="form-control"
-									list="#{'1':'Naive Forecast', '2':'Exponential Smoothing Forecast', '3':'Techniques for Trend'}"
+									list="#{'1':'Naive Forecast', '2':'Exponential Smoothing Forecast', '3':'Techniques for Trend', '4':'Neural Network'}"
 									name="function" value="1" />
 								<span class="fa fa-line-chart form-control-feedback"></span>
 							</div>

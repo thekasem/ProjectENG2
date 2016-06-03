@@ -68,6 +68,10 @@ public class ContactPredictionBuyAsset implements IPredictionByAssetController {
 			boolean type) {
 		return predictionByAssetController.getDataEachPrediction(date, typeId, type);
 	}
+
+	public List<Double> getForCastNeuralNetwork(List<Double> dataSumAllYear) {
+		return predictionByAssetController.getForCastNeuralNetwork(dataSumAllYear);
+	}
 	
 	
 	

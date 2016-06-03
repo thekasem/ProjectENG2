@@ -19,7 +19,7 @@ public class TestMethodHibernate {
 		sessionB.beginTransaction();
 		List<Object[]> result = null;
 		try {
-			Query query = sessionB.createSQLQuery("SELECT sum(cost), aocdate FROM buyasset WHERE aocdate like '2008%' group by aocdate"); 
+			Query query = sessionB.createSQLQuery("SELECT sum(cost*valueaoc), aocdate FROM buyasset WHERE aocdate like '2008%' group by aocdate"); 
 			
 			result = (List<Object[]>) query.list();
 		} catch (Exception e) {

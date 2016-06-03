@@ -28,4 +28,5 @@ public interface IPredictionByAssetController {
 	
 	public List<Object[]> getDataEachPrediction(String date, String typeId, boolean type);
 
+	public List<Double>  getForCastNeuralNetwork(List<Double> dataSumAllYear);
 }

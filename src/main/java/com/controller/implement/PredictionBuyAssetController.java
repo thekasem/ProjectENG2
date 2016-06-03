@@ -225,6 +225,13 @@ public class PredictionBuyAssetController implements
 			boolean type) {
 		return buyAssetDao.getDataEachPrediction(date, typeId, type);
 	}
+
+	public List<Double> getForCastNeuralNetwork(List<Double> dataSumAllYear) {
+		List<Double> result = new ArrayList<Double>();
+		
+		
+		return result;
+	}
 	
 	
 

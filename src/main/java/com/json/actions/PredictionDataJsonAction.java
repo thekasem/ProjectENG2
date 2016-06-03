@@ -48,6 +48,8 @@ public class PredictionDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
 		}else if (selectPrediction.equals("3")){
 			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
+		}else if (selectPrediction.equals("4")){
+			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
 		mad = predictionBuyAsset.getMAD(listError);
@@ -66,6 +68,8 @@ public class PredictionDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
 		}else if (selectPrediction.equals("3")){
 			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
+		}else if (selectPrediction.equals("4")){
+			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
 		mad = predictionBuyAsset.getMAD(listError);
@@ -83,6 +87,8 @@ public class PredictionDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForecastExponential(listDataCurrentYear, alpha);
 		}else if (selectPrediction.equals("3")){
 			listDataNextYear = predictionBuyAsset.getForecastTrend(listDataCurrentYear);
+		}else if (selectPrediction.equals("4")){
+			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
 		mad = predictionBuyAsset.getMAD(listError);
