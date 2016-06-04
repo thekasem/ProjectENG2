@@ -40,7 +40,6 @@
 			</section>
 
 			<section class="content">
-
 			<div class="row">
 				<div style="margin-top: 10px;" align="right">
 					<h3>
@@ -91,7 +90,10 @@
 							</div>
 							<div style="margin: 20px"></div>
 
+
+
 							<div class="row">
+
 								<div class="col-md-10">
 
 									<!-- 										show line chart -->
@@ -126,14 +128,14 @@
 										</div>
 										<!-- /.box-header -->
 										<div id="showtable" class="box-body no-padding">
-<!-- 											<table id="table" class="table table-striped"> -->
-<!-- 												<tr> -->
-<!-- 													<th style="width: 10px">#</th> -->
-<!-- 													<th>Task</th> -->
-<!-- 													<th>Progress</th> -->
-<!-- 													<th style="width: 40px">Label</th> -->
-<!-- 												</tr> -->
-<!-- 											</table> -->
+											<!-- 											<table id="table" class="table table-striped"> -->
+											<!-- 												<tr> -->
+											<!-- 													<th style="width: 10px">#</th> -->
+											<!-- 													<th>Task</th> -->
+											<!-- 													<th>Progress</th> -->
+											<!-- 													<th style="width: 40px">Label</th> -->
+											<!-- 												</tr> -->
+											<!-- 											</table> -->
 										</div>
 										<!-- /.box-body -->
 									</div>
@@ -142,7 +144,11 @@
 							</div>
 						</form>
 					</div>
+					<div id="loading" class="overlay">
+						<i class="fa fa-refresh fa-spin"></i>
+					</div>
 				</div>
+
 			</div>
 			</section>
 			<!-- Main content -->

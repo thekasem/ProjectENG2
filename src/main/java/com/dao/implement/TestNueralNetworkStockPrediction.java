@@ -152,7 +152,7 @@ public class TestNueralNetworkStockPrediction {
 
 		neuralNetwork.calculate();
 		double[] networkOutput = neuralNetwork.getOutput();
-		System.out.println("Expected value  : 2066.96");
+		System.out.println("Expected value  : 2066.96 "+normalizeValue(2056.15));
 		System.out.printf("Predicted value : %.4f\n"+neuralNetwork.getOutputsCount(), deNormalizeValue(networkOutput[0]));
 		
 

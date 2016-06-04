@@ -8,15 +8,18 @@ var mad;
 var mse;
 var mape;
 $(function (){
+	
 	$('.alphavalue').hide(0);
 	$('#line').show(0);
 	$('#column').hide(0);
 	$('#pie').hide(0);
 	$('#scatter').hide(0);
 	showLinePrediction();
+	$('#loading').hide(0);
 });
 
 $('#selectchart,#alpha,#selectprediction').change(function() {
+	$('#loading').show(0);
 	alpha = $('#alpha').val();  
 	chart = $('#selectchart').val();
 	$('.alphavalue').hide(0);
@@ -45,7 +48,7 @@ $('#selectchart,#alpha,#selectprediction').change(function() {
 		$('#scatter').show(0);
 		showScatterPrediction();
 	}
-	
+	$('#loading').hide(0);
 });
 
 //$('#predictionid').change(function() {

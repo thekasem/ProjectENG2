@@ -1,5 +1,6 @@
 package com.contact.action;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.controller.interfaces.IPredictionByAssetController;

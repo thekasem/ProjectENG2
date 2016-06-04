@@ -2,6 +2,7 @@ package com.dao.implement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -46,20 +47,20 @@ public class TestDao {
 	}
 
 	public static void main(String[] args) {
-		TestMethodHibernate testMethod = new TestMethodHibernate();
-		List<Object[]> list = testMethod.getListByDate();
-		testMethod.setData(list);
-		List<String> date = testMethod.getDateTime();
-		List<Double> cost = testMethod.getSumCost();
-		double result = getcount();
-		System.out
-				.println("++++++++++++++++++++++++++++ test browser ++++++++++++++++++++++++++++++++");
-		System.out.println("count list : " + list.size());
-		float i = 0;
-		for (int t=0;t < list.size();t++) {
-			System.out.println(date.get(t)+" \t"+cost.get(t));
-		}
-       System.out.println("total sum value : "+ result +" record");
+//		TestMethodHibernate testMethod = new TestMethodHibernate();
+//		List<Object[]> list = testMethod.getListByDate();
+//		testMethod.setData(list);
+//		List<String> date = testMethod.getDateTime();
+//		List<Double> cost = testMethod.getSumCost();
+//		double result = getcount();
+//		System.out
+//				.println("++++++++++++++++++++++++++++ test browser ++++++++++++++++++++++++++++++++");
+//		System.out.println("count list : " + list.size());
+//		float i = 0;
+//		for (int t=0;t < list.size();t++) {
+//			System.out.println(date.get(t)+" \t"+cost.get(t));
+//		}
+//       System.out.println("total sum value : "+ result +" record");
        
 //		List<Double> temp = new ArrayList<Double>();
 		
@@ -75,9 +76,13 @@ public class TestDao {
 //			}
 //			System.out.println(res+ " "+ i);
 //		}
+		Random rand = new Random();
+
 		
-		
-		
+		for(int i = 0;i<342;i++){
+		int  n = rand.nextInt(10 - 2 + 1) + 2;
+		System.out.println(n);
+		}
 	}
 
 }

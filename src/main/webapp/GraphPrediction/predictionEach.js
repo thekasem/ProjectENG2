@@ -26,10 +26,11 @@ $(function() {
 	$('#scatter').hide(0);
 	$('.predictionidcustomer').show(0);
 	$('.predictionidasset').hide(0);
-	$('.overlay').hide(0);
+	
 	alpha = $('#alpha').val();
 	predictionid = $('#predictionid').val();
 	showLinePrediction();
+	$('.overlay').hide(0);
 
 });
 

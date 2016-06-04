@@ -1,9 +1,11 @@
 package com.controller.implement;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.controller.interfaces.IPredictionByAssetController;
+import com.dao.implement.NeuralNetworkStockPredictor;
 import com.dao.interfaces.IBuyAssetDao;
 
 public class PredictionBuyAssetController implements
@@ -227,8 +229,15 @@ public class PredictionBuyAssetController implements
 	}
 
 	public List<Double> getForCastNeuralNetwork(List<Double> dataSumAllYear) {
-		List<Double> result = new ArrayList<Double>();
 		
+		NeuralNetworkStockPredictor neuralNetwork = new NeuralNetworkStockPredictor();
+		List<Double> result = null;
+		try {
+			result = neuralNetwork.neuralNetworkPrediction(dataSumAllYear);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return result;
 	}
