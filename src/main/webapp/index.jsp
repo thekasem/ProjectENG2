@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/ionicons.min.css">
 <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="dist/css/w3schools/lib/w3.css">
 <script type="text/javascript">
 	
 </script>

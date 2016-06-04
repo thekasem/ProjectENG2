@@ -19,7 +19,7 @@
 	href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
 <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="dist/css/w3schools/lib/w3.css">
 </head>
 <style>
 .mySlides {display:none}
