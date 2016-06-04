@@ -50,9 +50,9 @@
 							
 							<div class="panel-body">
 								<div class="form-group">
-									<label class="control-label col-md-3" style="color: #686868"><s:text
+									<label class="control-label col-md-4" style="color: #686868"><s:text
 											name="user.name" /></label>
-									<div class="col-md-8">
+									<div class="col-md-7">
 										<div class="form-group has-feedback">
 											<s:textfield name="username" cssClass="form-control"
 												placeholder="username" type="text"></s:textfield>
@@ -63,9 +63,9 @@
 								</div>
 
 								<div class="form-group">
-									<label class="control-label col-md-3" style="color: #686868"><s:text
+									<label class="control-label col-md-4" style="color: #686868"><s:text
 											name="user.password" /></label>
-									<div class="col-md-8">
+									<div class="col-md-7">
 										<div class="form-group has-feedback">
 											<s:password name="userpass" cssClass="text form-control"
 												placeholder="password"></s:password>
