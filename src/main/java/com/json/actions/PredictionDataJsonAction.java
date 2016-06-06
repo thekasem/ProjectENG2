@@ -52,8 +52,8 @@ public class PredictionDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
-		mad = predictionBuyAsset.getMAD(listError);
-		mse = predictionBuyAsset.getMSE(listError);
+//		mad = predictionBuyAsset.getMAD(listError);
+//		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		
 		return Action.SUCCESS;
@@ -72,8 +72,6 @@ public class PredictionDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
-		mad = predictionBuyAsset.getMAD(listError);
-		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
@@ -91,8 +89,8 @@ public class PredictionDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
-		mad = predictionBuyAsset.getMAD(listError);
-		mse = predictionBuyAsset.getMSE(listError);
+//		mad = predictionBuyAsset.getMAD(listError);
+//		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}

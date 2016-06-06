@@ -54,8 +54,8 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
-		mad = predictionBuyAsset.getMAD(listError);
-		mse = predictionBuyAsset.getMSE(listError);
+//		mad = predictionBuyAsset.getMAD(listError);
+//		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		
 		return Action.SUCCESS;
@@ -74,8 +74,8 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
-		mad = predictionBuyAsset.getMAD(listError);
-		mse = predictionBuyAsset.getMSE(listError);
+//		mad = predictionBuyAsset.getMAD(listError);
+//		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
@@ -93,8 +93,8 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 			listDataNextYear = predictionBuyAsset.getForCastNeuralNetwork(listDataCurrentYear);
 		}
 		listError = predictionBuyAsset.calError(listDataCurrentYear, listDataNextYear);
-		mad = predictionBuyAsset.getMAD(listError);
-		mse = predictionBuyAsset.getMSE(listError);
+//		mad = predictionBuyAsset.getMAD(listError);
+//		mse = predictionBuyAsset.getMSE(listError);
 		mape = predictionBuyAsset.getMAPE(listError, listDataCurrentYear);
 		return Action.SUCCESS;
 	}
@@ -102,10 +102,10 @@ public class PredictionEachDataJsonAction extends ActionSupport {
 	private void setDataList(){
 		boolean type = false;
 		String typeId="";
-		if (typeSelect.equals("1")) {
+		if (typeSelect.equals("2")) {
 			type =true;
 			typeId = typeCustomerId;
-		} else if (typeSelect.equals("2")) {
+		} else if (typeSelect.equals("1")) {
 			typeId = typeAssetId;
 		}
 		List<Object[]> dataList = predictionBuyAsset.getDataEachPrediction("2015",typeId,type);

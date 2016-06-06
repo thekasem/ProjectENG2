@@ -4,8 +4,6 @@ var listDataCurrentYear = [];
 var listDataNextYear = [];
 var alpha;
 var date = [];
-var mad;
-var mse;
 var mape;
 $(function (){
 	
@@ -81,18 +79,16 @@ function showLinePrediction() {
 			listDataNextYear = response.listDataNextYear;
 			date = response.date;
 			mape = response.mape.toFixed(2);
-			mse = response.mse.toFixed(2);
-			mad = response.mad.toFixed(2);
 //			ListError = response.listError;
 			$('#table').remove();
 			
 			var appendText = '<table id="table" class="table table-striped">';
-			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
+			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 			$('#showtable').append(appendText);
 			
 			$('#lineprediction').highcharts({
 		        title: {
-		            text: 'Prediction Sum Cost Asset',
+		            text: 'Prediction All Sum Cost',
 		            x: -20 //center
 		        },
 		        subtitle: {
@@ -160,13 +156,11 @@ function showColumnPrediction() {
 			listDataNextYear = response.listDataNextYear;
 			date = response.date;
 			mape = response.mape.toFixed(2);
-			mse = response.mse.toFixed(2);
-			mad = response.mad.toFixed(2);
 //			ListError = response.listError;
 			$('#table').remove();
 			
 			var appendText = '<table id="table" class="table table-striped">';
-			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
+			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 			$('#showtable').append(appendText);
 			
 			$('#columnprediction').highcharts({
@@ -174,7 +168,7 @@ function showColumnPrediction() {
 		            type: 'column'
 		        },
 		        title: {
-		            text: 'Prediction Sum Cost Asset'
+		            text: 'Prediction All Sum Cost'
 		        },
 		        subtitle: {
 		            text: 'by year XXXX'
@@ -247,7 +241,7 @@ function showScatterPrediction(){
 			$('#table').remove();
 			
 			var appendText = '<table id="table" class="table table-striped">';
-			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAD</th><td>'+mad+'</td></tr><tr><th>MSE</th><td>'+mse+'</td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
+			appendText = appendText+'<tr><th> </th><td> </td></tr><tr><th>MAPE</th><td>'+mape+'</td></tr></table>';
 			$('#showtable').append(appendText);	
 			$('#scatterprediction').highcharts({
 		        chart: {
@@ -255,7 +249,7 @@ function showScatterPrediction(){
 		            zoomType: 'xy'
 		        },
 		        title: {
-		            text: 'Prediction Sum Cost Asset'
+		            text: 'Prediction All Sum Cost'
 		        },
 		        subtitle: {
 		            text: 'by year XXXX'

@@ -67,8 +67,8 @@
 							<div class="has-feedback col-sm-2 alphavalue">
 								<s:select id="alpha" headerKey="-1"
 									class="form-control alphavalue"
-									list="#{'0.5':'0.5', '0.1':'0.1', '0.05':'0.05','0.01':'0.01'}"
-									name="selectchart" value="0.5" />
+									list="#{'0.9':'0.9', '0.7':'0.7', '0.5':'0.5', '0.3':'0.3', '0.1':'0.1', '0.09':'0.09', '0.07':'0.07', '0.05':'0.05','0.03':'0.03' ,'0.01':'0.01'}"
+									name="selectchart" value="0.9" />
 								<span class="fa fa-bar-chart form-control-feedback alphavalue"></span>
 							</div>
 
@@ -94,7 +94,7 @@
 							<div class="col-md-2">
 								<div class="has-feedback">
 									<s:select id="predictionid" headerKey="-1" class="form-control"
-										list="#{'1':'Customer', '2':'Asset'}" name="predictionid"
+										list="#{'1':'Asset', '2':'Customer'}" name="predictionid"
 										value="1" />
 									<span class="fa fa-users form-control-feedback"></span>
 								</div>
@@ -105,7 +105,7 @@
 								<div class="col-md-2 has-feedback">
 									<s:select id="typecustomerid" headerKey="-1"
 										class="form-control"
-										list="#{'1':'personal', '2':'corperation'}" name="selectchart"
+										list="#{'1':'corporation','2':'personal'}" name="selectchart"
 										value="1" />
 									<span class="fa fa-bar-chart form-control-feedback"></span>
 								</div>

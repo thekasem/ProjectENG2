@@ -67,8 +67,8 @@
 								<div class="has-feedback col-sm-2 alphavalue">
 									<s:select id="alpha" headerKey="-1"
 										class="form-control alphavalue"
-										list="#{'0.5':'0.5', '0.1':'0.1', '0.05':'0.05','0.01':'0.01'}"
-										name="selectchart" value="0.5" />
+										list="#{'0.9':'0.9', '0.7':'0.7', '0.5':'0.5','0.3':'0.3' ,'0.1':'0.1', '0.09':'0.09', '0.07':'0.07', '0.05':'0.05', '0.03':'0.03', '0.01':'0.01'}"
+										name="selectchart" value="0.9" />
 									<span class="fa fa-bar-chart form-control-feedback alphavalue"></span>
 								</div>
 
