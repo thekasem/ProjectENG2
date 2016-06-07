@@ -82,7 +82,7 @@
 
 								<div class="col-md-2">
 									<s:a type="button" class="btn btn-primary"
-										href="demandCustomerAssets_predictionpie">
+										href="predicton_predictionpie">
 										<span class="fa fa-refresh"></span>
 													 Refresh
 											    </s:a>

@@ -141,11 +141,11 @@ function showLinePrediction() {
 							borderWidth : 0
 						},
 						series : [ {
-							name : 'average Cuerrent year',
+							name : 'Average Current Year',
 							color : Highcharts.getOptions().colors[2],
 							data : listDataCurrentYear
 						}, {
-							name : 'prediction nextyear',
+							name : 'Prediction Next Year',
 							color : Highcharts.getOptions().colors[8],
 							data : listDataNextYear
 						} ]
@@ -224,11 +224,11 @@ function showColumnPrediction() {
 											}
 										},
 										series : [ {
-											name : 'average Current Year',
+											name : 'Average Current Year',
 											data : listDataCurrentYear
 
 										}, {
-											name : 'prediction Next Year',
+											name : 'Prediction Next Year',
 											data : listDataNextYear
 
 										} ]
@@ -335,12 +335,12 @@ function showScatterPrediction() {
 											}
 										},
 										series : [ {
-											name : 'prediction Current Year',
+											name : 'Average Current Year',
 											color : 'rgba(223, 83, 83, .5)',
 											data : listDataCurrentYear
 
 										}, {
-											name : 'prediction Next Year',
+											name : 'Prediction Next Year',
 											color : 'rgba(119, 152, 191, .5)',
 											data : listDataNextYear
 										} ]

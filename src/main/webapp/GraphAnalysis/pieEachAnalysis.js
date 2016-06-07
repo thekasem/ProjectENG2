@@ -11,7 +11,10 @@ var customerid = "";
 
 var listPercentCustomer = [];
 var listPercentAsset = [];
-
+$(function() {
+	$("#showasset").hide(0);
+	$('#showcustomer').show(0);
+});
 
  $('#send').click(function() {
 	 selecttime = $('#selecttime').val();

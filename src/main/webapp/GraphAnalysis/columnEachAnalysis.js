@@ -22,7 +22,10 @@ var bulding = [];
 var equipment = [];
 var mine = [];
 
-
+$(function() {
+	$("#showasset").hide(0);
+	$('#showcustomer').show(0);
+});
 
 $('#send').click(function() {
 	
