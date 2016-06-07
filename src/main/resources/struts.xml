@@ -7,16 +7,43 @@
 	<constant name="struts.custom.i18n.resources" value="package" />
 	<package name="/" extends="struts-default">
 
-		<default-interceptor-ref name="paramsPrepareParamsStack" />
+		<interceptors>
+			<interceptor name="authentication"
+				class="com.struts2.interceptors.AuthenticationInterceptor"></interceptor>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="authentication"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
 
-		<action name="login_*" class="com.actions.UserAction" method="{1}">
+		<default-interceptor-ref name="authStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="login" type="redirect">/home.action</result>
+		</global-results>
+
+		<action name="home">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/index.jsp</result>
+		</action>
+
+		<action name="login" class="com.actions.LoginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success">/success.jsp</result>
-			<result name="fail">/index.jsp</result>
-			<result name="logout">/index.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		<action name="welcome" class="com.actions.WelcomeAction">
+			<result name="success">/success.jsp</result>
+		</action>
+		
+
+		<action name="logout" class="com.actions.LoginAction" method="logout">
+			<result name="input">/index.jsp</result>
 		</action>
 		
 		<action name="profile_*" class="com.actions.ProfileAction" method="{1}">
 			<result name="profile">/pages/Menu/profile.jsp</result>
+			<result name="error">/index.jsp</result>
 		</action>
 
 		
@@ -26,8 +53,7 @@
 			<result name="analysisline">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisLine.jsp</result>
 			<result name="analysiscolumn">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisColumn.jsp</result>
 			<result name="analysisscatter">/pages/DemandCustomerAssets/DemandCustomerAssetsAnalysisScatter.jsp</result>
-			
-			<result name="error">/success.jsp</result>
+			<result name="error">/index.jsp</result>
 		</action>
 		
 		<action name="eachanalysis_*" class="com.actions.AnalysisEachAction"
@@ -36,22 +62,19 @@
 			<result name="eachanalysisline">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachAnalysisLine.jsp</result>
 			<result name="eachanalysiscolumn">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachAnalysisColumn.jsp</result>
 			<result name="eachanalysisscatter">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachAnalysisScatter.jsp</result>
-			
-			<result name="error">/success.jsp</result>
+			<result name="error">/index.jsp</result>
 		</action>
 		
 		<action name="predicton_*" class="com.actions.PredictionAction"
 			method="{1}">
 			<result name="predictionpie">/pages/DemandCustomerAssets/DemandCustomerAssetsPredictionPie.jsp</result>
-			
-			<result name="error">/success.jsp</result>
+			<result name="error">/index.jsp</result>
 		</action>
 		
 		<action name="eachpredicton_*" class="com.actions.PredictionEachAction"
 			method="{1}">
 			<result name="eachpredictionpie">/pages/DemandCustomerAssetEach/DemandCustomerAssetEachPrediction.jsp</result>
-			
-			<result name="error">/success.jsp</result>
+			<result name="error">/index.jsp</result>
 		</action>
 
 	</package>

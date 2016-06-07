@@ -9,9 +9,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.contact.action.ContactBuyAsset;
+import com.entity.bonanza.User;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import com.struts2.interceptors.UserAware;
 
-public class AnalysisAction extends ActionSupport {
+public class AnalysisAction extends ActionSupport implements UserAware,
+		ModelDriven<User> {
 
 	/**
 	 * 
@@ -23,7 +27,6 @@ public class AnalysisAction extends ActionSupport {
 	private static final String ANALYSISCOLUMN = "analysiscolumn";
 	private static final String ANALYSISSCATTER = "analysisscatter";
 	private HttpSession session;
-	private String userNameLogin;
 	private List<String> listYears;
 	private ContactBuyAsset contBuyAsset;
 
@@ -36,38 +39,45 @@ public class AnalysisAction extends ActionSupport {
 
 	public String analysispie() {
 		ContactController();
-		userNameLogin = (String) session.getAttribute("user");
 		listYears = contBuyAsset.getListYear();
 		return ANALYSISPIE;
 	}
 
 	public String analysisline() {
 		ContactController();
-		userNameLogin = (String) session.getAttribute("user");
 		listYears = contBuyAsset.getListYear();
 		return ANALYSISLINE;
 	}
 
 	public String analysiscolumn() {
 		ContactController();
-		userNameLogin = (String) session.getAttribute("user");
 		listYears = contBuyAsset.getListYear();
 		return ANALYSISCOLUMN;
 	}
 
 	public String analysisscatter() {
 		ContactController();
-		userNameLogin = (String) session.getAttribute("user");
 		listYears = contBuyAsset.getListYear();
 		return ANALYSISSCATTER;
 	}
 
-	public String getUserNameLogin() {
-		return userNameLogin;
-	}
 
 	public List<String> getListYears() {
 		return listYears;
+	}
+
+	private User user;
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public User getUser(User user) {
+		return this.user;
+	}
+
+	public User getModel() {
+		return this.user;
 	}
 
 }

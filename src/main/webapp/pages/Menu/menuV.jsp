@@ -31,14 +31,14 @@
 					<li class="dropdown user user-menu"><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown"> <img
 							src="dist/img/usertest.png" class="user-image" alt="User Image">
-							<span class="hidden-xs"><s:property value="userNameLogin" /></span>
+							<span class="hidden-xs"><s:property value="userName" /></span>
 					</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header"><img src="dist/img/usertest.png"
 								class="img-circle" alt="User Image">
 								<p>
-									<s:property value="userNameLogin" />
+									<s:property value="userName" />
 <%-- 									- Web Developer <small>Member since Nov. 2012</small> --%>
 								</p></li>
 							<!-- Menu Footer-->
@@ -47,7 +47,7 @@
 									<a href="profile_profile" class="btn btn-default btn-flat">Profile</a>
 								</div>
 								<div class="pull-right">
-									<a href="login_logout" class="btn btn-default btn-flat">Sign
+									<a href="logout" class="btn btn-default btn-flat">Sign
 										out</a>
 								</div>
 							</li>
