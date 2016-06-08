@@ -31,11 +31,9 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	@Override
 	public String execute(){
 		ContactController();
-		boolean userlogin;
-		userlogin = userController.checkLoginUser(user.getUser(), user.getPassword());
+		arlert  = userController.checkLoginUser(user.getUser(), user.getPassword());
 //		System.out.println("inside execute");
-		if(userlogin){
-			arlert = "";
+		if(arlert.equals("success")){
 			user.setUserName(user.getUser());
 			sessionAttributes.put("USER", user);
 			return SUCCESS;
@@ -50,6 +48,10 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
     	return INPUT;
     }
 	
+	public String getArlert() {
+		return arlert;
+	}
+
 	private User user = new User();
 	private Map<String, Object> sessionAttributes = null;
 

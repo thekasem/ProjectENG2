@@ -1,6 +1,10 @@
 package com.dao.implement;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -9,35 +13,43 @@ import org.hibernate.Session;
 
 import com.entity.AssetMini;
 import com.entity.HibernateUtil;
+import com.entity.bonanza.MemberMini;
 
 public class TestDao {
 
-//	public static List<Object[]> getListByDate() {
-//		Session sessionB = HibernateUtil.getSessionFactory().openSession();
-//		sessionB.beginTransaction();
-//		List<Object[]> result = null;
-//		try {
-////			Query query = sessionB.createQuery("SELECT DISTINCT browser from ActivityLogMini ");   //select  sum(usigTime), memberId  from ActivityLogMini where logDate between '20150101' and '20150131' and memberId =1 Group by logDate, memberId 
-//			Query query = sessionB.createSQLQuery("SELECT sum(cost), aocdate FROM buyasset WHERE aocdate like '2008%' group by aocdate"); 
-//			
-////			query.setFirstResult(0);
-////			query.setMaxResults(8);
-//			result = (List<Object[]>) query.list();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		sessionB.getTransaction().commit();
-//		return result;
-//	}
-//	
+	// public static List<Object[]> getListByDate() {
+	// Session sessionB = HibernateUtil.getSessionFactory().openSession();
+	// sessionB.beginTransaction();
+	// List<Object[]> result = null;
+	// try {
+	// // Query query =
+	// sessionB.createQuery("SELECT DISTINCT browser from ActivityLogMini ");
+	// //select sum(usigTime), memberId from ActivityLogMini where logDate
+	// between '20150101' and '20150131' and memberId =1 Group by logDate,
+	// memberId
+	// Query query =
+	// sessionB.createSQLQuery("SELECT sum(cost), aocdate FROM buyasset WHERE aocdate like '2008%' group by aocdate");
+	//
+	// // query.setFirstResult(0);
+	// // query.setMaxResults(8);
+	// result = (List<Object[]>) query.list();
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// sessionB.getTransaction().commit();
+	// return result;
+	// }
+	//
 	public static double getcount() {
 		Session sessionB = HibernateUtil.getSessionFactory().openSession();
 		sessionB.beginTransaction();
 		double result = 0;
 		try {
-//			Query query = sessionB.createQuery("SELECT  browser from ActivityLogMini where UPPER(browser) LIKE UPPER('%chrome%')");
-//			result = query.list().size();
-			Query query = sessionB.createSQLQuery("SELECT SUM( cost * valueaoc ) FROM buyasset WHERE aocdate BETWEEN  '20160101' AND  '20161231'");
+			// Query query =
+			// sessionB.createQuery("SELECT  browser from ActivityLogMini where UPPER(browser) LIKE UPPER('%chrome%')");
+			// result = query.list().size();
+			Query query = sessionB
+					.createSQLQuery("SELECT SUM( cost * valueaoc ) FROM buyasset WHERE aocdate BETWEEN  '20160101' AND  '20161231'");
 			result = (Double) query.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,6 +57,7 @@ public class TestDao {
 		sessionB.getTransaction().commit();
 		return result;
 	}
+	
 
 	public static void main(String[] args) {
 //		TestMethodHibernate testMethod = new TestMethodHibernate();
@@ -76,13 +89,29 @@ public class TestDao {
 //			}
 //			System.out.println(res+ " "+ i);
 //		}
-		Random rand = new Random();
-
+//		Random rand = new Random();
+//
+//		
+//		for(int i = 0;i<342;i++){
+//		int  n = rand.nextInt(10 - 2 + 1) + 2;
+//		System.out.println(n);
+//		}
 		
-		for(int i = 0;i<342;i++){
-		int  n = rand.nextInt(10 - 2 + 1) + 2;
-		System.out.println(n);
-		}
+		
+try{
+	       
+    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        	Date date1 = sdf.parse("2016-06-08 09:00:15");
+        	Date date2 = sdf.parse("2016-06-08 09:52:53");
+        	date1.setHours(date1.getHours()+1);
+        	
+        	if(date1.before(date2)){
+        		System.out.println("more then ");
+        	}
+        	
+        	
+    	}catch(ParseException ex){
+    		ex.printStackTrace();
+    	}
 	}
-
 }

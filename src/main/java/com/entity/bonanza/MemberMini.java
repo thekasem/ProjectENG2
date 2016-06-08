@@ -76,6 +76,9 @@ public class MemberMini {
 	@Column(name = "EMAIL")
 	private String email;
 	
+	@Column(name = "TIMELOGIN")
+	private String timeLogin;
+	
 	public int getMemberId() {
 		return memberId;
 	}
@@ -86,6 +89,15 @@ public class MemberMini {
 
 	public String getLoginName() {
 		return loginName;
+	}
+	
+
+	public String getTimeLogin() {
+		return timeLogin;
+	}
+
+	public void setTimeLogin(String timeLogin) {
+		this.timeLogin = timeLogin;
 	}
 
 	public void setLoginName(String loginName) {

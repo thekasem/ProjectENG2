@@ -104,6 +104,10 @@
 	<script src="plugins/iCheck/icheck.min.js"></script>
 	<script>
 		$(function() {
+			var alertLogin = '<s:property value="arlert" />';
+			if(alertLogin != ''){
+			alert(alertLogin);
+			}
 			$('input').iCheck({
 				checkboxClass : 'icheckbox_square-blue',
 				radioClass : 'iradio_square-blue',
