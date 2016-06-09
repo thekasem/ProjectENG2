@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Demand Customer Assets Each Analysis Line</title>
+<title>Analysis of purchase</title>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
-						Demand Customer Assets </a></li>
+						Each Analysis of purchase </a></li>
 				<li class="active" style="color: white">Analysis</li>
 			</ol>
 			</section>
@@ -52,7 +52,7 @@
 				</div>
 				<div class="box box-warning">
 					<div class="box-header with-border">
-						<Strong>Demand Customer Assets Analysis Line</Strong>
+						<Strong>Each Analysis of purchase Line</Strong>
 					</div>
 					<div class="panel-body box box box-warning">
 							<div class="row well">

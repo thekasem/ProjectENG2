@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Demand Customer Each Assets Prediction</title>
+<title>prediction total purchase</title>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,12 +29,12 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header" style="color: white">
 			<h1>
-				Demand Customer Assets Each Prediction <small>Computer
+				Each prediction total purchase values <small>Computer
 					Engineering</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
-						Demand Customer Assets </a></li>
+						Each prediction total purchase </a></li>
 				<li class="active" style="color: white">Prediction</li>
 			</ol>
 			</section>
@@ -50,7 +50,7 @@
 				</div>
 				<div class="box box-warning">
 					<div class="box-header with-border">
-						<Strong>Demand Customer Assets Prediction</Strong>
+						<Strong>Each prediction total purchase values</Strong>
 					</div>
 					<div class="panel-body box box-warning">
 						<div class="row form-horizontal">
