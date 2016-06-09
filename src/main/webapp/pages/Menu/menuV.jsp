@@ -11,7 +11,7 @@
 	<header class="main-header">
 
 		<!-- Logo -->
-		<a href="login_homeFirst" class="logo" > <!-- mini logo for sidebar mini 50x50 pixels -->
+		<a href="welcome" class="logo" > <!-- mini logo for sidebar mini 50x50 pixels -->
 
 			<span class="logo-mini"><b>E</b>NG</span> <!-- logo for regular state and mobile devices -->
 			<span class="logo-lg" style="margin-top: 2px; margin-left: 12px;" ><img src="pages/Menu/logo-eng.png"
