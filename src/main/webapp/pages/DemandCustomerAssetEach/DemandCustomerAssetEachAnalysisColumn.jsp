@@ -167,7 +167,7 @@
 									<button id="send"  class="btn btn-primary" >
 										<span class="fa fa-search"></span>
 													Submit
-											    <button>
+											    </button>
 								</div>
 							</div>
 
