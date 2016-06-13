@@ -89,7 +89,7 @@ function showDataGraphLine() {
 							} ]
 						},
 						tooltip : {
-							valueSuffix : '°C'
+							valueSuffix : ' Unit'
 						},
 						legend : {
 							layout : 'vertical',
@@ -157,7 +157,7 @@ function showDataGraphLine() {
 							} ]
 						},
 						tooltip : {
-							valueSuffix : 'unit'
+							valueSuffix : ' unit'
 						},
 						legend : {
 							layout : 'vertical',

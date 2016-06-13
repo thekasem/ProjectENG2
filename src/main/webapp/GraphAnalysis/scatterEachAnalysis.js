@@ -86,7 +86,7 @@ function showDataEachGraphLineCustomer() {
 		        xAxis: {
 		            title: {
 		                enabled: true,
-		                text: 'Height (cm)'
+		                text: 'Unit'
 		            },
 		            startOnTick: true,
 		            endOnTick: true,
@@ -94,7 +94,7 @@ function showDataEachGraphLineCustomer() {
 		        },
 		        yAxis: {
 		            title: {
-		                text: 'Weight (kg)'
+		                text: 'Time'
 		            }
 		        },
 		        legend: {
@@ -127,7 +127,7 @@ function showDataEachGraphLineCustomer() {
 		                },
 		                tooltip: {
 		                    headerFormat: '<b>{series.name}</b><br>',
-		                    pointFormat: '{point.x} cm, {point.y} kg'
+		                    pointFormat: '{point.x} month, {point.y} unit'
 		                }
 		            }
 		        },
@@ -195,7 +195,7 @@ function showDataEachGraphLineAsset() {
 		        xAxis: {
 		            title: {
 		                enabled: true,
-		                text: 'Height (cm)'
+		                text: 'Unit'
 		            },
 		            startOnTick: true,
 		            endOnTick: true,
@@ -203,7 +203,7 @@ function showDataEachGraphLineAsset() {
 		        },
 		        yAxis: {
 		            title: {
-		                text: 'Weight (kg)'
+		                text: 'Time'
 		            }
 		        },
 		        legend: {
@@ -236,7 +236,7 @@ function showDataEachGraphLineAsset() {
 		                },
 		                tooltip: {
 		                    headerFormat: '<b>{series.name}</b><br>',
-		                    pointFormat: '{point.x} cm, {point.y} kg'
+		                    pointFormat: '{point.x} month, {point.y} unit'
 		                }
 		            }
 		        },

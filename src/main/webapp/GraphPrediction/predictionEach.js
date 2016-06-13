@@ -115,7 +115,7 @@ function showLinePrediction() {
 						// center
 						},
 						subtitle : {
-							text : 'by year XXXX',
+							text : 'by year 2015',
 							x : -20
 						},
 						xAxis : {
@@ -197,7 +197,7 @@ function showColumnPrediction() {
 											text : 'Prediction '+getText(predictionid)+' Sum Cost'
 										},
 										subtitle : {
-											text : 'by year XXXX'
+											text : 'by year 2015'
 										},
 										xAxis : {
 											categories : date,
@@ -283,7 +283,7 @@ function showScatterPrediction() {
 											text : 'Prediction '+getText(predictionid)+' Sum Cost'
 										},
 										subtitle : {
-											text : 'by year XXXX'
+											text : 'by year 2015'
 										},
 										xAxis : {
 											title : {

@@ -103,7 +103,7 @@ function showDataEachGraphLineAsset() {
 							} ]
 						},
 						tooltip : {
-							valueSuffix : '°C'
+							valueSuffix : ' Unit'
 						},
 						legend : {
 							layout : 'vertical',
@@ -202,7 +202,7 @@ function showDataEachGraphLineCustomer() {
 							} ]
 						},
 						tooltip : {
-							valueSuffix : 'unit'
+							valueSuffix : ' unit'
 						},
 						legend : {
 							layout : 'vertical',

@@ -78,7 +78,7 @@ function showDataGraphColumn() {
 		        xAxis: {
 		            title: {
 		                enabled: true,
-		                text: 'Height (cm)'
+		                text: 'Unit'
 		            },
 		            startOnTick: true,
 		            endOnTick: true,
@@ -86,7 +86,7 @@ function showDataGraphColumn() {
 		        },
 		        yAxis: {
 		            title: {
-		                text: 'Weight (kg)'
+		                text: 'Time'
 		            }
 		        },
 		        legend: {
@@ -119,7 +119,7 @@ function showDataGraphColumn() {
 		                },
 		                tooltip: {
 		                    headerFormat: '<b>{series.name}</b><br>',
-		                    pointFormat: '{point.x} cm, {point.y} kg'
+		                    pointFormat: '{point.x} month, {point.y} unit'
 		                }
 		            }
 		        },
@@ -176,7 +176,7 @@ function showDataGraphColumn() {
 		        xAxis: {
 		            title: {
 		                enabled: true,
-		                text: 'Height (cm)'
+		                text: 'Unit'
 		            },
 		            startOnTick: true,
 		            endOnTick: true,
@@ -184,7 +184,7 @@ function showDataGraphColumn() {
 		        },
 		        yAxis: {
 		            title: {
-		                text: 'Weight (kg)'
+		                text: 'Time'
 		            }
 		        },
 		        legend: {
@@ -217,7 +217,7 @@ function showDataGraphColumn() {
 		                },
 		                tooltip: {
 		                    headerFormat: '<b>{series.name}</b><br>',
-		                    pointFormat: '{point.x} cm, {point.y} kg'
+		                    pointFormat: '{point.x} month, {point.y} unit'
 		                }
 		            }
 		        },
