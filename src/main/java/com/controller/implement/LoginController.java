@@ -37,7 +37,7 @@ public class LoginController implements ILoginController {
 		return date;
 	}
 	
-	private String checkFault(String checkLogIn){
+	private String checkFault(String checkLogIn, int id){
 		String result = "Not user or Not permission";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String dateCurrent = sdf.format(new Date());
@@ -47,6 +47,7 @@ public class LoginController implements ILoginController {
 		int timecurrent = Integer.parseInt(dateCurrent.substring(11, 13)+dateCurrent.substring(14, 16)+dateCurrent.substring(17, 19));
 		System.out.println(datelogin+"\n"+datecurrent+"\n"+timelogin+"\n"+timecurrent);
 		if(datecurrent >= datelogin && timecurrent > timelogin){
+			loginDao.updateTimeLogin(id, 1, sdf.format(new Date()));
 			result ="success"; 
 		}else{
 			result = "Please login agian your login more than three times.";
@@ -58,19 +59,24 @@ public class LoginController implements ILoginController {
 	
 	public String checkLoginUser(String user, String password) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String result = "Not user or Not permission";
+		String result = "Login Fault : Not user or Not permission";
 		MemberMini checkLogIn =  loginDao.checkLoginUser(user, password,true);
 		if(checkLogIn.getLoginName()!=null && checkLogIn.getStatus()=='S'){
 			if(checkLogIn.getLoginFault()<4){
 				loginDao.updateTimeLogin(checkLogIn.getMemberId(), 1, sdf.format(new Date()));
 				result ="success";
 			}else if(checkLogIn.getLoginFault()>3){
-				result = checkFault(checkLogIn.getTimeLogin());
+				result = checkFault(checkLogIn.getTimeLogin(),checkLogIn.getMemberId());
 			}
 		}else{
 			checkLogIn =  loginDao.checkLoginUser(user, password,false);
 			if(checkLogIn.getLoginName()!=null && checkLogIn.getStatus()=='S'){
-			loginDao.updateTimeLogin(checkLogIn.getMemberId(),checkLogIn.getLoginFault()+1, sdf.format(new Date()));
+				if(checkLogIn.getLoginFault()<4){
+					result = "Login Fault : password in correct";
+				}else if(checkLogIn.getLoginFault()>3){
+					result = "Please login agian your login more than three times.";
+				}
+				loginDao.updateTimeLogin(checkLogIn.getMemberId(),checkLogIn.getLoginFault()+1, sdf.format(new Date()));
 			}
 		}
 		return result;
