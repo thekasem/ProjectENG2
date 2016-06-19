@@ -41,7 +41,7 @@
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#" style="color: white"><i class="fa fa-home"></i>
-						Eeach Analysis of purchase </a></li>
+						Each Analysis of purchase </a></li>
 				<li class="active" style="color: white">Analysis</li>
 			</ol>
 			</section>
