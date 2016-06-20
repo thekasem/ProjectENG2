@@ -97,21 +97,12 @@ public class TestDao {
 //		System.out.println(n);
 //		}
 		
-		
-try{
-	       
-    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        	Date date1 = sdf.parse("2016-06-08 09:00:15");
-        	Date date2 = sdf.parse("2016-06-08 09:52:53");
-        	date1.setHours(date1.getHours()+1);
-        	
-        	if(date1.before(date2)){
-        		System.out.println("more then ");
-        	}
-        	
-        	
-    	}catch(ParseException ex){
-    		ex.printStackTrace();
-    	}
+	double f = 2113822.42500;
+	double a = 1470768.61230;
+	float fs = (float) 0.9;
+	double al = 0.9;
+	double r = f+al*(a-f);
+System.out.println(r);
+	
 	}
 }

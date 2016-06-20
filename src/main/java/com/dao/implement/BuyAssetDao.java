@@ -193,6 +193,8 @@ public class BuyAssetDao implements IBuyAssetDao {
 		List<Object[]> result = null;
 		try {
 			Query query = sessionB.createSQLQuery("SELECT sum(cost*valueaoc), aocdate FROM buyasset WHERE aocdate like '"+date+"%' group by aocdate");
+//			query.setFirstResult(0);
+//			query.setMaxResults(25);
 			result = (List<Object[]>) query.list();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -219,6 +221,8 @@ public class BuyAssetDao implements IBuyAssetDao {
 		List<Object[]> result = null;
 		try {
 			Query query = sessionB.createSQLQuery(commandEachPrediction(date, typeId, type));
+//			query.setFirstResult(0);
+//			query.setMaxResults(25);
 			result = (List<Object[]>) query.list();
 		} catch (Exception e) {
 			e.printStackTrace();

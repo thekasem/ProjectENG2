@@ -12,7 +12,7 @@ public interface IPredictionByAssetController {
 	
 	public List<Double> getForecastNaive(List<Double> dataSumAllYear);
 	
-	public List<Double> getForecastExponential(List<Double> dataSumAllYear ,float alpha);
+	public List<Double> getForecastExponential(List<Double> dataSumAllYear ,double alpha);
 	
 	public List<Double> getForecastTrend(List<Double> dataSumAllYear);
 	

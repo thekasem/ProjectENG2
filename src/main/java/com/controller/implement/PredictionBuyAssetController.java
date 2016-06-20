@@ -124,7 +124,7 @@ public class PredictionBuyAssetController implements
 	}
 
 	public List<Double> getForecastExponential(List<Double> dataSumAllYear,
-			float alpha) {
+			double alpha) {
 
 		List<Double> result = new ArrayList<Double>();
 		result.add(null);
@@ -163,8 +163,11 @@ public class PredictionBuyAssetController implements
 		double sumty = sumList(ty);
 		double sumy = sumList(dataSumAllYear);
 		int n = dataSumAllYear.size();
-		double b = ((n * sumty) - (78 * sumy)) / ((n * 650) - (78 * 78));
-		double a = (sumy - (b * 78)) / n;
+		double b = ((n * sumty) - (66795 * sumy)) / ((n * 16275715) - (66795 * 66795));
+		double a = (sumy - (b * 66795)) / n;
+		
+//		double b = ((n * sumty) - (325 * sumy)) / ((n * 5525) - (325 * 325));
+//		double a = (sumy - (b * 325)) / n;
 
 		for (int i = n - 1; i < (n + n - 1); i++) {
 			double prediction = a + (b * i);

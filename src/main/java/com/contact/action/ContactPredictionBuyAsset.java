@@ -35,7 +35,7 @@ public class ContactPredictionBuyAsset implements IPredictionByAssetController {
 	}
 
 	public List<Double> getForecastExponential(List<Double> dataSumAllYear,
-			float alpha) {
+			double alpha) {
 		return predictionByAssetController.getForecastExponential(dataSumAllYear, alpha);
 	}
 

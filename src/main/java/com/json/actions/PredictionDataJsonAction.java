@@ -19,7 +19,7 @@ public class PredictionDataJsonAction extends ActionSupport {
 	private String userNameLogin;
 	private ContactPredictionBuyAsset predictionBuyAsset;
 	private String selectPrediction;
-	private float alpha;
+	private double alpha;
 	private List<String> date;
 	private List<Double> listDataCurrentYear;
 	private List<Double> listDataNextYear;
@@ -121,7 +121,8 @@ public class PredictionDataJsonAction extends ActionSupport {
 		this.selectPrediction = selectPrediction;
 	}
 
-	public void setAlpha(float alpha) {
+
+	public void setAlpha(double alpha) {
 		this.alpha = alpha;
 	}
 
